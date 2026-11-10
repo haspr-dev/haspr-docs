@@ -1,26 +1,24 @@
 ---
 title: How to externalize strings
-description: Learn how to make strings available for translation in Passbolt
+description: Learn how to make strings available for translation in pbolt
 sidebar_position: 3
 ---
 
-A string is available for translation only if it has been externalized in the source code of the passbolt applications, 
+A string is available for translation only if it has been externalized in the source code of the pbolt applications, 
 and the source code is already in the pre-release state. 
 
 :::note
-As mentioned in the introduction of this document, British English is the language used to develop the 
-application. Therefore, any changes to the source language will have to be done in the source code and each change
-will have to go through the translation process.
+British English is the language used to develop the application. Therefore, any changes to the source language will have to be done in the source code and each change will have to go through the translation process.
 :::
 
 ## Externalize styleguide strings
 
-The [styleguide repository](https://github.com/passbolt/passbolt_styleguide) contains most of the screens presented to
+The [styleguide repository](https://github.com/pbolt-dev/pbolt-styleguide) contains most of the screens presented to
 the end user.
 
 In this repository you will find:
-* Most of the passbolt front-end application in the directory *src/react-extension*
-* The passbolt quickaccess application in the directory *src/react-quickaccess*
+* Most of the pbolt front-end application in the directory `src/react-extension`
+* The pbolt quickaccess application in the directory `src/react-quickaccess`
 
 The styleguide uses the i18next library to help manage the translation, if you want to know more checkout their 
 [documentation](https://github.com/i18next/i18next).
@@ -50,19 +48,19 @@ ComponentToTranslate.propTypes = {
 export default withTranslation("common")(ComponentToTranslate);
 ```
 
-To mark for translation a string contained in JSX code.
+To mark for translation a string contained in JSX code:
 ```jsx
-<Trans>Welcome to passbolt!</Trans>
+<Trans>Welcome to pbolt!</Trans>
 ```
 
-To mark for translation a string contained in javascript code.
+To mark for translation a string contained in javascript code:
 ```javascript
-this.props.t("Welcome to passbolt!");
+this.props.t("Welcome to pbolt!");
 ```
 
 ### Generate the language json source file
 
-Once you have made your changes on the source code, you can then generate the language json source file.
+Once you have made your changes on the source code, you can then generate the language json source file:
 ```shell
 npx grunt externalize-locale-string
 ```
@@ -71,13 +69,12 @@ Once done you can propose your changes as a pull request on the repository.
 
 ## Externalize browser extension strings
 
-The [browser extension repository](https://github.com/passbolt/passbolt_browser_extension) contains the code that
-orchestrates the browser extension screens and communicate with the API.
+The [browser extension repository](https://github.com/pbolt-dev/pbolt-browser-extension) contains the code that
+orchestrates the browser extension screens and communicates with the API.
 
-In this repository you will find the browser extension background page in the directory *src/all/background_page*
+In this repository you will find the browser extension background page in the directory `src/all/background_page`.
 
-The browser extension uses the i18next library to help manage the translation, if you want to know more checkout their
-[documentation](https://github.com/i18next/i18next).
+The browser extension uses the i18next library to help manage translation.
 
 ### Getting started
 
@@ -88,33 +85,33 @@ In order to work on the translation of this application you need to:
 
 ### Mark a string for translation
 
-To translate a string, a file has first to load the passbolt translation utility located in 
+To translate a string, a file has first to load the pbolt translation utility located in 
 `src/all/background_page/sdk/i18n.js`. For instance:
 ```javascript
 const {i18n} = require("./sdk/i18n");
 ```
 
-To mark for translation a string contained in javascript code.
+To mark for translation a string contained in javascript code:
 ```javascript
-i18n.t("Welcome to passbolt!");
+i18n.t("Welcome to pbolt!");
 ```
 
 ### Generate the language json source file
 
-Once you have made your changes on the source code, you can then generate the language json source file.
+Once you have made your changes on the source code, you can then generate the language json source file:
 ```shell
-npx grunt externalize-locale-string
+npm run build
 ```
 
 Once done you can propose your changes as a pull request on the repository.
 
 ## Externalize API strings
 
-The [API repository](https://github.com/passbolt/passbolt_api) contains all the code relative to the API
-obviously but also some screens presented to the end users such as the installation wizard.
+The [API repository](https://github.com/pbolt-dev/pbolt-api) contains all the code relative to the API
+as well as screens presented to end users such as the installation wizard.
 
-The passbolt API uses the CakePHP translation feature to help manage the translation, if you want to know more checkout 
-their [documentation](https://book.cakephp.org/3/en/core-libraries/internationalization-and-localization.html).
+The pbolt API uses the CakePHP translation feature to manage translation; for details see
+their [documentation](https://book.cakephp.org/4/en/core-libraries/internationalization-and-localization.html).
 
 ### Getting started
 
@@ -125,16 +122,16 @@ In order to work on the translation of this application you need to:
 
 ### Mark a string for translation
 
-To mark for translation a string contained in PHP code.
+To mark for translation a string contained in PHP code:
 ```php
-__('Welcome to passbolt!');
+__('Welcome to pbolt!');
 ```
 
-### Generate the language gettext source file
+### Extract gettext source strings
 
-Once you have made your changes on the source code, you can then generate the language gettext source file.
+To extract gettext source strings into POT / PO files:
 ```shell
-composer externalize-locale-strings
+bin/cake i18n extract
 ```
 
-Once done you can propose your changes as a pull request on the repository. 
+Once done you can propose your changes as a pull request on the repository.

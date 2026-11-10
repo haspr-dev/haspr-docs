@@ -46,7 +46,7 @@ const HomepageHero = () => {
       href: '/hosting',
       title: 'Hosting guide',
       description:
-        'All the technical information related to the setup and update of your passbolt self-hosted server',
+        'All the technical information related to the setup and update of your pbolt self-hosted server',
     },
     {
       id: 'contributor',
@@ -74,7 +74,7 @@ const HomepageHero = () => {
       href: '/development',
       title: 'Developer guide',
       description:
-        'All the high-level information to integrate and call the passbolt API.',
+        'All the high-level information to integrate and call the pbolt API.',
     },
     {
       id: 'api',
@@ -88,7 +88,7 @@ const HomepageHero = () => {
       href: '/api',
       title: 'API guide',
       description:
-        'All the low-level information to call the passbolt API and its endpoints.',
+        'All the low-level information to call the pbolt API and its endpoints.',
     },
     {
       id: 'releases',
@@ -99,7 +99,7 @@ const HomepageHero = () => {
           alt="Release notes illustrated with a tag."
         />
       ),
-      href: 'https://www.passbolt.com/changelog',
+      href: 'https://github.com/pbolt-dev/pbolt-api/releases',
       title: 'Release notes',
       description:
         "What was shipped in the latest release? Was it a bug or a feature? Let's find out!",
@@ -113,10 +113,10 @@ const HomepageHero = () => {
           alt="Incident reports illustrated with a fire."
         />
       ),
-      href: 'https://www.passbolt.com/incidents',
-      title: 'Incident reports',
+      href: 'https://github.com/pbolt-dev/pbolt-docs/discussions',
+      title: 'Community announcements',
       description:
-        'A retrospective of what went wrong and what we did to fix it!',
+        'Updates, announcements, and notices from the community.',
     },
     {
       id: 'contact',
@@ -127,10 +127,10 @@ const HomepageHero = () => {
           alt="Contact us illustrated with a speech bubble."
         />
       ),
-      href: 'https://www.passbolt.com/contact',
+      href: 'https://github.com/pbolt-dev/pbolt-docs/discussions',
       title: 'Talk to a human',
       description:
-        'If you cannot find what you need here, you can always ask the community or support.',
+        'If you cannot find what you need here, you can always ask the community.',
     },
   ];
 
@@ -138,12 +138,12 @@ const HomepageHero = () => {
     <div className={styles.root}>
       <div className={styles.header}>
         <Heading as="h1" className={styles.heading}>
-          Welcome to the passbolt{' '}
-          <span className={styles.red}>documentation</span>!
+          Welcome to the pbolt{' '}
+          <span className={styles.primary}>documentation</span>!
         </Heading>
 
         <Heading as="h2" className={styles.lead}>
-          The documentation for Passbolt contains several main sections, all
+          The documentation for pbolt contains several main sections, all
           accessible from the top navigation bar or from the links below.
         </Heading>
 

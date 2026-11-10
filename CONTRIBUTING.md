@@ -12,8 +12,8 @@ To get started please read Docusaurus [getting started guide](https://docusaurus
 ### Installation
 
 ```bash
-git clone https://github.com/passbolt/passbolt-docs.git
-cd passbolt-docs
+git clone https://github.com/pbolt-dev/pbolt-docs.git
+cd pbolt-docs
 npm install
 ```
 

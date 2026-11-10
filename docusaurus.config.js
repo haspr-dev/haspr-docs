@@ -383,7 +383,7 @@ const config = {
         sidebarPath: require.resolve('./sidebars/index.js'),
         showLastUpdateTime: true,
         showLastUpdateAuthor: false,
-        editUrl: 'https://github.com/passbolt/passbolt-docs/blob/main',
+        editUrl: 'https://github.com/pbolt-dev/pbolt-docs/blob/main',
       },
     ],
     '@docusaurus/plugin-content-pages',

@@ -17,8 +17,12 @@
   font-weight: normal;
 }
 
+.primary {
+  color: var(--ifm-color-primary);
+}
+
 .red {
-  color: var(--passbolt-red);
+  color: var(--ifm-color-primary);
 }
 
 .search_bar {

@@ -27,10 +27,10 @@ theme:
           main: '#088869'
           contrastText: '#06644d'
         error:
-          main: '#d40101'
+          main: '#2563eb'
         http:
           basic: '#2e2e2e'
-          delete: '#d40101'
+          delete: '#2563eb'
           get: '#088869'
           link: '#088869'
           post: '#2894DF'
@@ -48,4 +48,4 @@ theme:
       schema:
         linesColor: '#2e2e2e'
         arrow:
-          color: '#d40101'
+          color: '#2563eb'
