@@ -1,5 +1,5 @@
 get:
-  summary: "Check if passbolt is up."
+  summary: "Check if pbolt is up."
   operationId: "viewHealthcheckStatus"
   security: []
   x-codeSamples:

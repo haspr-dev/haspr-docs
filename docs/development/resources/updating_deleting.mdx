@@ -1,11 +1,11 @@
 ---
 title: Updating or deleting a resource
-description: How to update or delete a resource using the Passbolt API
+description: How to update or delete a resource using the pbolt API
 sidebar_position: 1
 hide_table_of_contents: false
 ---
 
-In this guide, we will walk through how to update and delete a resource using the Passbolt API.
+In this guide, we will walk through how to update and delete a resource using the pbolt API.
 
 For this example, the ID of the resource being manipulated is `fc11887b-aaa6-4600-a460-e05e99c75bce`.
 
@@ -27,7 +27,7 @@ We now need to build the payload that we are going to send to the API.
 
 ### Updating the secret
 
-By design, the secret can never be decrypted by the Passbolt API, so no incremental or differential update is possible: we need to update it all at once.
+By design, the secret can never be decrypted by the pbolt API, so no incremental or differential update is possible: we need to update it all at once.
 
 With the updated description, the decrypted secret looks like this:
 
