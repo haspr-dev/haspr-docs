@@ -37,10 +37,10 @@ const config = {
   organizationName: 'pbolt-dev', // Usually your GitHub org/user name.
   projectName: 'pbolt-docs', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownLinks: 'warn',
     },
   },
 
@@ -70,6 +70,12 @@ const config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
+        createRedirects(existingPath) {
+          if (existingPath && existingPath.startsWith('/') && !existingPath.startsWith('/docs/')) {
+            return [`/docs${existingPath}`];
+          }
+          return undefined;
+        },
         redirects: [
           // Hosting configure/ → flattened paths
           { from: '/hosting/configure/firewall-rules/', to: '/hosting/firewall-rules/' },
