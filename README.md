@@ -1,72 +1,73 @@
+<div align="center">
+  <img src="static/img/logo.svg" alt="pbolt Documentation" width="280">
+  <br><br>
+  <h1>pbolt Documentation</h1>
+  <p><strong>Official documentation for pbolt — the community-driven open source password manager for teams.</strong></p>
+  <p>
+    <a href="https://doc.pbolt.dev"><strong>doc.pbolt.dev »</strong></a>
+  </p>
+  <p>
+    <a href="https://github.com/pbolt-dev/pbolt-docs/actions/workflows/deploy-pages.yml"><img src="https://github.com/pbolt-dev/pbolt-docs/actions/workflows/deploy-pages.yml/badge.svg" alt="Deploy Pages"></a>
+    <a href="https://github.com/pbolt-dev/pbolt-docs/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg" alt="License: AGPL v3"></a>
+  </p>
+</div>
 
-	      ____                  __          ____
-	     / __ \____  _____ ____/ /_  ____  / / /_
-	    / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
-	   / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
-	  /_/    \__,_/____/____/_,___/\____/_/\__/
+---
 
-	The open-source password management solution for teams
-	(c) 2024 Passbolt SA
-	https://www.passbolt.com
+## Overview
 
+This repository contains the documentation source for **pbolt**, published to [doc.pbolt.dev](https://doc.pbolt.dev) via GitHub Pages.
 
-## License
+It covers:
+- **User Guide**: Everyday usage, credential management, browser integration, and security features.
+- **Admin Guide**: User provisioning, groups, roles, policy enforcement, and administration workflows.
+- **Hosting Guide**: Deploying and operating self-hosted pbolt installations (Docker, Debian/Ubuntu packages, etc.).
+- **API Reference**: Detailed OpenAPI / REST specifications for developers and integrators.
 
-Passbolt help site code is distributed under the [Affero General Public License v3](https://www.gnu.org/licenses/agpl-3.0.html)
+---
 
-Passbolt help text are distributed under [Creative Common BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+## Getting Started
 
-Logos in /static/img belongs to their respective owners and used for illustrative purpose.
+### Prerequisites
 
-Passbolt - Open source password manager for teams
-(c) 2024 Passbolt SA
+- [Node.js](https://nodejs.org/) `>= 20.x` (Node 22 LTS recommended)
+- `npm` `>= 9.x`
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General
-Public License (AGPL) as published by the Free Software Foundation version 3.
-
-The name "Passbolt" is a registered trademark of Passbolt SA, and Passbolt SA hereby declines to grant a trademark
-license to "Passbolt" pursuant to the GNU Affero General Public License version 3 Section 7(e), without a separate
-agreement with Passbolt SA.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
-warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License along with this program. If not, see GNU
-Affero General Public License v3.
-
-## About Passbolt help site
-
-This repository contains the code used for the knowledge base and help section of passbolt website.
-Find out more about passbolt here:
-[https://www.passbolt.com](https://www.passbolt.com "Passbolt Homepage")
-
-## Prerequisites
-
-- [Node.js](https://nodejs.org/) 24.x
-
-## Getting started
+### Local Development
 
 ```bash
-git clone git@github.com:passbolt/passbolt-docs.git
-cd passbolt-docs
+git clone git@github.com:pbolt-dev/pbolt-docs.git
+cd pbolt-docs
 npm install
 npm run start
 ```
 
-This will start a local development server with hot reload at [http://localhost:3000](http://localhost:3000).
+This starts a local development server with hot-reload at [http://localhost:3000](http://localhost:3000).
 
-## Available scripts
+### Available Scripts
 
 | Command | Description |
-|:--------|:------------|
-| `npm run start` | Start the development server |
-| `npm run build` | Build for production |
-| `npm run serve` | Serve the production build locally |
-| `npm run lint` | Lint JS/JSX files |
-| `npm run lint:mdx` | Lint MDX files |
-| `npm run lint:fix` | Auto-fix lint issues in JS/JSX files |
-| `npm run lint:fix:mdx` | Auto-fix lint issues in MDX files |
+|:---|:---|
+| `npm run start` | Start the local development server |
+| `npm run build` | Build the production static site into `build/` |
+| `npm run serve` | Preview the production build locally |
+| `npm run lint` | Lint JS and JSX source files |
+| `npm run lint:mdx` | Lint MDX documentation pages |
+| `npm run lint:fix` | Automatically fix linting issues |
 
-## Contributing
+---
 
-Help us maintaining this documentation by following our [contributors guide](./CONTRIBUTING.md)
+## Deployment
+
+The documentation site is automatically built and deployed to GitHub Pages at [doc.pbolt.dev](https://doc.pbolt.dev) whenever commits are pushed to the `main` branch.
+
+---
+
+## License & Trademark Notice
+
+- **Code**: Distributed under the [GNU Affero General Public License v3 (AGPL-3.0)](https://www.gnu.org/licenses/agpl-3.0.html).
+- **Documentation Text**: Distributed under [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/).
+
+### Trademark Notice
+
+> **Important**: **pbolt** is an independent, community-driven fork and is **not affiliated with, endorsed by, or sponsored by Passbolt SA**. Passbolt is a registered trademark of Passbolt SA. Any references to "Passbolt" within upstream documentation texts and technical identifiers are retained purely for historical context, compatibility, and nominative descriptive use under Section 7(e) of the AGPLv3. All original Passbolt corporate identity assets and registered marks remain the property of Passbolt SA.

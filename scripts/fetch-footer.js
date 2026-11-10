@@ -48,6 +48,7 @@ function generateColumnItems(columnLists = []) {
 }
 
 async function main() {
+  const footerPath = path.join(__dirname, '../data/footer.json');
   try {
     let response = await fetch(domain);
     const body = await response.text();
@@ -62,12 +63,15 @@ async function main() {
       items: generateColumnItems([...column.querySelectorAll('ul')]),
     }));
 
-    fs.writeFileSync(
-      path.join(__dirname, '../data/footer.json'),
-      JSON.stringify(data, null, 2),
-    );
+    if (data && data.length > 0) {
+      fs.writeFileSync(footerPath, JSON.stringify(data, null, 2));
+    }
   } catch (e) {
-    console.log(e);
+    if (fs.existsSync(footerPath)) {
+      console.log('Could not fetch external footer, using existing data/footer.json fallback.');
+    } else {
+      console.log('Could not fetch external footer:', e.message);
+    }
   }
 }
 
