@@ -24,41 +24,41 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #d40101;
-  --ifm-color-primary-rgb: 212, 1, 1;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-rgb: 37, 99, 235;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --true-black: #000000;
-  --passbolt-black: #171717;
-  --passbolt-black-rgb: 23, 23, 23;
-  --passbolt-grey: #1F1F1F;
-  --passbolt-light-grey: #2e2e2e;
-  --passbolt-light-grey-rgb: 46, 46, 46;
+  --passbolt-black: #0f172a;
+  --passbolt-black-rgb: 15, 23, 42;
+  --passbolt-grey: #1e293b;
+  --passbolt-light-grey: #334155;
+  --passbolt-light-grey-rgb: 51, 65, 85;
   --passbolt-red: var(--ifm-color-primary);
   --passbolt-red-rgb: var(--ifm-color-primary-rgb);
   --passbolt-green: #088869;
   --passbolt-green-rgb: 8, 136, 105;
-  --passbolt-blue: #2894DF;
-  --passbolt-blue-rgb: 40, 148, 223;
+  --passbolt-blue: #2563eb;
+  --passbolt-blue-rgb: 37, 99, 235;
   --passbolt-yellow: #F2AE55;
   --passbolt-yellow-rgb: 242, 174, 85;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme='dark'] {
-  --ifm-color-primary: #d40101;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #3b82f6;
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e40af;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #bfdbfe;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-background-surface-color: var(--passbolt-grey);
   --ifm-background-color: var(--passbolt-black);

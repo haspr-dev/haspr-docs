@@ -5,42 +5,42 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import footerLinks from './data/footer.json';
 
 const ROUTES = {
-  HELPSITE_URL: 'https://www.passbolt.com/docs',
-  WEBSITE_URL: 'https://www.passbolt.com',
-  BLOG_URL: 'https://blog.passbolt.com',
-  CAREERS_URL: 'https://careers.passbolt.com',
-  FORUM_URL: 'https://community.passbolt.com',
-  REDDIT_URL: 'https://www.reddit.com/r/passbolt',
-  GITHUB_URL: 'https://github.com/passbolt/passbolt-docs',
-  GITHUB_ORG_URL: 'https://github.com/passbolt',
-  BLUESKY_URL: 'https://bsky.app/profile/passbolt.bsky.social',
-  LINKEDIN_URL: 'https://www.linkedin.com/company/passbolt',
-  YOUTUBE_URL: 'https://www.youtube.com/user/passboltpassword',
-  MASTODON_URL: 'https://mastodon.social/@passbolt',
+  HELPSITE_URL: 'https://doc.pbolt.dev',
+  WEBSITE_URL: 'https://doc.pbolt.dev',
+  BLOG_URL: 'https://github.com/pbolt-dev',
+  CAREERS_URL: 'https://github.com/pbolt-dev',
+  FORUM_URL: 'https://github.com/pbolt-dev/pbolt-docs/discussions',
+  REDDIT_URL: 'https://github.com/pbolt-dev',
+  GITHUB_URL: 'https://github.com/pbolt-dev/pbolt-docs',
+  GITHUB_ORG_URL: 'https://github.com/pbolt-dev',
+  BLUESKY_URL: 'https://bsky.app',
+  LINKEDIN_URL: 'https://linkedin.com',
+  YOUTUBE_URL: 'https://youtube.com',
+  MASTODON_URL: 'https://mastodon.social',
 };
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: ' ',
-  titleDelimiter: ' ',
-  tagline: 'Everything you need to optimize the way you work with Passbolt.',
+  title: 'pbolt Documentation',
+  titleDelimiter: '·',
+  tagline: 'Everything you need to optimize the way you work with pbolt.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: ROUTES.WEBSITE_URL,
+  url: 'https://doc.pbolt.dev',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/docs/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'passbolt', // Usually your GitHub org/user name.
-  projectName: 'passbolt-docs', // Usually your repo name.
+  organizationName: 'pbolt-dev', // Usually your GitHub org/user name.
+  projectName: 'pbolt-docs', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: 'throw',
+      onBrokenMarkdownLinks: 'warn',
     },
   },
 
@@ -70,6 +70,12 @@ const config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
+        createRedirects(existingPath) {
+          if (existingPath && existingPath.startsWith('/') && !existingPath.startsWith('/docs/')) {
+            return [`/docs${existingPath}`];
+          }
+          return undefined;
+        },
         redirects: [
           // Hosting configure/ → flattened paths
           { from: '/hosting/configure/firewall-rules/', to: '/hosting/firewall-rules/' },
@@ -183,7 +189,7 @@ const config = {
   customFields: {
     footer: {
       slogan:
-        'Open source password and credential manager for teams. The all-in-one solution for all types of credentials and built for secure collaboration. Passbolt is versatile and can be self-hosted or cloud-hosted. Built for modern tech teams, trusted by mission-critical organisations, usable by everyone.',
+        'Open source password and credential manager for teams. Community fork providing modern CLI, browser, and API enhancements. Built for modern tech teams, trusted by mission-critical organisations, usable by everyone.',
       socialMedia: {
         links: [
           {
@@ -265,7 +271,7 @@ const config = {
       },
       navbar: {
         logo: {
-          alt: 'Passbolt logo',
+          alt: 'pbolt logo',
           src: 'img/logo.svg',
           width: 160,
         },
@@ -323,14 +329,14 @@ const config = {
       },
       footer: {
         logo: {
-          alt: 'Passbolt logo',
+          alt: 'pbolt logo',
           src: 'img/logo.svg',
           width: 180,
           height: 32,
           href: ROUTES.WEBSITE_URL,
         },
         links: footerLinks,
-        copyright: `Copyright © ${new Date().getFullYear()} Passbolt S.A. All right reserved.`,
+        copyright: `pbolt is an independent community fork and is not affiliated with, endorsed by, or sponsored by Passbolt SA. Passbolt is a registered trademark of Passbolt SA.`,
       },
       colorMode: {
         defaultMode: 'dark',

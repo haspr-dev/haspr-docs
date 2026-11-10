@@ -1,0 +1,61 @@
+[
+  {
+    "title": "pbolt Ecosystem",
+    "items": [
+      {
+        "label": "GitHub Organization",
+        "href": "https://github.com/pbolt-dev"
+      },
+      {
+        "label": "pbolt API",
+        "href": "https://github.com/pbolt-dev/pbolt-api"
+      },
+      {
+        "label": "Browser Extension",
+        "href": "https://github.com/pbolt-dev/pbolt-browser-extension"
+      },
+      {
+        "label": "CLI Client",
+        "href": "https://github.com/pbolt-dev/go-pbolt-cli"
+      },
+      {
+        "label": "Docker Container",
+        "href": "https://github.com/pbolt-dev/pbolt-docker"
+      }
+    ]
+  },
+  {
+    "title": "Documentation",
+    "items": [
+      {
+        "label": "User Guide",
+        "href": "/user"
+      },
+      {
+        "label": "Admin Guide",
+        "href": "/admin"
+      },
+      {
+        "label": "Hosting Guide",
+        "href": "/hosting"
+      },
+      {
+        "label": "REST API Reference",
+        "href": "/api"
+      }
+    ]
+  },
+  {
+    "title": "Community & Support",
+    "items": [
+      {
+        "label": "Documentation Source",
+        "href": "https://github.com/pbolt-dev/pbolt-docs"
+      },
+      {
+        "label": "Issue Tracker",
+        "href": "https://github.com/pbolt-dev/pbolt-docs/issues"
+      }
+    ]
+  }
+]
