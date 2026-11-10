@@ -13,13 +13,13 @@ import HttpsWarning from "/docs/admin/_includes/sso/https-warning.mdx";
 
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 <HttpsWarning />
 
-Since version 4.0.0, Passbolt Pro Edition supports SSO with Google via Google Cloud Identity.
+Since version 4.0.0, Haspr Pro Edition supports SSO with Google via Google Cloud Identity.
 
 <Figure
   src="/img/help/2023/05/passbolt-sso-google-login.png"
@@ -28,7 +28,7 @@ Since version 4.0.0, Passbolt Pro Edition supports SSO with Google via Google Cl
 />
 
 :::warning[Important]
-Passbolt will request a Google API for authorisation, if you have firewall rules setup, you have to allow your server to request the accounts.google.com domain.
+Haspr will request a Google API for authorisation, if you have firewall rules setup, you have to allow your server to request the accounts.google.com domain.
 :::
 
 ## How does it work?
@@ -43,21 +43,21 @@ To understand which user flows are supported currently, the risk analysis, and h
 
 Open both the [Google API console](https://console.developers.google.com/) and Passbolt:
 
-Once the plugin is enabled you will need to go the administration section of your Passbolt instance and then to the "Single Sign On" section.
+Once the plugin is enabled you will need to go the administration section of your Haspr instance and then to the "Single Sign On" section.
 
 You will need to also login to the Google API console.
 
 <Figure
   src="/img/help/2025/04/sso-google-panel.png"
-  alt="Passbolt administration - SSO"
-  caption="fig. Passbolt administration - SSO"
+  alt="Haspr administration - SSO"
+  caption="fig. Haspr administration - SSO"
 />
 
-With Passbolt v4.0.0, SSO users can self-register themselves if self registration plugin is enabled. Which means that if one of your users is not yet configured in the browser, he can use SSO to self-register. If self registration plugin is not enabled, you must ensure users are present both in Passbolt and Google Cloud, the email is used to correlate accounts.
+With Passbolt v4.0.0, SSO users can self-register themselves if self registration plugin is enabled. Which means that if one of your users is not yet configured in the browser, he can use SSO to self-register. If self registration plugin is not enabled, you must ensure users are present both in Haspr and Google Cloud, the email is used to correlate accounts.
 
-* Users that are not present in Google Cloud but are present in Passbolt will not be able to use SSO (a message on google side will be shown).
-* Users that are not present in Passbolt but are present in Google Cloud will not be able to login in Passbolt (a message on Passbolt side will be shown).
-* If self registration is enabled, users that are not present in Passbolt but are present in Google Cloud will be able to self-register in Passbolt (a message on Passbolt side will be shown).
+* Users that are not present in Google Cloud but are present in Haspr will not be able to use SSO (a message on google side will be shown).
+* Users that are not present in Haspr but are present in Google Cloud will not be able to login in Haspr (a message on Haspr side will be shown).
+* If self registration is enabled, users that are not present in Haspr but are present in Google Cloud will be able to self-register in Haspr (a message on Haspr side will be shown).
 
 ## Configure Google SSO
 
@@ -90,7 +90,7 @@ On this page, choose the user type to "Internal" and click the "Create" button. 
 />
 
 :::caution[Please note]
-As the name suggests, the "Internal" type app will only be available to users within your organisation. However selecting "External" might work, we do not recommend it to use with Passbolt as it can let any user with a valid google account can sign-in to Passbolt.
+As the name suggests, the "Internal" type app will only be available to users within your organisation. However selecting "External" might work, we do not recommend it to use with Haspr as it can let any user with a valid google account can sign-in to Haspr.
 :::
 
 * Fill in required fields like App name, support email, and developer contact information and click the "Save and continue" button. You can also fill in the details of optional fields if you want.
@@ -126,11 +126,11 @@ Navigate to _APIs & Services_ > _Credentials_ and click on _Create credentials_ 
   caption="fig. Google API Console - Create Credentials"
 />
 
-On the Create OAuth client ID screen, select Application type to "Web application", then enter the name of your choice, Authorized Javascript origins, Authorized redirect URIs _(You can get this from the Passbolt SSO settings page)_.
+On the Create OAuth client ID screen, select Application type to "Web application", then enter the name of your choice, Authorized Javascript origins, Authorized redirect URIs _(You can get this from the Haspr SSO settings page)_.
 
 Once you've entered all the details click on the "Create" button to create the credentials.
 
-When credentials are created, you'll get Client ID and Client secret. These are the two things you'll need to add to Passbolt when you configure the Google SSO.
+When credentials are created, you'll get Client ID and Client secret. These are the two things you'll need to add to Haspr when you configure the Google SSO.
 
 <Figure
   src="/img/help/2023/05/google-api-oauth-client-created.png"
@@ -139,7 +139,7 @@ When credentials are created, you'll get Client ID and Client secret. These are 
 />
 
 :::caution[Things to consider]
-The Authorized redirect URI must be `https://your-domain.com/sso/google/redirect`, and it must match your instance full base URL exactly, including the https scheme. You can copy it from the read-only Redirect URL field on the passbolt SSO settings page. Google accepts any valid URL here, but any other value makes the sign-in fail with a redirect_uri_mismatch error.
+The Authorized redirect URI must be `https://your-domain.com/sso/google/redirect`, and it must match your instance full base URL exactly, including the https scheme. You can copy it from the read-only Redirect URL field on the Haspr SSO settings page. Google accepts any valid URL here, but any other value makes the sign-in fail with a redirect_uri_mismatch error.
 :::
 
 ## Configure SSO through the GUI

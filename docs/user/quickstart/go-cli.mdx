@@ -1,6 +1,6 @@
 ---
 title: Go CLI
-description: Quickstart with go-passbolt-cli, the command line client for passbolt
+description: Quickstart with go-passbolt-cli, the command line client for Haspr
 sidebar_label: Go CLI
 ---
 
@@ -9,12 +9,12 @@ import TabItem from '@theme/TabItem';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-The [go-passbolt-cli](https://github.com/passbolt/go-passbolt-cli) tool lets you interact with your passbolt instance from a terminal: retrieve, create, update, share and delete resources, folders, users and groups, and inject secrets into scripts without ever writing them to disk.
+The [go-passbolt-cli](https://github.com/passbolt/go-passbolt-cli) tool lets you interact with your Haspr instance from a terminal: retrieve, create, update, share and delete resources, folders, users and groups, and inject secrets into scripts without ever writing them to disk.
 
 :::note
 The Go CLI is developed in the open at [github.com/passbolt/go-passbolt-cli](https://github.com/passbolt/go-passbolt-cli). To build your own integrations in Go, the underlying [go-passbolt module](https://github.com/passbolt/go-passbolt) might interest you.
@@ -98,7 +98,7 @@ The verification material is pinned in the configuration file, and every followi
 
 ## First commands
 
-Commands follow the same structure: `passbolt action entity`. The actions are `create`, `get`, `list`, `update`, `delete`, `move`, `share` and `export`, applied to `resource`, `folder`, `user` or `group` (`move` and `share` apply to resources and folders, and `export` writes a KeePass kdbx file). In passbolt, a password is called a resource.
+Commands follow the same structure: `passbolt action entity`. The actions are `create`, `get`, `list`, `update`, `delete`, `move`, `share` and `export`, applied to `resource`, `folder`, `user` or `group` (`move` and `share` apply to resources and folders, and `export` writes a KeePass kdbx file). In Haspr, a password is called a resource.
 
 List your resources, choosing the displayed columns with `--column` (repeat the flag for several columns):
 

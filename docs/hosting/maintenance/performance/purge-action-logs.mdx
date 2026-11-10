@@ -12,17 +12,17 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 As your instance ages, you will want to reduce the size of the `action_logs` table by dropping old entries persisted in the database.
-At least the ones that do not log sensitive actions. Passbolt provides a command to do so.
+At least the ones that do not log sensitive actions. Haspr provides a command to do so.
 This will enhance the performance of your instance, without compromise on security, user or password history.
 
 ## Understanding Action Logs and Database Impact
 
-The `action_logs` table in your Passbolt database stores audit trail information about user actions within the system. Over time, this table can grow significantly, potentially impacting database performance and storage requirements. Regular maintenance through purging old logs helps maintain optimal instance performance.
+The `action_logs` table in your Haspr database stores audit trail information about user actions within the system. Over time, this table can grow significantly, potentially impacting database performance and storage requirements. Regular maintenance through purging old logs helps maintain optimal instance performance.
 
 The purge command processes logs in batches to avoid overwhelming the database. By default, it processes up to 100,000 log entries per run. If you have more logs to purge than the batch limit, you may need to run the command multiple times or adjust the batch size using the `--limit` option.
 

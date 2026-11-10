@@ -1,6 +1,6 @@
 ---
 title: Useful Cake Commands
-description: A comprehensive reference guide for Passbolt cake commands used for maintenance, troubleshooting, and administration
+description: A comprehensive reference guide for Haspr cake commands used for maintenance, troubleshooting, and administration
 sidebar_label: Useful Commands
 hide_table_of_contents: false
 toc_min_heading_level: 2
@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 # Useful Cake Commands
 
-Reference for Passbolt cake commands used for maintenance, troubleshooting, and administration.
+Reference for Haspr cake commands used for maintenance, troubleshooting, and administration.
 
 ## Running Commands
 
@@ -209,7 +209,7 @@ Runs healthcheck, cleanup (dry-run), datacheck, and shows the last 100 lines of 
 
 ### Show Logs Path
 
-Shows the path to Passbolt log files.
+Shows the path to Haspr log files.
 
 <Tabs groupId="installation">
   <TabItem value="package" label="Package Installation">
@@ -847,7 +847,7 @@ See [updating your subscription key](/admin/subscription/update-subscription-key
 ## Directory Synchronisation
 
 :::info
-Enterprise Edition only. Requires LDAP PHP extension and LDAP integration configured in Passbolt.
+Enterprise Edition only. Requires LDAP PHP extension and LDAP integration configured in Haspr.
 :::
 
 ### Directory Sync
@@ -955,18 +955,18 @@ Prints every registered user as a table, with the columns Role, Username, Last n
 <Tabs groupId="installation">
   <TabItem value="deb" label="Debian-based">
     <CodeBlock>
-      {`sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt users_index" www-data`}
+      {`sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake Haspr users_index" www-data`}
     </CodeBlock>
   </TabItem>
   <TabItem value="rpm" label="RPM-based">
     <CodeBlock>
-      {`sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt users_index" nginx`}
+      {`sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake Haspr users_index" nginx`}
     </CodeBlock>
   </TabItem>
   <TabItem value="docker" label="Docker">
     <CodeBlock>
       {`docker compose -f docker-compose-ce.yaml exec passbolt \\
-  su -s /bin/bash -c "source /etc/environment && ./bin/cake passbolt users_index" www-data`}
+  su -s /bin/bash -c "source /etc/environment && ./bin/cake Haspr users_index" www-data`}
     </CodeBlock>
   </TabItem>
 </Tabs>
@@ -1049,18 +1049,18 @@ Grants the administrator role to a user. The command performs the change on beha
 <Tabs groupId="installation">
   <TabItem value="deb" label="Debian-based">
     <CodeBlock>
-      {`sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt user_promote_to_administrator -u ada@passbolt.com -a betty@passbolt.com" www-data`}
+      {`sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake Haspr user_promote_to_administrator -u ada@passbolt.com -a betty@passbolt.com" www-data`}
     </CodeBlock>
   </TabItem>
   <TabItem value="rpm" label="RPM-based">
     <CodeBlock>
-      {`sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt user_promote_to_administrator -u ada@passbolt.com -a betty@passbolt.com" nginx`}
+      {`sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake Haspr user_promote_to_administrator -u ada@passbolt.com -a betty@passbolt.com" nginx`}
     </CodeBlock>
   </TabItem>
   <TabItem value="docker" label="Docker">
     <CodeBlock>
       {`docker compose -f docker-compose-ce.yaml exec passbolt \\
-  su -s /bin/bash -c "source /etc/environment && ./bin/cake passbolt user_promote_to_administrator -u ada@passbolt.com -a betty@passbolt.com" www-data`}
+  su -s /bin/bash -c "source /etc/environment && ./bin/cake Haspr user_promote_to_administrator -u ada@passbolt.com -a betty@passbolt.com" www-data`}
     </CodeBlock>
   </TabItem>
 </Tabs>

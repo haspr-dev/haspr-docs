@@ -10,7 +10,7 @@ To view a copy of this license, visit [https://creativecommons.org/licenses/by-s
 
 - **Original Author**: Copyright (C) Passbolt SA ([https://www.passbolt.com](https://www.passbolt.com))
 - **Original Work**: The Official Passbolt Documentation ([https://github.com/passbolt/passbolt-docs](https://github.com/passbolt/passbolt-docs))
-- **Fork & Modifications**: Adapted and rebranded for **pbolt** by the pbolt community contributors ([https://github.com/pbolt-dev](https://github.com/pbolt-dev)).
+- **Fork & Modifications**: Adapted and rebranded for **Haspr** by the Haspr community contributors ([https://github.com/haspr-dev](https://github.com/haspr-dev)).
 
 In accordance with Section 3(a) of the CC BY-SA 4.0 license:
 1. Upstream authorship and copyright notices are preserved.
@@ -29,5 +29,5 @@ The software source code of the documentation site itself (Docusaurus framework 
 
 - "Passbolt" is a registered trademark of Passbolt SA.
 - Pursuant to AGPLv3 Section 7(e) and the terms of Creative Commons CC BY-SA 4.0, **no trademark license or endorsement is granted or implied**.
-- **pbolt** is an independent community project and is **not affiliated with, sponsored by, or endorsed by Passbolt SA**.
+- **Haspr** is an independent community project and is **not affiliated with, sponsored by, or endorsed by Passbolt SA**.
 - Original Passbolt corporate logos, badges, and UI screenshots bearing Passbolt registered trademarks have been removed or replaced with neutral community placeholders to respect trademark boundaries.

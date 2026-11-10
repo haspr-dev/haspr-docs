@@ -1,12 +1,12 @@
 ---
 title: How can I contribute to the translation?
-description: Learn how to contribute to pbolt translations inside the repository
+description: Learn how to contribute to haspr translations inside the repository
 sidebar_position: 2
 ---
 
 import Link from '@docusaurus/Link';
 
-There are many ways to contribute to pbolt, and one of the most rewarding is helping translate the application into your language. Contributions are always welcome, and different tasks can be addressed depending on your profile:
+There are many ways to contribute to haspr, and one of the most rewarding is helping translate the application into your language. Contributions are always welcome, and different tasks can be addressed depending on your profile:
 - As a **translator**, you can translate strings or improve existing translations by contributing directly to the locale files in our repositories.
 - As a **proofreader**, you can review and verify translation Pull Requests on GitHub.
 - As a **developer**, you can identify missing translations and [externalize](/contribute/translator/externalize/) them in the source code.
@@ -15,9 +15,9 @@ There are many ways to contribute to pbolt, and one of the most rewarding is hel
 
 ### Source language
 
-pbolt is developed in British English (`en-UK` / `en_UK`), which serves as the canonical source language across all components. If you discover an error in English or notice a string that is not available for translation:
+haspr is developed in British English (`en-UK` / `en_UK`), which serves as the canonical source language across all components. If you discover an error in English or notice a string that is not available for translation:
 - If you have a developer profile, please refer to [how to externalize strings](/contribute/translator/externalize/).
-- Otherwise, please open a discussion on our [community forum](https://github.com/pbolt-dev/pbolt-docs/discussions).
+- Otherwise, please open a discussion on our [community forum](https://github.com/haspr-dev/haspr-docs/discussions).
 
 ### Tone of voice
 
@@ -25,35 +25,35 @@ The application voice should remain clear, respectful, and user-friendly. In lan
 
 ### Inclusion
 
-Inclusion is a core pbolt value. Translations that discriminate based on gender, ethnicity, or any personal attributes must be avoided. Neutral formulation should always be preferred when possible.
+Inclusion is a core haspr value. Translations that discriminate based on gender, ethnicity, or any personal attributes must be avoided. Neutral formulation should always be preferred when possible.
 
 ---
 
 ## Where translations are managed
 
-In pbolt, translations are managed **directly inside each respective repository**. You do not need third-party accounts or external tools to contribute.
+In haspr, translations are managed **directly inside each respective repository**. You do not need third-party accounts or external tools to contribute.
 
-### 1. Browser Extension (`pbolt-browser-extension`)
+### 1. Browser Extension (`haspr-browser-extension`)
 
-- **Application strings**: [`src/all/locales/<locale>/common.json`](https://github.com/pbolt-dev/pbolt-browser-extension/tree/main/src/all/locales) (e.g. `de-DE`, `fr-FR`, `es-ES`, `it-IT`, `nl-NL`, `ru-RU`, etc.)
-- **Extension Store / Manifest metadata**: [`src/all/_locales/<lang>/messages.json`](https://github.com/pbolt-dev/pbolt-browser-extension/tree/main/src/all/_locales) (e.g. `de`, `fr`, `es`, `en`, etc.)
+- **Application strings**: [`src/all/locales/<locale>/common.json`](https://github.com/haspr-dev/haspr-browser-extension/tree/main/src/all/locales) (e.g. `de-DE`, `fr-FR`, `es-ES`, `it-IT`, `nl-NL`, `ru-RU`, etc.)
+- **Extension Store / Manifest metadata**: [`src/all/_locales/<lang>/messages.json`](https://github.com/haspr-dev/haspr-browser-extension/tree/main/src/all/_locales) (e.g. `de`, `fr`, `es`, `en`, etc.)
 
 File format: Standard JSON:
 ```json
 {
-  "Welcome to pbolt!": "Willkommen bei pbolt!",
+  "Welcome to haspr!": "Willkommen bei haspr!",
   "Save changes": "Änderungen speichern"
 }
 ```
 
-### 2. API Backend (`pbolt-api`)
+### 2. API Backend (`haspr-api`)
 
-- **Server, email, and wizard strings**: [`resources/locales/<locale>/default.po`](https://github.com/pbolt-dev/pbolt-api/tree/main/resources/locales) (e.g. `de_DE`, `fr_FR`, `es_ES`, `nl_NL`, etc.)
+- **Server, email, and wizard strings**: [`resources/locales/<locale>/default.po`](https://github.com/haspr-dev/haspr-api/tree/main/resources/locales) (e.g. `de_DE`, `fr_FR`, `es_ES`, `nl_NL`, etc.)
 
 File format: Standard GNU gettext PO files:
 ```po
-msgid "Welcome to pbolt!"
-msgstr "Willkommen bei pbolt!"
+msgid "Welcome to haspr!"
+msgstr "Willkommen bei haspr!"
 ```
 
 ---
@@ -61,8 +61,8 @@ msgstr "Willkommen bei pbolt!"
 ## How to contribute translations
 
 1. **Fork the repository**:
-   - [pbolt-browser-extension](https://github.com/pbolt-dev/pbolt-browser-extension)
-   - [pbolt-api](https://github.com/pbolt-dev/pbolt-api)
+   - [haspr-browser-extension](https://github.com/haspr-dev/haspr-browser-extension)
+   - [haspr-api](https://github.com/haspr-dev/haspr-api)
 2. **Create a feature branch**:
    ```bash
    git checkout -b i18n/german-update

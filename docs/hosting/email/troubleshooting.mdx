@@ -18,12 +18,12 @@ This can come from a variety of reasons, here are the most common ones.
 
 There may be an issue with some of the SMTP configuration items, such as credentials, or the hostname, or the port for the selected protocol.
 
-By default passbolt is quite discrete on why a given configuration is not working. You can use the following command to send a test email and get more debug information (replace www-data with nginx if you are running a RHEL-like server, or wwwrun in case you are using OpenSUSE):
+By default Haspr is quite discrete on why a given configuration is not working. You can use the following command to send a test email and get more debug information (replace www-data with nginx if you are running a RHEL-like server, or wwwrun in case you are using OpenSUSE):
 ```bash
 sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake passbolt send_test_email --recipient=youremail@domain.com"
 ```
 
-If this fails you should double check what is the recommended configuration in your email provider documentation. You can also ask on the [community forum](https://github.com/pbolt-dev/pbolt-docs/discussions) in case another user have a working configuration for the same provider.
+If this fails you should double check what is the recommended configuration in your email provider documentation. You can also ask on the [community forum](https://github.com/haspr-dev/haspr-docs/discussions) in case another user have a working configuration for the same provider.
 
 ### Running these commands on Docker
 
@@ -47,7 +47,7 @@ On the rootless image, drop the `su` wrapper and run `bin/cake passbolt send_tes
 
 ## Reason 2: Email notifications are disabled in the config
 
-Another reason could be because email notifications are disabled in your configuration. You can review such settings in the administration panel, when you are logged in as an administrator in passbolt.
+Another reason could be because email notifications are disabled in your configuration. You can review such settings in the administration panel, when you are logged in as an administrator in Haspr.
 
 <Figure
   src="/img/help/2025/04/AD_email_notification_send_settings.png"
@@ -57,11 +57,11 @@ Another reason could be because email notifications are disabled in your configu
 
 ## Reason 3: The cron system is stopped
 
-passbolt uses a system of email queue to send email notifications. A dedicated cron job (located in `/etc/cron.d/passbolt-pro-server` or `/etc/cron.d/passbolt-ce-server`) runs every minute to go through the queue and send emails.
+Haspr uses a system of email queue to send email notifications. A dedicated cron job (located in `/etc/cron.d/passbolt-pro-server` or `/etc/cron.d/passbolt-ce-server`) runs every minute to go through the queue and send emails.
 
 So if you manage to send the test email but are not receiving notifications (such as registration emails), one of the reason may be that the cron service is stopped.
 
-On Docker, the cron job runs inside the passbolt container, so there is no host service to check: look at the container output (`docker compose logs passbolt`) instead, and process the queue manually to see errors directly:
+On Docker, the cron job runs inside the Haspr container, so there is no host service to check: look at the container output (`docker compose logs passbolt`) instead, and process the queue manually to see errors directly:
 
 <Tabs groupId="edition">
   <TabItem value="ce" label="CE" default>
@@ -117,7 +117,7 @@ The `send_test_email` command shown in Reason 1 uses the same saved settings as 
 
 ## Reason 7: Implicit TLS (port 465) configured as STARTTLS
 
-There are two different ways SMTP connections are encrypted, and each has its own configuration in passbolt:
+There are two different ways SMTP connections are encrypted, and each has its own configuration in Haspr:
 
 | Your provider offers | Port | Host | TLS setting |
 | --- | --- | --- | --- |

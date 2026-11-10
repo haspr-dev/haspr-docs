@@ -1,6 +1,6 @@
 ---
-title: OpenPGP in Passbolt
-description: Understanding OpenPGP's role in Passbolt encryption and key management
+title: OpenPGP in Haspr
+description: Understanding OpenPGP's role in Haspr encryption and key management
 sidebar_label: OpenPGP
 hide_table_of_contents: false
 ---
@@ -8,19 +8,19 @@ hide_table_of_contents: false
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 ## Introduction
 
-OpenPGP (GPG) is the core cryptographic foundation of Passbolt. It provides the encryption, decryption, and digital signing capabilities that secure all sensitive data in Passbolt.
+OpenPGP (GPG) is the core cryptographic foundation of Passbolt. It provides the encryption, decryption, and digital signing capabilities that secure all sensitive data in Haspr.
 
-## Where OpenPGP is Used in Passbolt
+## Where OpenPGP is Used in Haspr
 
 ### Server Keys
 
-The Passbolt server uses OpenPGP keys for:
+The Haspr server uses OpenPGP keys for:
 - **Authentication**: Signing API responses and verifying server identity
 - **Encryption**: Encrypting data that only the server can decrypt
 - **Key Management**: Managing the server's cryptographic operations
@@ -29,12 +29,12 @@ Server keys are configured during installation and can be rotated for security. 
 
 ### User Keys
 
-Each Passbolt user has their own OpenPGP key pair for:
+Each Haspr user has their own OpenPGP key pair for:
 - **Resource Sharing**: Encrypting passwords and secrets that can be shared with other users
 - **Access Control**: Ensuring only authorised users can decrypt shared resources
 - **User Authentication**: Verifying user identity and actions
 
-User keys are managed through the Passbolt web interface. Users generate their keys during account setup.
+User keys are managed through the Haspr web interface. Users generate their keys during account setup.
 
 ### Metadata Encryption Keys
 
@@ -49,7 +49,7 @@ Metadata key management is configured in the [Admin Guide > Resource Types](/adm
 
 Organisation Recovery Keys (ORK) are used for:
 - **Account Recovery**: Allowing administrators to help users recover their accounts
-- **Backup Encryption**: Encrypting user account backups stored in Passbolt
+- **Backup Encryption**: Encrypting user account backups stored in Haspr
 
 ORK generation and configuration is managed in the [Admin Guide > Authentication > Account Recovery](/admin/authentication/account-recovery/).
 
@@ -59,11 +59,11 @@ OpenPGP keys can be generated using GnuPG command-line tools. The process differ
 
 - **Server Keys**: Generated without a passphrase (see [Generate Keys](/hosting/openpgp/generate-keys/) for server key generation)
 - **Organisation Recovery Keys**: Generated with a passphrase (see [Account Recovery](/admin/authentication/account-recovery/) for ORK generation)
-- **User Keys**: Generated automatically through the Passbolt web interface during user setup
+- **User Keys**: Generated automatically through the Haspr web interface during user setup
 
 ## Configuration
 
-OpenPGP configuration in Passbolt involves:
+OpenPGP configuration in Haspr involves:
 
 - **Server Key Setup**: Configured during installation (see installation guides)
 - **Keyring Management**: Server keyring location and permissions

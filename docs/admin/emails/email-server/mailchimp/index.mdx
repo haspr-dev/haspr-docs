@@ -12,8 +12,8 @@ import Chips from "/src/components/Chips/Chips";
 # Configure Email authentication with Mailchimp
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <EmailServerConfigurationIntroduction/>
@@ -34,9 +34,9 @@ Copy the generated SMTP key as you will need it to authenticate your SMTP reques
 
 Your SMTP username is the same as the login credentials to your Mailchimp account. Make sure that it remain, with the correct capitalization and any special characters.
 
-- Authentication on Passbolt GUI
+- Authentication on Haspr GUI
 
-On your Passbolt instance, you can navigate to *Administration > Email server*.
+On your Haspr instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method (username & password).
 

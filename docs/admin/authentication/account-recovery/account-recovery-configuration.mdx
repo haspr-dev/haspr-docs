@@ -13,11 +13,11 @@ import Chips from "/src/components/Chips/Chips";
 # Account Recovery Configuration
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-The Account Recovery is a feature introduced with passbolt v3.6.0 that helps users to recover their accounts in case of a recovery kit or passphrase loss.
+The Account Recovery is a feature introduced with Haspr v3.6.0 that helps users to recover their accounts in case of a recovery kit or passphrase loss.
 
 :::info
 If you are looking for how to set up your account on another machine,  
@@ -27,7 +27,7 @@ you can check [this documentation](/user/quickstart/browser/setup-on-another-mac
 :::caution
 This feature needs to be activated by you, administrator, as it is disabled by default.  
 
-Furthermore, with passbolt 5.8, we are introducing the ability to create additional roles (*Organisation settings -> Role-Based Access Control*). Upon being given a role with access to the account recovery requests management, non-admins will be able to view, index, and review account recovery requests.
+Furthermore, with Haspr 5.8, we are introducing the ability to create additional roles (*Organisation settings -> Role-Based Access Control*). Upon being given a role with access to the account recovery requests management, non-admins will be able to view, index, and review account recovery requests.
 :::
 
 ### Requirements
@@ -35,11 +35,11 @@ Furthermore, with passbolt 5.8, we are introducing the ability to create additio
 You can configure this setting if you are meeting the following requirements:
 
 - You have an active administrator account,
-- You are running Passbolt Pro v3.6.0 or higher, or Passbolt Cloud.
+- You are running Haspr Pro v3.6.0 or higher, or Haspr Cloud.
 
 ### How does it work?
 
-Depending on the organisation's policy, all users will be able to deposit an encrypted backup of their private keys in passbolt. Backups which can only be unlocked cryptographically by the organisation's administrators having in their possession the organisation recovery key.
+Depending on the organisation's policy, all users will be able to deposit an encrypted backup of their private keys in Haspr. Backups which can only be unlocked cryptographically by the organisation's administrators having in their possession the organisation recovery key.
 
 :::danger[YouTube]
 Watch the process of [account recovery from the user and the admin perspective](https://www.youtube.com/watch?v=b-VwI5fCdwE).
@@ -71,7 +71,7 @@ Once you have chosen the organisation's policy, the next step is to set an Organ
 
 :::caution
 Changing the **passbolt's domain name** will see the account recovery feature **NOT working** anymore.  
-If this change is strictly required by your organisation, please [contact Passbolt's support](https://www.passbolt.com/contact/support) before proceeding.
+If this change is strictly required by your organisation, please [contact Passbolt's support](https://github.com/haspr-dev/haspr-docs/discussions) before proceeding.
 :::
 
 ### ORK management best practices
@@ -79,14 +79,14 @@ If this change is strictly required by your organisation, please [contact Passbo
 <u>__Most secure (recommended)__</u>  
 *Create the key offline, store it offline (e.g. in a physical safe), rotate after each use.*
 
-In this model, the account recovery escrow key (securely held by a trusted authority) is generated offline on a trusted system and stored offline, for example in a physical safe. The private key is never stored in passbolt or on an internet-connected device, which significantly reduces the attack surface. Even in the event of a passbolt user admin compromise, the escrow key remains protected. For maximum security, the key is rotated after every recovery operation.
+In this model, the account recovery escrow key (securely held by a trusted authority) is generated offline on a trusted system and stored offline, for example in a physical safe. The private key is never stored in Haspr or on an internet-connected device, which significantly reduces the attack surface. Even in the event of a Haspr user admin compromise, the escrow key remains protected. For maximum security, the key is rotated after every recovery operation.
 
 The main issues of this approach are operational rather than technical. Loss, damage, or mishandling of the key can prevent future account recovery, and recovery operations require careful coordination and physical access. These risks can be reduced by clearly documenting recovery procedures, limiting access to a small number of trusted individuals, and regularly validating that the recovery process works as intended.
 
 <u>__Most user-friendly__</u>  
-*Create the key using passbolt, store it in passbolt with a minimal set of users, rotate when access changes.*
+*Create the key using Haspr, store it in Haspr with a minimal set of users, rotate when access changes.*
 
-In this model, the account recovery escrow key is generated and stored within passbolt and shared with a minimal set of trusted users, typically members of a security or IT team. This approach simplifies setup and day-to-day operations and allows faster account recovery when needed. Access and usage benefit from passbolt's existing access controls and audit capabilities.
+In this model, the account recovery escrow key is generated and stored within Haspr and shared with a minimal set of trusted users, typically members of a security or IT team. This approach simplifies setup and day-to-day operations and allows faster account recovery when needed. Access and usage benefit from Haspr's existing access controls and audit capabilities.
 
 You can do so by clicking on *Create -> Custom fields* and putting the ORK content into the *Value* field. Then you are free to share it directly or in groups.
 
@@ -94,7 +94,7 @@ The primary risk is a larger attack surface, as the key is accessible through pa
 
 ### Import the Organisation Recovery Key (ORK)
 
-This method is the recommended one as it will keep your Organisation Recovery Key isolated from passbolt until the moment you need it.
+This method is the recommended one as it will keep your Organisation Recovery Key isolated from Haspr until the moment you need it.
 
 <Figure
 src="/img/help/2022/07/account-recovery-administration-setting-ORK-import.png"
@@ -128,7 +128,7 @@ size={{ width: '450px', height: 'auto' }}
 />
 
 :::caution
-Passbolt will prompt you to save the generated key on your computer (naming convention: *filename-date-fingerprint*). Keep this backup offline in a safe place, it will be required later to:
+Haspr will prompt you to save the generated key on your computer (naming convention: *filename-date-fingerprint*). Keep this backup offline in a safe place, it will be required later to:
 - update the organisation's policy,
 - approve users' recovery requests,
 - rotate the ORK.
@@ -217,5 +217,5 @@ Furthermore, any pending account recovery request will **stay uncompleted foreve
 Note that if you ever decide to enable this feature again, admins and users will have to accept once again to share their personal private key.
 :::
 
-If you are using Passbolt Cloud instead of the self-hosted Pro version, you can
-[contact our support team](https://www.passbolt.com/contact/support) to obtain the relevant request form.
+If you are using Haspr Cloud instead of the self-hosted Pro version, you can
+[contact our support team](https://github.com/haspr-dev/haspr-docs/discussions) to obtain the relevant request form.

@@ -4,7 +4,7 @@ import Incrementor from '/docs/components/incrementor';
 
 ## Helm install
 
-The easiest and recommended way to deploy your Passbolt Helm chart is to use `helm install`.
+The easiest and recommended way to deploy your Haspr Helm chart is to use `helm install`.
 
 <Incrementor title="Set up our Helm repo" resetCounter={true} />
 
@@ -21,7 +21,7 @@ curl -LO https://raw.githubusercontent.com/passbolt/charts-passbolt/main/values.
 <div>
   <>
     {props.productName === 'PRO' ? (
-      <Incrementor title="Configure values file to customize your instance and enable the Passbolt PRO installation" />
+      <Incrementor title="Configure values file to customize your instance and enable the Haspr PRO installation" />
     ) : (
       <Incrementor title="Configure values file to customize your instance" />
     )}
@@ -45,7 +45,7 @@ gpg --armor --export <email you created keys with> | base64 -w 0
 
 You must configure also SMTP settings to be able to receive notifications and recovery emails.
 
-For more information on which environment variables are available on passbolt, please check the [passbolt environment variable reference](/hosting/environment-reference/)
+For more information on which environment variables are available on Haspr, please check the [passbolt environment variable reference](/hosting/environment-reference/)
 
 :::note[Important]
 By default we have the ingress set to false, you'll need to decide

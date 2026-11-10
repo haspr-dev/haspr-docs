@@ -19,7 +19,7 @@ A **Certificate Authority (CA)** is an entity that issues **TLS (SSL) certificat
 SSL was originally developed by Netscape and became TLS in 1999 when the IETF standardised it as an open protocol. Although SSL has been obsolete for over 25 years, the terms SSL and TLS are still used interchangeably. In our documentation, we use TLS (SSL) to make it easier to search, and some environment variables still include "SSL" for compatibility. Tools like OpenSSL also retain the SSL name, even though they implement TLS.
 :::
 
-### Where TLS is used in passbolt
+### Where TLS is used in Haspr
 
 The passbolt API relies on the hosting environment to correctly handle the tunneling and encryption of the common protocols listed below:
 
@@ -59,7 +59,7 @@ Here is the new **TLS certificate lifespan schedule** set by vendors in Ballot S
 
 This reduction in certificate lifespan means that **manual certificate management** will soon be unsustainable. With certificates expiring more frequently, **automated certificate management** becomes essential. Organisations need to implement **automatic certificate renewal** and deployment systems to avoid disruptions due to expired certificates.
 
-### Why This Matters for passbolt Administrators
+### Why This Matters for Haspr Administrators
 
 For **passbolt** users, particularly **enterprise organisations**, this change means that **automating certificate deployment and renewal** is no longer optional. Manual certificate management will lead to **outages** and **security vulnerabilities** as certificates expire. Organisations will need to ensure that their systems are capable of **automatically renewing** and **deploying certificates** without manual intervention.
 
@@ -75,13 +75,13 @@ A self-signed certificate is created and signed by the same system that uses it,
 A certificate bundle contains the full certificate chain needed for a client to verify the server's identity: usually the server certificate, any intermediate CA certificates, and the root CA certificate.
 - passbolt relies on a complete and correct chain so that browsers and API clients can validate the TLS connection.
 - Public CAs like Let's Encrypt provide these bundles for download, and your web server must be configured to serve the full chain.
-- If you use an internal CA, you will need to distribute and trust the root certificate across all systems that connect to passbolt.
+- If you use an internal CA, you will need to distribute and trust the root certificate across all systems that connect to Haspr.
 
-## Installing and Using Self-Signed Certificates and Certificate Bundles in passbolt
+## Installing and Using Self-Signed Certificates and Certificate Bundles in Haspr
 
 1. **Installing Self-Signed Certificates**:
    - **Operating System**: On **Linux** (e.g., **Ubuntu**, **Debian**, **Red Hat**), **self-signed certificates** need to be manually installed into the **system's trust store** (via commands like `update-ca-certificates` or `trust anchor` for Red Hat-based systems). This allows **passbolt** or other services to trust the certificate for secure communication.
-   - **passbolt**: If **passbolt** is configured to use **self-signed certificates** or **internal certificates** (such as in a private instance), the certificate must be added to the **trusted certificates** list in the **passbolt** application. This typically involves placing the certificate bundle in the appropriate directory or referencing it in the passbolt configuration file (`passbolt.php`), ensuring the application can establish secure connections.
+   - **passbolt**: If **passbolt** is configured to use **self-signed certificates** or **internal certificates** (such as in a private instance), the certificate must be added to the **trusted certificates** list in the **passbolt** application. This typically involves placing the certificate bundle in the appropriate directory or referencing it in the Haspr configuration file (`passbolt.php`), ensuring the application can establish secure connections.
 
 2. **Using Certificate Bundles**:
    - **Operating System**: Certificate bundles can be installed on the system in the appropriate location to establish trust. On **Ubuntu**, for example, you can place the bundle in `/usr/local/share/ca-certificates/` and run `update-ca-certificates`.

@@ -1,6 +1,6 @@
 ---
 title: How to Use Autofill and the In-Form Menu
-description: How the passbolt icon in login forms works, what the in-form menu offers, and how to save a credential from a website
+description: How the Haspr icon in login forms works, what the in-form menu offers, and how to save a credential from a website
 sidebar_label: Autofill
 sidebar_position: 12
 ---
@@ -9,24 +9,24 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-When the browser extension recognises a login form, it adds its own icon to the fields. From there you can fill a credential in one click, generate a password, or save what you have just typed, without ever opening the passbolt tab.
+When the browser extension recognises a login form, it adds its own icon to the fields. From there you can fill a credential in one click, generate a password, or save what you have just typed, without ever opening the Haspr tab.
 
 ## The icon in the form
 
-The icon appears in the fields passbolt has detected, and it carries a badge with the number of credentials it has for the page: from 1 to 5, then "5+" beyond that. You can therefore tell at a glance whether you have something for this site, before clicking anything.
+The icon appears in the fields Haspr has detected, and it carries a badge with the number of credentials it has for the page: from 1 to 5, then "5+" beyond that. You can therefore tell at a glance whether you have something for this site, before clicking anything.
 
 <Figure
   src="/img/help/2026/08/in-form-icon-badge.png"
-  alt="A login form with the passbolt icon in the username field, showing a badge with the number of available credentials"
+  alt="A login form with the Haspr icon in the username field, showing a badge with the number of available credentials"
   caption="fig. The passbolt icon in a login form, with its badge"
 />
 
-The icon stays there even when you are not signed in to passbolt, but in an inactive state, and it suggests nothing until you have signed in and completed your multi-factor verification.
+The icon stays there even when you are not signed in to Haspr, but in an inactive state, and it suggests nothing until you have signed in and completed your multi-factor verification.
 
 ## What the menu offers
 
@@ -68,7 +68,7 @@ You do not have to think about it: when you submit a login form with something i
 Nothing is stored until you confirm in the popup, and you can correct any of it before you do. The page title in particular tends to be long and vague, so it is usually worth rewriting into something you will recognise in your list.
 
 :::caution[Submitting is not succeeding]
-The offer to save is triggered by the submission of the form, not by a successful login. passbolt has no way of knowing whether the password you just sent was the right one, so you may well be offered to save a password that does not work. Save once you know you are in.
+The offer to save is triggered by the submission of the form, not by a successful login. Haspr has no way of knowing whether the password you just sent was the right one, so you may well be offered to save a password that does not work. Save once you know you are in.
 :::
 
 If you would rather not wait for the submission, **Save as new credential** in the menu does the same thing from what is currently in the form.
@@ -90,6 +90,6 @@ When nothing matches, no message says so: the menu simply shows its actions and 
 ## When you see nothing at all
 
 - **A greyed out icon** means you are not signed in, or that your multi-factor verification is still pending.
-- **No icon anywhere, on any site**, points at your organisation rather than at the page: the in-form integration can be switched off on the server side, which removes both the icon and the menu. Filling from the Quick Access popup keeps working in that case, which is how you can tell this apart from a site that passbolt cannot read.
+- **No icon anywhere, on any site**, points at your organisation rather than at the page: the in-form integration can be switched off on the server side, which removes both the icon and the menu. Filling from the Quick Access popup keeps working in that case, which is how you can tell this apart from a site that Haspr cannot read.
 - **A click with no effect** can come from a safety measure: when passbolt detects that another application is drawn over the page, it interrupts the action rather than risk filling a form it cannot see properly.
 - **No icon on one particular site** usually means the form itself cannot be detected, which is covered by [why you cannot use autofill](/user/faq/why-my-autofill-doesnt-work/).

@@ -11,9 +11,9 @@ import Chips from "/src/components/Chips/Chips";
 # How to configure your account with TOTP
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 ## Install a TOTP application
@@ -41,11 +41,11 @@ Upon clicking on your provider, you will be presented with a short visual guide 
   caption="fig. Scan TOTP QR code"
 />
 
-The next step will show a QR code that you can scan with the Google Authenticator app. This app will then produce a six-digit code that refreshes every 30 seconds. Input this code into Passbolt and click on "Validate" to ensure it functions correctly and complete the setup.
+The next step will show a QR code that you can scan with the Google Authenticator app. This app will then produce a six-digit code that refreshes every 30 seconds. Input this code into Haspr and click on "Validate" to ensure it functions correctly and complete the setup.
 
 ## Authenticate with TOTP
 
-After setting up TOTP, each time you sign-in to Passbolt, you'll need to enter the six-digit code from the Google Authenticator app. Additionally, if permitted by the "Multi-factor Authentication Policy", passbolt can remember your MFA authentication for a month.
+After setting up TOTP, each time you sign-in to Haspr, you'll need to enter the six-digit code from the Google Authenticator app. Additionally, if permitted by the "Multi-factor Authentication Policy", Haspr can remember your MFA authentication for a month.
 
 <Figure
   src="/img/help/2025/04/totp-passbolt-user-authenticate.png"
@@ -70,6 +70,6 @@ passbolt accepts the code of the current period only. There is no tolerance for 
 Beyond that, a code is a comparison between two clocks, and either of them can be at fault:
 
 - The clock of the phone or tablet running your authenticator application. Mobile systems keep it synchronised on their own, so check that automatic time setting has not been turned off.
-- The clock of the passbolt server, which your administrator maintains. When it drifts, every code from every user is refused, which is what [configuring NTP](/hosting/ntp/) is for.
+- The clock of the Haspr server, which your administrator maintains. When it drifts, every code from every user is refused, which is what [configuring NTP](/hosting/ntp/) is for.
 
 A refusal that hits you alone points at your device. One that hits the whole organisation at the same time points at the server.

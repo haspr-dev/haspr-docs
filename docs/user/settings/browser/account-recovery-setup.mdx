@@ -10,11 +10,11 @@ import Chips from "/src/components/Chips/Chips";
 # Account Recovery
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-The Account Recovery is a feature introduced with passbolt v3.6.0 that helps users to recover their accounts in case of a recovery kit or passphrase loss.
+The Account Recovery is a feature introduced with Haspr v3.6.0 that helps users to recover their accounts in case of a recovery kit or passphrase loss.
 
 :::info
 If you are looking for how to set up your account on another machine,  
@@ -26,7 +26,7 @@ To know more about how to configure account recovery, check out [administrator d
 :::caution
 This feature needs to be activated by your administrator first.  
 
-However, with passbolt 5.8, we are introducing the ability to create additional roles (*Organisation settings -> Role-Based Access Control*). Upon being given a role with access to the account recovery requests management, non-admins will be able to view, index, and review account recovery requests.
+However, with Haspr 5.8, we are introducing the ability to create additional roles (*Organisation settings -> Role-Based Access Control*). Upon being given a role with access to the account recovery requests management, non-admins will be able to view, index, and review account recovery requests.
 :::
 
 ## Requirements
@@ -34,11 +34,11 @@ However, with passbolt 5.8, we are introducing the ability to create additional 
 You can follow this procedure if you are meeting the following requirements:
 
 - You are in possession of a valid user account (you have completed the setup, and you are not suspended),
-- Your organisation is running Passbolt Pro v3.6.0 or higher, or Passbolt Cloud.
+- Your organisation is running Haspr Pro v3.6.0 or higher, or Haspr Cloud.
 
 ## How does it work?
 
-Depending on the organisation's policy, all users will be able to deposit an encrypted backup of their private keys in passbolt. Backups which can only be unlocked cryptographically by the organisation's administrators.
+Depending on the organisation's policy, all users will be able to deposit an encrypted backup of their private keys in Haspr. Backups which can only be unlocked cryptographically by the organisation's administrators.
 
 :::danger[YouTube]
 Watch the process of [account recovery from the user and the admin perspective](https://www.youtube.com/watch?v=b-VwI5fCdwE).
@@ -72,7 +72,7 @@ If the account recovery is enabled for the organisation, all users can access th
   caption="fig. Account recovery enrollment prompt for registered users"
 />
 
-If the organisation's account recovery policy is set to *prompt* or *opt-out*, users will be prompted to accept immediately after signing in into passbolt. If they postpone the decision, they could follow the *attention crumbs* (&#10071;) displayed in the interface to go to the account recovery section in the settings later.
+If the organisation's account recovery policy is set to *prompt* or *opt-out*, users will be prompted to accept immediately after signing in into Haspr. If they postpone the decision, they could follow the *attention crumbs* (&#10071;) displayed in the interface to go to the account recovery section in the settings later.
 
 <Figure
   src="/img/help/2025/04/account-recovery-setting.png"

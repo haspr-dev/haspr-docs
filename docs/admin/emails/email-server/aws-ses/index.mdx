@@ -12,8 +12,8 @@ import Chips from "/src/components/Chips/Chips";
 # Configure Email authentication with AWS SES
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <EmailServerConfigurationIntroduction/>
@@ -34,9 +34,9 @@ Once you have selected a name for your credentials, AWS SES will generate a set 
 
 To download your newly created SMTP credentials, simply click on the "Download Credentials" button. This will download a file containing your SMTP username and password. It's important to keep this file safe and secure, as it contains sensitive information that can be used to send emails from your account.
 
-- Authentication on Passbolt GUI
+- Authentication on Haspr GUI
 
-On your Passbolt instance, you can navigate to *Administration > Email server*.
+On your Haspr instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method (username & password).
 

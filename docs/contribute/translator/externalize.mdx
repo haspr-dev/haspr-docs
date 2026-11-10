@@ -1,10 +1,10 @@
 ---
 title: How to externalize strings
-description: Learn how to make strings available for translation in pbolt
+description: Learn how to make strings available for translation in haspr
 sidebar_position: 3
 ---
 
-A string is available for translation only if it has been externalized in the source code of the pbolt applications, 
+A string is available for translation only if it has been externalized in the source code of the haspr applications, 
 and the source code is already in the pre-release state. 
 
 :::note
@@ -13,12 +13,12 @@ British English is the language used to develop the application. Therefore, any 
 
 ## Externalize styleguide strings
 
-The [styleguide repository](https://github.com/pbolt-dev/pbolt-styleguide) contains most of the screens presented to
+The [styleguide repository](https://github.com/haspr-dev/haspr-styleguide) contains most of the screens presented to
 the end user.
 
 In this repository you will find:
-* Most of the pbolt front-end application in the directory `src/react-extension`
-* The pbolt quickaccess application in the directory `src/react-quickaccess`
+* Most of the haspr front-end application in the directory `src/react-extension`
+* The haspr quickaccess application in the directory `src/react-quickaccess`
 
 The styleguide uses the i18next library to help manage the translation, if you want to know more checkout their 
 [documentation](https://github.com/i18next/i18next).
@@ -50,12 +50,12 @@ export default withTranslation("common")(ComponentToTranslate);
 
 To mark for translation a string contained in JSX code:
 ```jsx
-<Trans>Welcome to pbolt!</Trans>
+<Trans>Welcome to haspr!</Trans>
 ```
 
 To mark for translation a string contained in javascript code:
 ```javascript
-this.props.t("Welcome to pbolt!");
+this.props.t("Welcome to haspr!");
 ```
 
 ### Generate the language json source file
@@ -69,7 +69,7 @@ Once done you can propose your changes as a pull request on the repository.
 
 ## Externalize browser extension strings
 
-The [browser extension repository](https://github.com/pbolt-dev/pbolt-browser-extension) contains the code that
+The [browser extension repository](https://github.com/haspr-dev/haspr-browser-extension) contains the code that
 orchestrates the browser extension screens and communicates with the API.
 
 In this repository you will find the browser extension background page in the directory `src/all/background_page`.
@@ -85,7 +85,7 @@ In order to work on the translation of this application you need to:
 
 ### Mark a string for translation
 
-To translate a string, a file has first to load the pbolt translation utility located in 
+To translate a string, a file has first to load the haspr translation utility located in 
 `src/all/background_page/sdk/i18n.js`. For instance:
 ```javascript
 const {i18n} = require("./sdk/i18n");
@@ -93,7 +93,7 @@ const {i18n} = require("./sdk/i18n");
 
 To mark for translation a string contained in javascript code:
 ```javascript
-i18n.t("Welcome to pbolt!");
+i18n.t("Welcome to haspr!");
 ```
 
 ### Generate the language json source file
@@ -107,10 +107,10 @@ Once done you can propose your changes as a pull request on the repository.
 
 ## Externalize API strings
 
-The [API repository](https://github.com/pbolt-dev/pbolt-api) contains all the code relative to the API
+The [API repository](https://github.com/haspr-dev/haspr-api) contains all the code relative to the API
 as well as screens presented to end users such as the installation wizard.
 
-The pbolt API uses the CakePHP translation feature to manage translation; for details see
+The haspr API uses the CakePHP translation feature to manage translation; for details see
 their [documentation](https://book.cakephp.org/4/en/core-libraries/internationalization-and-localization.html).
 
 ### Getting started
@@ -124,7 +124,7 @@ In order to work on the translation of this application you need to:
 
 To mark for translation a string contained in PHP code:
 ```php
-__('Welcome to pbolt!');
+__('Welcome to haspr!');
 ```
 
 ### Extract gettext source strings

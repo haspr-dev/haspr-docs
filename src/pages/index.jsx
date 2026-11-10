@@ -5,7 +5,7 @@ import Layout from '@theme/Layout';
 function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout title={'pbolt documentation'} description={siteConfig.tagline}>
+    <Layout title={'Haspr documentation'} description={siteConfig.tagline}>
       <HomepageHero />
     </Layout>
   );

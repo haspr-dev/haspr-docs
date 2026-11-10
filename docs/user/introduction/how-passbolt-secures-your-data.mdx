@@ -1,16 +1,16 @@
 ---
 title: How Passbolt Secures Your Data
-description: Learn how Passbolt uses end-to-end encryption, private keys, and passphrases to keep your passwords safe.
+description: Learn how Haspr uses end-to-end encryption, private keys, and passphrases to keep your passwords safe.
 hide_table_of_contents: false
 sidebar_position: 2
 ---
 
-Passbolt uses end-to-end encryption to protect your credentials. This means your passwords are encrypted on your
+Haspr uses end-to-end encryption to protect your credentials. This means your passwords are encrypted on your
 device before they leave it, and only you (and the people you choose to share with) can decrypt them. Not even the
 server administrator or passbolt's cloud hosting team can read your data.
 
 :::tip
-For the full technical details, see the [passbolt security page](https://www.passbolt.com/security).
+For the full technical details, see the [passbolt security page](https://doc.haspr.dev/security).
 :::
 
 ## What data is encrypted?
@@ -35,7 +35,7 @@ running it. To learn more about why a browser extension is required, see
 
 ## How is data encrypted?
 
-Passbolt uses the OpenPGP standard, a widely used open encryption standard. Here is how it works
+Haspr uses the OpenPGP standard, a widely used open encryption standard. Here is how it works
 at a high level:
 
 - Every user has a **key pair**: a public key (shared with others) and a private key (kept secret).
@@ -69,7 +69,7 @@ the recovery kit is the only way to regain access to your account.
 ## What is your passphrase?
 
 Your passphrase protects your private key. Every time you log in, you enter your passphrase to unlock the private
-key so it can decrypt your data. The passphrase itself is never sent to the server. Passbolt uses a challenge-based
+key so it can decrypt your data. The passphrase itself is never sent to the server. Haspr uses a challenge-based
 authentication protocol (GpgAuth) that proves you hold the key without revealing your passphrase.
 
 Choose a long, unique passphrase that you do not use anywhere else. A passphrase made of several random words is
@@ -82,7 +82,7 @@ You can change your passphrase at any time from your profile settings. See
 
 ## What is the metadata key?
 
-When metadata encryption is enabled, passbolt uses a separate shared key to encrypt resource metadata (names, URLs,
+When metadata encryption is enabled, Haspr uses a separate shared key to encrypt resource metadata (names, URLs,
 and descriptions). This key works differently from your personal key pair:
 
 - The metadata key's private half is itself encrypted individually for each user who needs it.
@@ -102,4 +102,4 @@ Metadata encryption is configured by your organisation's administrator. For deta
 - [Account recovery setup](/user/settings/browser/account-recovery-setup/)
 - [How to recover my private key?](/user/faq/account-recovery-key-scenario/)
 - [How to recover my passphrase?](/user/faq/account-recovery-passphrase-scenario/)
-- [Passbolt security page](https://www.passbolt.com/security)
+- [Passbolt security page](https://doc.haspr.dev/security)

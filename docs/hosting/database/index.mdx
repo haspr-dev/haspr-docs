@@ -1,6 +1,6 @@
 ---
 title: Database Configuration
-description: How to configure and manage the passbolt database
+description: How to configure and manage the Haspr database
 sidebar_label: Database
 hide_table_of_contents: false
 ---
@@ -11,8 +11,8 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 ## Configure a fresh installation
@@ -60,7 +60,7 @@ MYSQL_USER: "passbolt"
 MYSQL_PASSWORD: "very-strong-password"`}
     </CodeBlock>
 
-    For the passbolt container:
+    For the Haspr container:
     <CodeBlock language="yaml">
       {`DATASOURCES_DEFAULT_DATABASE: "passboltdb"
 DATASOURCES_DEFAULT_USERNAME: "passbolt"

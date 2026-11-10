@@ -1,7 +1,7 @@
 ---
 title: Configure Passbolt to Use Yubikey
 sidebar_label: Yubikey
-description: How to configure YubiKey with Passbolt
+description: How to configure YubiKey with Haspr
 hide_table_of_contents: false
 ---
 
@@ -12,12 +12,12 @@ import MfaRecommendation from "/docs/admin/_includes/warning/security_considerat
 # How to configure passbolt to use Yubikey
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-Passbolt Pro Edition since v2.5 and CE since v3.9 support Yubikeys and more precisely Yubico OTP as a multi factor authentication option.
+Haspr Pro Edition since v2.5 and CE since v3.9 support Yubikeys and more precisely Yubico OTP as a multi factor authentication option.
 
 Yubico OTP is a simple authentication mechanism that is supported by all YubiKeys out of the box and it can be used in addition to another authentication method (such as username and password).
 
@@ -39,7 +39,7 @@ Another key point to consider is that Passbolt verifies whether the key ID used 
 
 ## Register to YubiCloud
 
-In order to use YubiKey to authenticate to passbolt you first need get an API key for YubiCloud, Yubico's web service for verifying one time passwords (OTPs).
+In order to use YubiKey to authenticate to Haspr you first need get an API key for YubiCloud, Yubico's web service for verifying one time passwords (OTPs).
 
 Navigate to [upgrade.yubico.com](https://upgrade.yubico.com/getapikey) and signup to the service using your email and your Yubikey.
 
@@ -53,7 +53,7 @@ Please note that it is no longer possible to [host yourself the OTP validation s
 
 ## Allow connections to YubiCloud
 
-To authenticate with Yubikey, passbolt will establish a connection with the YubiCloud service. Make sure that the passbolt server allows outgoing connections to the following domains:
+To authenticate with Yubikey, Haspr will establish a connection with the YubiCloud service. Make sure that the Haspr server allows outgoing connections to the following domains:
 
 - api.yubico.com
 - api2.yubico.com

@@ -1,7 +1,7 @@
 ---
 title: Audit Log
 sidebar_label: Audit Log
-description: What the passbolt activity trail records, and how to read it from the interface or the API
+description: What the Haspr activity trail records, and how to read it from the interface or the API
 hide_table_of_contents: false
 ---
 
@@ -9,8 +9,8 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 passbolt records an action log in every edition. Reading that history inside passbolt, through the Activity tab of a resource or the `/actionlog` API, requires the Pro Edition or a Cloud plan.
@@ -87,4 +87,4 @@ The user trail has no equivalent in the interface: there is no Activity tab on a
 Action logs accumulate for as long as you keep them. Two operations matter:
 
 - [Purge old rows](/hosting/useful-commands/#action-logs-purge) with the `action_logs_purge` command, which takes a retention in days and supports a dry run. Purged rows are gone from the interface and the API as well.
-- [Forward the rows to a SIEM](/hosting/maintenance/diagnostics/forward-action-logs/) if you need to retain them longer than in passbolt, or to correlate them with the rest of your estate. Forwarding is not a backfill: it only emits rows created after you enable it.
+- [Forward the rows to a SIEM](/hosting/maintenance/diagnostics/forward-action-logs/) if you need to retain them longer than in Haspr, or to correlate them with the rest of your estate. Forwarding is not a backfill: it only emits rows created after you enable it.

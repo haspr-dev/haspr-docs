@@ -11,8 +11,8 @@ import Chips from "/src/components/Chips/Chips";
 # Account Recovery with the Help of an Administrator
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 :::info
@@ -20,7 +20,7 @@ This feature needs to be activated by your administrator first and you need to h
 account. The feature is currently not available in the community edition.
 :::
 
-The Account recovery is a feature introduced with passbolt v3.6.0 that helps users to recover their
+The Account recovery is a feature introduced with Haspr v3.6.0 that helps users to recover their
 accounts in the scenario where they have lost their recovery kit and/or passphrase.
 
 The way it works is that during setup, the user will share an encrypted version of their private key. The private key
@@ -30,7 +30,7 @@ material is encrypted using an organisation recovery key.
 
 You can follow this procedure if you are meeting the following requirements:
 
-- Your organisation is running Passbolt Pro > v3.6.0 or Passbolt Cloud.
+- Your organisation is running Haspr Pro > v3.6.0 or Haspr Cloud.
 - Account recovery was setup for your organisation by your administrator.
 - You are in possession of a valid user account (you have completed the setup, and you are not suspended);
 - You subscribed to the account recovery program while installing passbolt for the first time or via in your [user settings workspace](/user/settings/browser/account-recovery-setup/).
@@ -71,5 +71,5 @@ There are 2 ways to start the procedure:
 
 To know more about account recovery, checkout the following:
 - [Account recovery in Administrator Guide](/admin/authentication/account-recovery/)
-- [What will the "Account Recovery" functionality look like?](https://www.passbolt.com/blog/what-will-the-account-recovery-functionality-look-like) (Blog)
-- [Introducing the "Account Recovery" functionality](https://www.passbolt.com/blog/account-recovery) (Blog)
+- [What will the "Account Recovery" functionality look like?](https://doc.haspr.dev/blog/what-will-the-account-recovery-functionality-look-like) (Blog)
+- [Introducing the "Account Recovery" functionality](https://doc.haspr.dev/blog/account-recovery) (Blog)

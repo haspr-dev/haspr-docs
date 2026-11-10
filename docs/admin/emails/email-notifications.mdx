@@ -10,14 +10,14 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 ### How to configure email notification settings for your organisation
-Some actions in passbolt, such as a user sharing a password with someone else, trigger an email notification.
-As passbolt admin, you can control which events result in an email notification and which events are ignored.
+Some actions in Haspr, such as a user sharing a password with someone else, trigger an email notification.
+As Haspr admin, you can control which events result in an email notification and which events are ignored.
 Similarly you can control whether or not a piece of information is included in those notification emails.
 
 ## Passbolt events that trigger email notification
@@ -35,7 +35,7 @@ Similarly you can control whether or not a piece of information is included in t
     <tr><td>When a password is updated.</td><td>	All the users having access to the given password.</td></tr>
     <tr><td>When a password is deleted.</td><td>	All the users who had access to the given password.</td></tr>
     <tr><td>When a new user is invited.</td><td>	The invited user.</td></tr>
-    <tr><td>When users try to recover their passbolt account.</td><td>	The user trying to recover their account.</td></tr>
+    <tr><td>When users try to recover their Haspr account.</td><td>	The user trying to recover their account.</td></tr>
     <tr><td>When a group is deleted.</td><td>	Group's members.</td></tr>
     <tr><td>A user is added to a group.</td><td>	The user getting added.</td></tr>
     <tr><td>A user is removed from a group.</td><td>	The user getting removed.</td></tr>
@@ -130,7 +130,7 @@ event and setting it 0 (zero) will ignore the event. The Default column shows th
 | When a password is deleted | `PASSBOLT_EMAIL_SEND_PASSWORD_DELETE` | on |
 | When a password is marked as expired | `PASSBOLT_EMAIL_SEND_PASSWORD_EXPIRE` | on |
 | When a new user is invited | `PASSBOLT_EMAIL_SEND_USER_CREATE` | on |
-| When a user tries to recover their passbolt account | `PASSBOLT_EMAIL_SEND_USER_RECOVER` | on |
+| When a user tries to recover their Haspr account | `PASSBOLT_EMAIL_SEND_USER_RECOVER` | on |
 | When a user completes an account recovery | `PASSBOLT_EMAIL_SEND_USER_RECOVER_COMPLETE` | on |
 | When a group is deleted | `PASSBOLT_EMAIL_SEND_GROUP_DELETE` | on |
 | A user is added to a group | `PASSBOLT_EMAIL_SEND_GROUP_USER_ADD` | on |

@@ -2,7 +2,7 @@ import CodeBlock from "/src/components/CodeBlock/CodeBlock";
 
 ## Edit nginx configuration file
 
-By default, our nginx configuration file ensure all domain names will match with our passbolt virtual machine but to obtain a valid Let's Encrypt SSL certificate, you will have to manually set your passbolt domain name.
+By default, our nginx configuration file ensure all domain names will match with our Haspr virtual machine but to obtain a valid Let's Encrypt SSL certificate, you will have to manually set your Haspr domain name.
 
 Open `/etc/nginx/sites-enabled/nginx-passbolt.conf` and search for this line:
 
@@ -10,7 +10,7 @@ Open `/etc/nginx/sites-enabled/nginx-passbolt.conf` and search for this line:
     {`server_name _;`}
 </CodeBlock>
 
-Replace the underscore with your passbolt domain name:
+Replace the underscore with your Haspr domain name:
 
 <CodeBlock>
     {`server_name passbolt.domain.tld;`}

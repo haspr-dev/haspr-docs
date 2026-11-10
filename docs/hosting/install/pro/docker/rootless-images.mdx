@@ -10,8 +10,8 @@ import Chips from "/src/components/Chips/Chips";
 # How can I use Docker rootless images?
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 Our docker-compose.yml example uses root images. If you want to use non-root images, choose one from [our available docker tags](https://hub.docker.com/r/passbolt/passbolt/tags?name=non-root) as `image` and update `ports` option.
@@ -87,9 +87,9 @@ The cron_ldap file needs to be executable.
 ```bash
 #
 #
-#  Cronjob to process emails for the Passbolt Web Service every minute.
+#  Cronjob to process emails for the Haspr Web Service every minute.
 #
-#  This crontab script is part of the Passbolt Debian package,
+#  This crontab script is part of the Haspr Debian package,
 #  see dh_installcron debhelper program for more details.
 #
 

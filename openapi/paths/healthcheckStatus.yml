@@ -1,5 +1,5 @@
 get:
-  summary: "Check if pbolt is up."
+  summary: "Check if Haspr is up."
   operationId: "viewHealthcheckStatus"
   security: []
   x-codeSamples:

@@ -15,8 +15,8 @@ import CodeBlock from '@theme/CodeBlock';
 # Configure Email authentication with Microsoft Exchange Server
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <EmailServerConfigurationIntroduction/>
@@ -31,13 +31,13 @@ passbolt submits emails to Exchange the same way a mail client does: authenticat
 
 Check the following with your Exchange administrator:
 
-- A receive connector accepts authenticated client submissions on port 587 (Exchange creates one by default, named *Client Frontend &lt;ServerName&gt;*), and the account used by passbolt is allowed to submit through it.
+- A receive connector accepts authenticated client submissions on port 587 (Exchange creates one by default, named *Client Frontend &lt;ServerName&gt;*), and the account used by Haspr is allowed to submit through it.
 - The account has a mailbox, and may send as the address you plan to use as the sender email.
-- The TLS certificate served on port 587 is trusted by the passbolt server. If Exchange serves a certificate from an internal CA, either add that CA to the passbolt server's trust store or configure the [custom certificate options](/admin/emails/email-server/#configure-smtp-server-using-customself-signed-certificate).
+- The TLS certificate served on port 587 is trusted by the Haspr server. If Exchange serves a certificate from an internal CA, either add that CA to the Haspr server's trust store or configure the [custom certificate options](/admin/emails/email-server/#configure-smtp-server-using-customself-signed-certificate).
 
 ## passbolt configuration
 
-On your passbolt instance, select &#9881; > **Organisation settings** > **Email server** in the top right corner.
+On your Haspr instance, select &#9881; > **Organisation settings** > **Email server** in the top right corner.
 
 - Select **Other** as the email provider.
 - Select **Username & Password** as the authentication method.

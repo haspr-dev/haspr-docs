@@ -10,8 +10,8 @@ import Chips from "/src/components/Chips/Chips";
 import Figure from '/src/components/Figure/Figure';
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 :::danger[WARNING]
@@ -36,7 +36,7 @@ sudo apt install -y postgresql postgresql-contrib`}
 {`sudo systemctl enable --now postgresql`}
 </CodeBlock>
 
-3. **Create a PostgreSQL user and database for Passbolt:**
+3. **Create a PostgreSQL user and database for Haspr:**
 <CodeBlock>
 {`sudo -u postgres psql`}
 </CodeBlock>
@@ -57,7 +57,7 @@ GRANT ALL PRIVILEGES ON SCHEMA public TO passbolt;`}
 
 5. **Continue the installation of passbolt:**
 
-You will need to navigate on your browser to the URL of your passbolt instance, from there, you will be able to configure the database section with Postgres instead of MariaDB.
+You will need to navigate on your browser to the URL of your Haspr instance, from there, you will be able to configure the database section with Postgres instead of MariaDB.
 
 <Figure
   src="/img/screenshots/configure_pgsql.png"
@@ -86,7 +86,7 @@ Since you are following this PostgreSQL guide, when prompted by the installation
 {`sudo systemctl enable --now postgresql`}
 </CodeBlock>
 
-4. **Create a PostgreSQL user and database for Passbolt:**
+4. **Create a PostgreSQL user and database for Haspr:**
 <CodeBlock>
 {`sudo -u postgres psql`}
 </CodeBlock>
@@ -102,7 +102,7 @@ GRANT ALL PRIVILEGES ON SCHEMA public TO passbolt;`}
 
 5. **Continue the installation of passbolt:**
 
-You will need to navigate on your browser to the URL of your passbolt instance, from there, you will be able to configure the database section with Postgres instead of MariaDB.
+You will need to navigate on your browser to the URL of your Haspr instance, from there, you will be able to configure the database section with Postgres instead of MariaDB.
 
 <Figure
   src="/img/screenshots/configure_pgsql.png"

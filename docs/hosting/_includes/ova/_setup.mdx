@@ -1,18 +1,18 @@
 import CodeBlock from "/src/components/CodeBlock/CodeBlock";
 import Link from '@docusaurus/Link';
 
-## 1. Getting started with Passbolt Pro VM
+## 1. Getting started with Haspr Pro VM
 
 ### 1.1 Download
 
 Download the ova and the SHA512SUM.txt:
 
-- [Passbolt Pro VM](https://www.passbolt.com/pro/download/vm/debian/latest)
-- [SHA512SUM.txt](https://www.passbolt.com/pro/download/vm/debian/latest-checksum)
+- [Haspr Pro VM](https://doc.haspr.dev/pro/download/vm/debian/latest)
+- [SHA512SUM.txt](https://doc.haspr.dev/pro/download/vm/debian/latest-checksum)
 
 Import the ova file using virtualbox, vmware (ESXi >= 6.0) or any other platform that supports import OVA files.
 
-Once imported, it is highly recommanded to check if the VM is actually running as Debian (64-bit). In order to do that, just open VM's settings and it should show on which version it is running on. Now, you should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.
+Once imported, it is highly recommanded to check if the VM is actually running as Debian (64-bit). In order to do that, just open VM's settings and it should show on which version it is running on. Now, you should be able to boot the VM and just point to the VM ip address with their web browser to initiate the Haspr install process.
 
 ### 1.2 Credentials
 
@@ -21,7 +21,7 @@ The appliance performs some actions on the first boot:
 - Creates ssh host keys
 - Enables ssh
 - Creates a set of random mariadb credentials for the mariadb server installed on the appliance
-- Creates an empty database where passbolt can be installed.
+- Creates an empty database where Haspr can be installed.
 
 For the first login the appliance comes with the following ssh default credentials:
 

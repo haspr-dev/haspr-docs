@@ -9,12 +9,12 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-passbolt has two language settings: an organisation default that administrators set, and a personal preference that each user can set on their own profile. Both are labelled "Language" in the interface, so this page refers to them by where they live.
+Haspr has two language settings: an organisation default that administrators set, and a personal preference that each user can set on their own profile. Both are labelled "Language" in the interface, so this page refers to them by where they live.
 
 ## Set the organisation default language
 
@@ -26,10 +26,10 @@ Go to *Administration > Internationalisation*, choose a language in the **Langua
   caption="fig. Internationalisation administration screen"
 />
 
-The list of available languages depends on your passbolt version, so open the Language dropdown to see what your instance offers.
+The list of available languages depends on your Haspr version, so open the Language dropdown to see what your instance offers.
 
 :::info[Translations are community contributions]
-passbolt is developed in British English, which is the source language and is therefore always complete. Every other language is translated by the community through CrowdIn, so expect two kinds of gaps:
+Haspr is developed in British English, which is the source language and is therefore always complete. Every other language is translated by the community through CrowdIn, so expect two kinds of gaps:
 
 - A language can be partly translated, which is what the "(beta)" label on some entries of the dropdown means.
 - Even a well covered language lags behind new releases: the strings added by a new feature stay in British English until someone translates them.
@@ -67,4 +67,4 @@ The organisation default governs users who have no preference recorded, and ever
 Each email is prepared in the language of its recipient: their own preference, or the organisation default when they have none, or British English. Two consequences are worth knowing:
 
 - The language is resolved when the email is queued, not when the cron job sends it, so changing a preference does not re-translate the emails already waiting in the queue.
-- An email addressed to someone who has no passbolt account is prepared in the language of the organisation.
+- An email addressed to someone who has no Haspr account is prepared in the language of the organisation.

@@ -1,7 +1,7 @@
 ---
 title: Routine maintenance
 sidebar_label: Routine maintenance
-description: The tables that grow over time on a long-lived passbolt instance, and the commands that keep them in check
+description: The tables that grow over time on a long-lived Haspr instance, and the commands that keep them in check
 hide_table_of_contents: false
 ---
 
@@ -11,11 +11,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
-A passbolt instance accumulates data that is never needed again. Sent emails
+A Haspr instance accumulates data that is never needed again. Sent emails
 stay in the queue table, action logs record every read of every secret, and on
 Pro installations each directory synchronisation writes a report. None of it is
 removed automatically.
@@ -29,7 +29,7 @@ the commands that keep it in check.
 
 | Table | Filled by | Command |
 | --- | --- | --- |
-| `email_queue` | Every notification passbolt sends | `passbolt purge_email_queue` |
+| `email_queue` | Every notification Haspr sends | `passbolt purge_email_queue` |
 | `action_logs` | Every user action, including secret reads | `passbolt action_logs_purge` |
 | `directory_reports`, `directory_reports_items` | Each directory synchronisation run (Pro with LDAP or Active Directory) | `directory_sync purge_directory_reports` |
 
@@ -77,7 +77,7 @@ logs](/hosting/maintenance/performance/purge-action-logs/).
 
 ## Purging directory synchronisation reports
 
-<Chips link="https://www.passbolt.com/pricing/pro">Pro</Chips>
+<Chips link="/hosting">Pro</Chips>
 
 Each directory synchronisation writes a report and a row per item processed.
 On an instance synchronising a large directory several times a day, the
@@ -117,7 +117,7 @@ against the sync timetable.
 
 ## Repairing database integrity
 
-Separately from the purges, passbolt can detect and repair relational integrity
+Separately from the purges, Haspr can detect and repair relational integrity
 problems in its own tables, such as records left pointing at rows that no longer
 exist.
 

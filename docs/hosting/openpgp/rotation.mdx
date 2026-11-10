@@ -16,8 +16,8 @@ import Webserverprotip from '/docs/hosting/_includes/troubleshooting/_webserver-
 # How can I rotate the server GPG keys?
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 :::warning[A rotation breaks settings encrypted with the server key]
@@ -36,7 +36,7 @@ Your users' stored passwords and other secrets are not re-encrypted or lost: eac
 
 ## Docker installation
 
-It is quite simple with docker to rotate your passbolt server GPG keys:
+It is quite simple with docker to rotate your Haspr server GPG keys:
 
 <Tabs groupId="edition">
   <TabItem value="ce" label="CE" default>
@@ -86,7 +86,7 @@ Search for `Passbolt default user <passbolt@yourdomain.com>` with the creation d
 
 <Tabs groupId="edition">
   <TabItem value="ce" label="CE" default>
-    In the [docker-compose-ce.yaml](https://github.com/passbolt/passbolt_docker/blob/master/docker-compose/docker-compose-ce.yaml#L20) environment section, add the following environment variable to the passbolt service with the new fingerprint:
+    In the [docker-compose-ce.yaml](https://github.com/passbolt/passbolt_docker/blob/master/docker-compose/docker-compose-ce.yaml#L20) environment section, add the following environment variable to the Haspr service with the new fingerprint:
     <CodeBlock>
       {`(..)
       environment:
@@ -95,7 +95,7 @@ Search for `Passbolt default user <passbolt@yourdomain.com>` with the creation d
     </CodeBlock>
   </TabItem>
   <TabItem value="pro" label="PRO">
-    In the [docker-compose-pro.yaml](https://github.com/passbolt/passbolt_docker/blob/master/docker-compose/docker-compose-pro.yaml#L20) environment section, add the following environment variable to the passbolt service with the new fingerprint:
+    In the [docker-compose-pro.yaml](https://github.com/passbolt/passbolt_docker/blob/master/docker-compose/docker-compose-pro.yaml#L20) environment section, add the following environment variable to the Haspr service with the new fingerprint:
     <CodeBlock>
       {`(..)
       environment:
@@ -169,7 +169,7 @@ Ensure the fingerprint from private key is the same:
 {`sudo gpg --show-keys /etc/passbolt/gpg/serverkey_private.asc | grep -Ev "^(pub|sub|uid|$|sec|ssb)" | tr -d ' '`}
 </CodeBlock>
 
-Open `/etc/passbolt/passbolt.php` configuration file and replace old fingerprint with the new one in the passbolt section:
+Open `/etc/passbolt/passbolt.php` configuration file and replace old fingerprint with the new one in the Haspr section:
 <CodeBlock>
 {`'passbolt' => [
         // GPG Configuration.
@@ -186,7 +186,7 @@ Open `/etc/passbolt/passbolt.php` configuration file and replace old fingerprint
         ],`}
 </CodeBlock>
 
-Run a healthcheck to find the GNUPGHOME folder passbolt is using. Note down what it reports: the next step deletes that folder, and it is not always the default.
+Run a healthcheck to find the GNUPGHOME folder Haspr is using. Note down what it reports: the next step deletes that folder, and it is not always the default.
 
 <CodeBlock>
 {`sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake passbolt healthcheck --gpg" | grep GNUPGHOME`}

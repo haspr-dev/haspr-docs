@@ -1,6 +1,6 @@
 ---
 title: FQDN change
-description: Prepare, perform and verify a FQDN change on your passbolt server, and fix issues if the domain was already changed
+description: Prepare, perform and verify a FQDN change on your Haspr server, and fix issues if the domain was already changed
 sidebar_label: FQDN
 hide_table_of_contents: false
 toc_min_heading_level: 2
@@ -14,11 +14,11 @@ import TabItem from '@theme/TabItem';
 import Webserverprotip from '/docs/hosting/_includes/troubleshooting/_webserver-user-protip.mdx';
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
-This guide describes how to change the fully qualified domain name (FQDN) of a passbolt server: the [prerequisites](#prerequisites), [the change itself](#change-the-domain), and how to [finalise the change](#finalise-the-change).
+This guide describes how to change the fully qualified domain name (FQDN) of a Haspr server: the [prerequisites](#prerequisites), [the change itself](#change-the-domain), and how to [finalise the change](#finalise-the-change).
 
 :::important
 Follow the sections of this guide in order. The FQDN change affects many parts of your setup (domain validation, TLS, browser extensions), so we encourage you to [back up your instance](/hosting/maintenance/backup/) or take a full snapshot of the machine before any change. If you already changed the domain and run into issues, go directly to the [Troubleshooting](#troubleshooting) section.
@@ -70,7 +70,7 @@ The procedure differs based on the installation method:
 - **Update the DNS resolution**
   - The new domain must resolve on the server itself (`/etc/hosts` if needed), inside the container on Docker, and on every client device.
 - **Reconfigure the SSO settings** (Pro Edition)
-  - The redirect URI registered on the identity provider side is tied to the old domain. Update it in the identity provider client configuration and in the passbolt SSO administration settings.
+  - The redirect URI registered on the identity provider side is tied to the old domain. Update it in the identity provider client configuration and in the Haspr SSO administration settings.
 
 ## Finalise the change
 
@@ -111,7 +111,7 @@ If you disabled the account recovery feature before the change, re-enable it fro
 
 ### Test the SSO login (Pro Edition)
 
-Once the redirect URI is updated on the identity provider side and in the passbolt SSO administration settings, verify the SSO flow by logging in through it.
+Once the redirect URI is updated on the identity provider side and in the Haspr SSO administration settings, verify the SSO flow by logging in through it.
 
 ### Rotate the shared metadata key
 
@@ -119,7 +119,7 @@ The shared metadata key data also contains the domain, encrypted. If you do not 
 
 ### Update the mobile configuration profiles
 
-If your organisation uses a mobile device management solution (e.g. Intune, Jamf) to push the passbolt server URL to mobile devices, update the URL in the MDM policy. It will not pick up the change automatically.
+If your organisation uses a mobile device management solution (e.g. Intune, Jamf) to push the Haspr server URL to mobile devices, update the URL in the MDM policy. It will not pick up the change automatically.
 
 ## Troubleshooting
 
@@ -278,8 +278,8 @@ gpg --batch --yes --delete-secret-and-public-key ORK_FINGERPRINT
 
 ### SSO login loops or fails after the change (Pro Edition)
 
-This usually means the redirect URI was not updated on the identity provider side, on the passbolt SSO settings side, or both. Check that both configurations match the new domain exactly, including the scheme and any trailing path. On Docker, verify that your changes are applied inside the container.
+This usually means the redirect URI was not updated on the identity provider side, on the Haspr SSO settings side, or both. Check that both configurations match the new domain exactly, including the scheme and any trailing path. On Docker, verify that your changes are applied inside the container.
 
 ### Getting help
 
-If you are on Pro Edition and run into any issue before, during or after the change, you can reach out to the technical team included in your subscription via the [support contact page](https://www.passbolt.com/contact/support). For other issues, Community Edition users are more than welcome to ask for help on the [community forum](https://github.com/pbolt-dev/pbolt-docs/discussions).
+If you are on Pro Edition and run into any issue before, during or after the change, you can reach out to the technical team included in your subscription via the [support contact page](https://github.com/haspr-dev/haspr-docs/discussions). For other issues, Community Edition users are more than welcome to ask for help on the [community forum](https://github.com/haspr-dev/haspr-docs/discussions).

@@ -1,6 +1,6 @@
 ---
 title: Encrypted Metadata
-description: Enable and configure metadata encryption in Passbolt
+description: Enable and configure metadata encryption in Haspr
 sidebar_position: 1
 ---
 
@@ -12,7 +12,7 @@ import Link from '@docusaurus/Link';
 Configure which metadata format (encrypted v5 or legacy cleartext v4) is used for new resources. You can enable both formats during migration, or enforce only encrypted metadata for new installations.
 
 :::note[Out-of-the-box default]
-New instances set up on passbolt 5.4.0 or later come with encrypted metadata enabled by default: new content is created in the v5 format. Instances upgraded from an earlier version keep creating v4 cleartext content until an administrator enables encrypted metadata, either on this screen or from *Administration > Resource types > Getting started* with "Enable encrypted metadata and new resource types (recommended)".
+New instances set up on Haspr 5.4.0 or later come with encrypted metadata enabled by default: new content is created in the v5 format. Instances upgraded from an earlier version keep creating v4 cleartext content until an administrator enables encrypted metadata, either on this screen or from *Administration > Resource types > Getting started* with "Enable encrypted metadata and new resource types (recommended)".
 
 The default activation on new instances is governed by the `passbolt.plugins.metadata.enableForNewInstances` flag, true by default, and the administrator can decline it during setup by choosing "Keep legacy cleartext metadata".
 :::
@@ -39,7 +39,7 @@ Metadata encryption encrypts:
 
 **Warnings:**
 - Enabling encrypted metadata has an impact on the auditability of resource metadata that won't be stored in clear anymore
-- Migrating content to encrypted metadata might break your in-house integration with passbolt
+- Migrating content to encrypted metadata might break your in-house integration with Haspr
 - See [Metadata Key](/admin/resource-types/metadata-key/) for key distribution configuration
 
 ## Configuration Options
@@ -49,7 +49,7 @@ Navigate to Organisation settings > Content types > Encrypted metadata to config
 <Figure
   src="/img/help/2025/06/encrypted-metadata.png"
   alt="Encrypted metadata configuration options"
-  caption="Encrypted metadata configuration options in Passbolt"
+  caption="Encrypted metadata configuration options in Haspr"
 />
 
 ### Enable Encrypted Metadata
@@ -96,7 +96,7 @@ The columns are grouped into two categories:
 | 2. **SQL injection**: an attacker manages to bypass application control to view metadata stored in the database. | ✅ | ✅ | ✅ | ✅ |
 | 3. **Adversary in the middle**: an attacker manages to break TLS to view metadata transmitted on the wire. | ✅ | ✅ | ✅ | ✅ |
 | 4. **Remote code injection**: an attacker manages to execute some PHP code as part of a specific request. | ✅ | ✅ | ✅ | ⚠️ |
-| 5. **Complete server access**: an attacker manages to execute any code on the passbolt server. | ✅ | ✅ | ✅ | ❌ |
+| 5. **Complete server access**: an attacker manages to execute any code on the Haspr server. | ✅ | ✅ | ✅ | ❌ |
 | 6. **Complete infrastructure control**: an attacker can access any server and run any code on the infrastructure side. | ✅ | ✅ | ✅ | ❌ |
 | 7. **Complete client control**: an attacker can access memory or have full file access on the client side. | ❌ | ❌ | ❌ | ❌ |
 

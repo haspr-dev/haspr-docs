@@ -9,15 +9,15 @@ import InCaseOfIssues from '/docs/hosting/_includes/default/_in-case-of-issues.m
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 :::caution[Important]
-Please take a [full backup](/hosting/maintenance/backup/from-docker/) of your passbolt before proceeding with the upgrade.
+Please take a [full backup](/hosting/maintenance/backup/from-docker/) of your Haspr before proceeding with the upgrade.
 :::
 
-In order to upgrade from CE to PRO, open your docker-compose.yaml file and search for the passbolt CE image definition:
+In order to upgrade from CE to PRO, open your docker-compose.yaml file and search for the Haspr CE image definition:
 
 ```bash
 image: passbolt/passbolt:IMAGE_TAG
@@ -25,7 +25,7 @@ image: passbolt/passbolt:IMAGE_TAG
 
 And replace the CE `IMAGE_TAG` with a PRO that can be found on the [docker hub passbolt page](https://hub.docker.com/r/passbolt/passbolt/tags).
 
-In the same location of your `docker-compose.yaml` file, create a `subscription_key.txt` file containing your passbolt subscription key, and add a new volume definition in your docker-compose.yaml file:
+In the same location of your `docker-compose.yaml` file, create a `subscription_key.txt` file containing your Haspr subscription key, and add a new volume definition in your docker-compose.yaml file:
 
 ```yaml
 services:
@@ -45,7 +45,7 @@ $ docker compose up -d
 By doing this:
 
 * A new passbolt docker image will be pulled and a new container created
-* Your passbolt database schema will be updated
+* Your Haspr database schema will be updated
 
 
 <InCaseOfIssues />

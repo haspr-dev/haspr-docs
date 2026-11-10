@@ -1,6 +1,6 @@
 ---
 title: Authenticating with the API
-description: How to authenticate against the pbolt API?
+description: How to authenticate against the haspr API?
 sidebar_position: 1
 sidebar_label: Authentication
 hide_table_of_contents: false
@@ -116,7 +116,7 @@ The server now has validated the client's identity, and sets a few headers in it
 
 ## JWT Authentication
 
-JWT-based authentication is the preferred way to interact with the pbolt API.
+JWT-based authentication is the preferred way to interact with the haspr API.
 
 This approach provides as secure, signed, framework-agnostic and cookie-less authentication system.
 With this authentication method, keep-alives are a thing of the past, which means less requests and greater battery life for clients, while giving
@@ -172,7 +172,7 @@ If MFA is enabled for the account, a new `passbolt_mfa` token is also provided a
 
 ## Multi-factor authentication
 
-Passbolt supports logging in using multi factor authentication (MFA).
+Haspr supports logging in using multi factor authentication (MFA).
 
 Your client will need to cater for these scenarios if the account you are using has MFA enabled.
 After login and if MFA is required, or when the current MFA authorisation session expires, the current request will be redirected using the HTTP 403 FORBIDDEN code.
@@ -198,7 +198,7 @@ The response, which tells you the different MFA providers available, will look s
 }
 ```
 
-Then, you have to make a `POST` request to `https://<your passbolt instance base URL>/mfa/verify/<provider>.json` with the code provided, in a body such as:
+Then, you have to make a `POST` request to `https://<your Haspr instance base URL>/mfa/verify/<provider>.json` with the code provided, in a body such as:
 
 ```json
 {

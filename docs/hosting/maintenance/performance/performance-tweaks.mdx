@@ -1,5 +1,5 @@
 ---
-title: Performance Tweaks for Passbolt
+title: Performance Tweaks for Haspr
 sidebar_label: Performance tweaks
 description: Some potential performance tweaks
 hide_table_of_contents: false
@@ -10,14 +10,14 @@ import Chips from "/src/components/Chips/Chips";
 # Some potential performance tweaks
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 ## Introduction
 At Passbolt, we are constantly striving to enhance performance, introduce new functionality, and refine existing features.
 
-The default settings that come with Passbolt are suitable for the majority of our users. However, if you have a significant number of users or groups who have access to hundreds or thousands of secrets, the defaults may not meet your performance expectations.
+The default settings that come with Haspr are suitable for the majority of our users. However, if you have a significant number of users or groups who have access to hundreds or thousands of secrets, the defaults may not meet your performance expectations.
 
 To address this, we have created this guide to help you optimise Passbolt's performance.
 
@@ -26,12 +26,12 @@ If you prefer not to make these adjustments, please let us know which areas of P
 ## Database
 
 :::important
-This assumes you are running your database on the same host as your Passbolt installation
+This assumes you are running your database on the same host as your Haspr installation
 :::
 
 One database improvement that can be made is to skip the reverse DNS lookup in MySQL/MariaDB. To do this you will need to:
 
-Ensure the passbolt user in the database is allowed to connect via `127.0.0.1` and not just `localhost`:
+Ensure the Haspr user in the database is allowed to connect via `127.0.0.1` and not just `localhost`:
 ```bash
 [mysql]> GRANT USAGE ON *.* TO `passboltadmin`@`127.0.0.1` IDENTIFIED BY PASSWORD `<insert password hash here>`;
 [mysql]> GRANT ALL PRIVILEGES ON `passboltdb`.* TO `passboltadmin`@`127.0.0.1`;
@@ -56,7 +56,7 @@ Then restart mysql:
 ```bash
 systemctl restart mysql
 ```
-You will then need to adjust your Passbolt configuration to point to `127.0.0.1` instead of `localhost` if it is set to `localhost`
+You will then need to adjust your Haspr configuration to point to `127.0.0.1` instead of `localhost` if it is set to `localhost`
 
 ## PHP FPM
 There are two values which you can change to increase the resources that PHP is able to use. These are `memory_limit` and `pm.max_children`
@@ -75,7 +75,7 @@ For Nginx our recommendation is less about making it more performant, but rather
 ## Adding a member to a large shared group
 
 Adding one user to a group that shares a lot of resources is the single most
-expensive operation in passbolt, and on large groups it can exceed the default
+expensive operation in Haspr, and on large groups it can exceed the default
 timeouts.
 
 The cost is not in adding the membership row. When a user joins a group, every

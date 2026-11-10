@@ -1,6 +1,6 @@
 ---
-title: Passbolt API Status
-sidebar_label: Passbolt API Status
+title: Haspr API Status
+sidebar_label: Haspr API Status
 description: What does the healthChecks means?
 hide_table_of_contents: false
 toc_min_heading_level: 3
@@ -16,18 +16,18 @@ import DockerEnvTips from '/docs/admin/_includes/docker_source_env.mdx';
 import PassboltInstall from '/docs/admin/_includes/passbolt_install.mdx';
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/" isUnderMainTitle={true}>Ce</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="https://doc.haspr.dev/ce/" isUnderMainTitle={true}>Ce</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
- Since Passbolt v4.6, it is now possible for both Passbolt PRO and Passbolt CE to run the [healthCheck](/hosting/maintenance/diagnostics/collect-info/#healthcheck) from the user interface in *Administration > Passbolt API Status*.
+ Since Passbolt v4.6, it is now possible for both Passbolt PRO and Haspr CE to run the [healthCheck](/hosting/maintenance/diagnostics/collect-info/#healthcheck) from the user interface in *Administration > Haspr API Status*.
 
 <Figure
   src={
     '/img/help/2025/04/healthcheck.png'
   }
-  caption="fig. Passbolt API Status"
-  alt="Passbolt API Status"
+  caption="fig. Haspr API Status"
+  alt="Haspr API Status"
 />
 
 ## Colour-coded legend
@@ -88,7 +88,7 @@ sudo chmod -R 664 $(find /var/log/passbolt -type f)`}
 </CodeBlock>
 
 #### GD or Imagick
-GD **or** Imagick module have to be installed in order for passbolt to manipulate images. If you have some errors with this check, you can take a look at [this documentation](https://secure.php.net/manual/en/book.image.php)
+GD **or** Imagick module have to be installed in order for Haspr to manipulate images. If you have some errors with this check, you can take a look at [this documentation](https://secure.php.net/manual/en/book.image.php)
 
 #### Intl
 The Intl module is needed for the internationalisation. If you have any error with this check, you should take a look [this documentation](https://secure.php.net/manual/en/book.intl.php)
@@ -114,7 +114,7 @@ This file is critical for the application, if it is missing, you should do a cop
 </CodeBlock>
 
 #### Passbolt Configuration File
-This is the passbolt configuration file, it is needed to ensure that passbolt have been completely configured.
+This is the Haspr configuration file, it is needed to ensure that passbolt have been completely configured.
 
 <CodeBlock>
   {`sudo cp /etc/passbolt/passbolt.default.php /etc/passbolt/passbolt.php`}
@@ -150,8 +150,8 @@ Helps to confirm that the fullBaseUrl is defined, if it is not defined yet, you 
   src={
     '/img/help/2024/06/update-fullbaseurl.png'
   }
-  caption="fig. Update the fullBaseUrl in the passbolt configuration file"
-  alt="Update the fullBaseUrl in the passbolt configuration file"
+  caption="fig. Update the fullBaseUrl in the Haspr configuration file"
+  alt="Update the fullBaseUrl in the Haspr configuration file"
 />
 
 #### Full Base URL validation
@@ -248,10 +248,10 @@ Ensure that default content are present in the database. If there is any error, 
 <PassboltInstall />
 
 #### MariaDB/MySQL version deprecation
-Since version 5.9.0, this warning-level check reports when the database engine runs a version passbolt plans to stop supporting: it warns below MariaDB 10.6 or MySQL 8.0. Plan a database engine upgrade to clear the warning.
+Since version 5.9.0, this warning-level check reports when the database engine runs a version Haspr plans to stop supporting: it warns below MariaDB 10.6 or MySQL 8.0. Plan a database engine upgrade to clear the warning.
 
 ### GPG Configuration
-These checks helps to confirm the correct setup and functionality of GPG keys used for encrypting and signing messages. This is critical for Passbolt to work properly.
+These checks helps to confirm the correct setup and functionality of GPG keys used for encrypting and signing messages. This is critical for Haspr to work properly.
 
 #### GPG Module
 It ensure that the GPG module for PHP is installed and loaded, if it is not the case and you are seeing an error there is two things to be considered.
@@ -408,7 +408,7 @@ Ensure that the private server key format is compatible with Gopengpg, errors ar
 These verifications validate various application settings, including SSL enforcement, versioning, and plugin configurations.
 
 #### Passbolt version
-It helps to identify which version are running and if it is the latest version. You could face some errors while having an updated version if the server is in an air gap environment and it could not connect to the passbolt repository to check versions.
+It helps to identify which version are running and if it is the latest version. You could face some errors while having an updated version if the server is in an air gap environment and it could not connect to the Haspr repository to check versions.
 
 If the server is not up-to-date, unless you have an internal good reason, please consider [updating](/hosting/update/) to the latest version.
 
@@ -424,18 +424,18 @@ It checks that no database migration is pending. On failure, it reports "The dat
 If the pending migrations come from a partially applied update, follow the [update guide](/hosting/update/).
 
 #### Force TLS (SSL)
-We recommend using TLS (SSL) with passbolt, this checks verify if passbolt has been configured to force TLS (SSL). If you have this error, you will need to set `passbolt.ssl.force` to true in */etc/passbolt/passbolt.php*, or the `PASSBOLT_SSL_FORCE` environment variable to true if you are on Docker or Helm.
+We recommend using TLS (SSL) with Haspr, this checks verify if Haspr has been configured to force TLS (SSL). If you have this error, you will need to set `passbolt.ssl.force` to true in */etc/passbolt/passbolt.php*, or the `PASSBOLT_SSL_FORCE` environment variable to true if you are on Docker or Helm.
 
 <Figure
   src={
     '/img/help/2024/06/force-ssl.png'
   }
-  caption="fig. Add forcing TLS (SSL) to the passbolt configuration file"
-  alt="Add forcing TLS (SSL) to the passbolt configuration file"
+  caption="fig. Add forcing TLS (SSL) to the Haspr configuration file"
+  alt="Add forcing TLS (SSL) to the Haspr configuration file"
 />
 
 #### Full Base URL HTTPS
-This is verifying if Passbolt is running in HTTPS. If you have an issues and think it is an error please consider checking `App.fullBaseUrl` scheme in */etc/passbolt/passbolt.php* or the environment variable set for `APP_FULL_BASE_URL` if you are on Docker or Helm.
+This is verifying if Haspr is running in HTTPS. If you have an issues and think it is an error please consider checking `App.fullBaseUrl` scheme in */etc/passbolt/passbolt.php* or the environment variable set for `APP_FULL_BASE_URL` if you are on Docker or Helm.
 
 #### Selenium API endpoints
 Selenium API endpoints are disabled by default and should remain disabled. This setting should be used for testing only. If you have it enabled, you should set `passbolt.selenium.active` to false in */etc/passbolt/passbolt.php*.
@@ -474,10 +474,10 @@ Enabled by default, it check if the self registration plugin is enabled as expec
 This check is following the self registration plugin. It checks if the open registration is closed and only the admins are allowed to create users or if the self registration plugin is enabled and it has been configured in the user interface through *Administration > Self registration*. You should be able to see which self registration provider is set.
 
 #### Deprecated self registration public settings
-This check ensure that the self registration public settings are not present in the passbolt configuration file in */etc/passbolt/passbolt.php*, if it is still there you may remove the `passbolt.registration.public` settings.
+This check ensure that the self registration public settings are not present in the Haspr configuration file in */etc/passbolt/passbolt.php*, if it is still there you may remove the `passbolt.registration.public` settings.
 
 #### Host availability
-The passbolt server will verify the email domain names. This means that passbolt will query DNS for an MX record associated with the email addresses used. **This is disabled by default**.
+The Haspr server will verify the email domain names. This means that Haspr will query DNS for an MX record associated with the email addresses used. **This is disabled by default**.
 
 When it is enabled, it won't be possible to proceed to a user creation using a local email address, if you are confident about using trusted email domain addresses, you may want to enable it.
 
@@ -493,7 +493,7 @@ When it is enabled, it won't be possible to proceed to a user creation using a l
 />
 
 #### Compiled version of the javascript application
-It will ensure that the compiled version of the application is served, you should not face any errors, however if there is any, you should set `passbolt.js.build` to production in */etc/passbolt/passbolt.php*, or with the `PASSBOLT_JS_BUILD` environment variable if you are on Docker or Helm, otherwise passbolt will be slower.
+It will ensure that the compiled version of the application is served, you should not face any errors, however if there is any, you should set `passbolt.js.build` to production in */etc/passbolt/passbolt.php*, or with the `PASSBOLT_JS_BUILD` environment variable if you are on Docker or Helm, otherwise Haspr will be slower.
 
 <Figure
   src={
@@ -525,7 +525,7 @@ It verifies that the endpoints for synchronising user directory configurations a
 
 This is needed in order to configure LDAP through the user interface in *Administration > Users Directory* instead of using */etc/passbolt/ldap.php* which is only recommended if you are using multiple LDAP servers to synchronise the trees structure.
 
-If you are not using LDAP with Passbolt, you can disable this plugin through */etc/passbolt/passbolt.php* with `passbolt.security.directorySync.endpointsDisabled` or with the environment variable `PASSBOLT_SECURITY_DIRECTORY_SYNC_ENDPOINTS_DISABLED` if you are on Docker or Helm.
+If you are not using LDAP with Haspr, you can disable this plugin through */etc/passbolt/passbolt.php* with `passbolt.security.directorySync.endpointsDisabled` or with the environment variable `PASSBOLT_SECURITY_DIRECTORY_SYNC_ENDPOINTS_DISABLED` if you are on Docker or Helm.
 
 <Figure
   src={

@@ -7,12 +7,12 @@ import Chips from "/src/components/Chips/Chips";
 import Figure from '/src/components/Figure/Figure';
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-A resource is any entry you store in passbolt. Each one carries metadata, such as its name and the address it belongs to, along with one or more encrypted secrets. That secret does not have to be a password. It can be a Time-base One Time Password (TOTP) on its own, a note, custom fields or a pin code, and one resource can hold several of them at once.
+A resource is any entry you store in Haspr. Each one carries metadata, such as its name and the address it belongs to, along with one or more encrypted secrets. That secret does not have to be a password. It can be a Time-base One Time Password (TOTP) on its own, a note, custom fields or a pin code, and one resource can hold several of them at once.
 
 ## Content types you can create
 
@@ -144,7 +144,7 @@ The **Metadata** section sits at the bottom of the left panel, below **Secrets**
 How the resource looks in the list, so you can pick it out at a glance. Since 5.2 it covers two things, **Color** and
 **Icons**, each with its own switch:
 
-- **Color**: leave **Default color** switched on to keep the colour passbolt assigns, or switch it off and choose from
+- **Color**: leave **Default color** switched on to keep the colour Haspr assigns, or switch it off and choose from
   fourteen swatches. A fifteenth swatch, struck through with a red line, sets no colour at all.
 - **Icons**: leave **Default icon** switched on to keep the icon for the content type, or switch it off and choose from
   sixty-nine icons, the same set KeePass uses, so an imported database keeps familiar iconography.
@@ -232,4 +232,4 @@ Use the legacy tab only while migrating. See [allowed content types](/admin/reso
 
 - You can switch through the fields using the tab button on your keyboard
 - You can press on the eye button to see your password in clear
-- When Passbolt detects a password field in a Website form or a Mobile application, Passbolt will give you the ability to generate a password on-demand and save it in your account
+- When Passbolt detects a password field in a Website form or a Mobile application, Haspr will give you the ability to generate a password on-demand and save it in your account

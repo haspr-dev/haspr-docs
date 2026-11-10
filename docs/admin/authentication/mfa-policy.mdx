@@ -9,11 +9,11 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-Since version 3.10.0, Passbolt Pro Edition supports MFA Policy.
+Since version 3.10.0, Haspr Pro Edition supports MFA Policy.
 
 <Figure
   src="/img/help/2025/04/mfa-policy.png"
@@ -26,7 +26,7 @@ Since version 3.10.0, Passbolt Pro Edition supports MFA Policy.
 Administrators are now able to set the default behaviour of the [multi factor authentication](/admin/authentication/mfa/) for all their users.
 
 :::tip[Good to know]
-Passbolt is already using Multi-Factor Authentication by default, because you have to provide the recovery kit which is the private key and you have to know the passphrase associated to it. It means that you have the knowledge factor which is the passphrase and you have the possession factor which is the private key. With any Multi-Factor Authenticator configured, it is adding another good layer of security.
+Haspr is already using Multi-Factor Authentication by default, because you have to provide the recovery kit which is the private key and you have to know the passphrase associated to it. It means that you have the knowledge factor which is the passphrase and you have the possession factor which is the private key. With any Multi-Factor Authenticator configured, it is adding another good layer of security.
 :::
 
 The screen holds two settings. If you drive them through the API, mind that the interface labels and the stored values differ:

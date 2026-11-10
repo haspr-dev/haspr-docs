@@ -11,20 +11,20 @@ For this tutorial, you will need:
 
 ## Backup the existing data
 
-Prior to the migration you will need to backup the existing passbolt instance data. Please refer to [the official backup documentations](/hosting/maintenance/backup/).
+Prior to the migration you will need to backup the existing Haspr instance data. Please refer to [the official backup documentations](/hosting/maintenance/backup/).
 
 Depending on your TLS (SSL) configuration you might need to copy the certificate and key from the existing instance.
 
 Don't delete the existing instance yet!
 
 ## Prepare the new server
-Create a fresh new passbolt instance on Docker following <Link to={`/docs/hosting/install/${props.productName.toLowerCase()}/docker/`}>this documentation</Link>.
+Create a fresh new Haspr instance on Docker following <Link to={`/docs/hosting/install/${props.productName.toLowerCase()}/docker/`}>this documentation</Link>.
 
 ## Migrate the data
 
 ### Stop running containers
 
-At this step, you should have a running empty passbolt instance running on your server. We will now stop it and delete the database volume.
+At this step, you should have a running empty Haspr instance running on your server. We will now stop it and delete the database volume.
 
 :::warning
 Both commands below delete named volumes and destroy the database data they hold: `-v` on `docker compose down`, and `docker volume rm`. Check that you are targeting the empty instance you have just created, not a populated production stack.
@@ -68,7 +68,7 @@ This means you just have to mount your database backup file on `/docker-entrypoi
 
 ### Set your GPG server keys fingerprint and email
 
-In the scope of a migration to docker, you need to add 2 environment variables to the passbolt service
+In the scope of a migration to docker, you need to add 2 environment variables to the Haspr service
 related to the GPG server keys fingerprint and email address.
 
 Get them from your backed up keys:
@@ -115,11 +115,11 @@ docker exec -it your-passbolt-container chmod 440 /etc/passbolt/gpg/serverkey.as
 docker exec -it your-passbolt-container chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 ```
 
-### Restart the passbolt container
+### Restart the Haspr container
 
 The container entrypoint imports the server keys into the web server user keyring only when the container starts. Copying the key files into a running container does not update the keyring: until you restart it, passbolt keeps using the key it generated at first start.
 
-Restart the passbolt container so the entrypoint imports your restored keys:
+Restart the Haspr container so the entrypoint imports your restored keys:
 
 <CodeBlock>
     {`docker compose -f docker-compose-${props.productName.toLowerCase()}.yaml restart passbolt`}
@@ -137,7 +137,7 @@ The copied key files survive the restart: the official docker compose file mount
 After the restart the keyring contains two keys: the one generated at first start and your restored key. The `PASSBOLT_GPG_SERVER_KEY_FINGERPRINT` environment variable you set earlier tells passbolt which one to use, so make sure it is set to the fingerprint of your restored key.
 :::
 
-You can verify that passbolt uses the restored key:
+You can verify that Haspr uses the restored key:
 
 ```bash
 docker exec -it your-passbolt-container su -c "/usr/share/php/passbolt/bin/cake passbolt healthcheck --gpg" -s /bin/bash www-data
@@ -154,7 +154,7 @@ You can still migrate. Your users' passwords are encrypted with each user's own 
     {`docker compose -f docker-compose-${props.productName.toLowerCase()}.yaml exec passbolt su -c "gpg --list-keys" -s /bin/bash www-data`}
 </CodeBlock>
 
-- Set `PASSBOLT_GPG_SERVER_KEY_FINGERPRINT` to that fingerprint in your docker compose file, as described in the fingerprint section above, then restart the passbolt container to apply it.
+- Set `PASSBOLT_GPG_SERVER_KEY_FINGERPRINT` to that fingerprint in your docker compose file, as described in the fingerprint section above, then restart the Haspr container to apply it.
 
 <KeyRotatedWarning />
 <MetadataKeyRotationWarning />
@@ -163,5 +163,5 @@ The [server GPG keys rotation](/hosting/openpgp/rotation/) page describes the ke
 
 ### That's it
 
-If your passbolt URL has changed, you will have to proceed to the same process than when setting up the browser
+If your Haspr URL has changed, you will have to proceed to the same process than when setting up the browser
 extension on a new browser aka, follow the [account recovery](/user/quickstart/browser/setup-on-another-machine/) process.

@@ -21,7 +21,7 @@ You can check which selectors are used on a webpage by right-clicking on the use
       size={{ width: '400px', height: '550px' }}
     />
 
-You will then see the HTML source code of the webpage. What matters here is the section related to the input field. In this example, Passbolt is able to detect the input field because the `name` and `id` attributes follow W3C web standards for form autofill.
+You will then see the HTML source code of the webpage. What matters here is the section related to the input field. In this example, Haspr is able to detect the input field because the `name` and `id` attributes follow W3C web standards for form autofill.
 
     <Figure
       src="/img/help/2025/08/email-field-inspect.png"
@@ -52,7 +52,7 @@ However, the password input field uses an `id` that is recognized by Passbolt, s
 ## What about Shadow DOM or iFrames?
 
 Some websites embed login forms inside [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) or `<iframe>` elements.
-These techniques are commonly used for encapsulation or third-party content. Unfortunately, due to browser security limitations, Passbolt cannot access or interact with fields inside shadow roots or iframes. As a result, autofill will not work on these types of pages.
+These techniques are commonly used for encapsulation or third-party content. Unfortunately, due to browser security limitations, Haspr cannot access or interact with fields inside shadow roots or iframes. As a result, autofill will not work on these types of pages.
 
 ## What are my possibilities ? 
 
@@ -64,12 +64,12 @@ The passbolt icon that appears inside login fields, and the menu it opens, come 
 
 One test tells the two situations apart:
 
-- The icon is missing on **every** website, but you can still fill a form from the passbolt icon in your browser toolbar: the in-form integration has most likely been switched off for your organisation. Ask your administrator.
+- The icon is missing on **every** website, but you can still fill a form from the Haspr icon in your browser toolbar: the in-form integration has most likely been switched off for your organisation. Ask your administrator.
 - Filling from the toolbar does not work either, or the icon is missing only on **some** websites: the cause is elsewhere, see the form detection explained above.
 
 Before concluding, check that:
 
-- you are signed in to passbolt in this browser, as the in-field menu needs the extension to be authenticated,
+- you are signed in to Haspr in this browser, as the in-field menu needs the extension to be authenticated,
 - the extension is allowed to run on the website, in particular on Safari and when a Chrome extension is restricted to selected sites,
 - the login form is not inside an iframe or on a browser internal page, where extensions cannot run,
 - the page is actually visible and not permanently animated, as the in-field menu is not inserted on a page that passbolt does not consider visible.
@@ -83,4 +83,4 @@ The in-form integration is enabled by default and has no administration screen. 
 You can find the list of supported [selector here.](https://github.com/passbolt/passbolt_styleguide/blob/master/src/react-web-integration/lib/InForm/InFormFieldSelector.js)
 If autofill isn't triggered even though you're on a login page, it usually means the login form uses selectors that Passbolt does not recognize.
 
-We know that unsupported website poses a strain on our client, and our backlog is actively working on improving this functionnalities in passbolt. (ref. PB-39112)
+We know that unsupported website poses a strain on our client, and our backlog is actively working on improving this functionnalities in Haspr. (ref. PB-39112)

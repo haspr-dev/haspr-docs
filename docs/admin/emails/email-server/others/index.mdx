@@ -10,8 +10,8 @@ import TestYourEmailConfiguration from '/docs/admin/_includes/email/email-server
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <EmailServerConfigurationIntroduction/>
@@ -20,9 +20,9 @@ import Chips from "/src/components/Chips/Chips";
 
 If you are using another smtp email provider or a local one, you'd rather use the **"Other"** email provider.
 
-- Authentication on Passbolt GUI
+- Authentication on Haspr GUI
 
-On your Passbolt instance, you can navigate to *Administration > Email server*.
+On your Haspr instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method, it could be:
 

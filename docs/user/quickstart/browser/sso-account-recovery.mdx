@@ -12,8 +12,8 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 Since version 3.11.0, passbolt lets a user on a new browser or device start the account recovery process, or resume an unfinished setup, by authenticating with the organisation's SSO provider instead of the email verification link.
@@ -24,7 +24,7 @@ SSO account recovery replaces the identity verification step only. It does not r
 
 ## How does it work?
 
-When a user opens the passbolt instance in a browser where the extension is not configured yet (a new computer, a new browser profile, or a reinstalled extension), the welcome screen normally asks for their email address and sends them a verification link. When SSO account recovery is available, the welcome screen offers to authenticate with the SSO provider instead. A successful SSO authentication proves the user's identity and sends them straight into the standard recovery flow, where they import their private key and enter their passphrase as usual.
+When a user opens the Haspr instance in a browser where the extension is not configured yet (a new computer, a new browser profile, or a reinstalled extension), the welcome screen normally asks for their email address and sends them a verification link. When SSO account recovery is available, the welcome screen offers to authenticate with the SSO provider instead. A successful SSO authentication proves the user's identity and sends them straight into the standard recovery flow, where they import their private key and enter their passphrase as usual.
 
 A user who never completed their initial setup is sent back into the setup flow instead of the recovery flow.
 
@@ -58,7 +58,7 @@ There is no toggle in the administration interface. The feature is enabled by de
     </CodeBlock>
   </TabItem>
   <TabItem value="docker" label="Docker">
-    Set the environment variable on the passbolt container:
+    Set the environment variable on the Haspr container:
 
     <CodeBlock language="bash">
       {`PASSBOLT_PLUGINS_SSO_RECOVER_ENABLED=false`}
@@ -68,7 +68,7 @@ There is no toggle in the administration interface. The feature is enabled by de
 
 ## Recover an account with SSO
 
-**Step 1.** Open the passbolt instance in the new browser. The welcome screen shows "Welcome back!" with the message "Your browser is not configured to work with this passbolt instance. Please authenticate with the Single Sign-On provider to continue." and a sign-in button named after the configured provider, for example "Sign in with Microsoft". The five provider names are Microsoft, Google, OpenID, AD FS and PingOne.
+**Step 1.** Open the Haspr instance in the new browser. The welcome screen shows "Welcome back!" with the message "Your browser is not configured to work with this Haspr instance. Please authenticate with the Single Sign-On provider to continue." and a sign-in button named after the configured provider, for example "Sign in with Microsoft". The five provider names are Microsoft, Google, OpenID, AD FS and PingOne.
 
 The "Continue with my email." link falls back to the email verification flow; from the email screen, the "Continue with SSO." link comes back to this screen.
 

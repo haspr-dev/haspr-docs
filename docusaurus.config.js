@@ -5,14 +5,14 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import footerLinks from './data/footer.json';
 
 const ROUTES = {
-  HELPSITE_URL: 'https://doc.pbolt.dev',
-  WEBSITE_URL: 'https://doc.pbolt.dev',
-  BLOG_URL: 'https://github.com/pbolt-dev',
-  CAREERS_URL: 'https://github.com/pbolt-dev',
-  FORUM_URL: 'https://github.com/pbolt-dev/pbolt-docs/discussions',
-  REDDIT_URL: 'https://github.com/pbolt-dev',
-  GITHUB_URL: 'https://github.com/pbolt-dev/pbolt-docs',
-  GITHUB_ORG_URL: 'https://github.com/pbolt-dev',
+  HELPSITE_URL: 'https://doc.haspr.dev',
+  WEBSITE_URL: 'https://doc.haspr.dev',
+  BLOG_URL: 'https://github.com/haspr-dev',
+  CAREERS_URL: 'https://github.com/haspr-dev',
+  FORUM_URL: 'https://github.com/haspr-dev/haspr-docs/discussions',
+  REDDIT_URL: 'https://github.com/haspr-dev',
+  GITHUB_URL: 'https://github.com/haspr-dev/haspr-docs',
+  GITHUB_ORG_URL: 'https://github.com/haspr-dev',
   BLUESKY_URL: 'https://bsky.app',
   LINKEDIN_URL: 'https://linkedin.com',
   YOUTUBE_URL: 'https://youtube.com',
@@ -21,21 +21,21 @@ const ROUTES = {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'pbolt Documentation',
+  title: 'Haspr Documentation',
   titleDelimiter: '·',
-  tagline: 'Everything you need to optimize the way you work with pbolt.',
+  tagline: 'Everything you need to optimize the way you work with Haspr.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://doc.pbolt.dev',
+  url: 'https://doc.haspr.dev',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'pbolt-dev', // Usually your GitHub org/user name.
-  projectName: 'pbolt-docs', // Usually your repo name.
+  organizationName: 'haspr-dev', // Usually your GitHub org/user name.
+  projectName: 'haspr-docs', // Usually your repo name.
 
   onBrokenLinks: 'warn',
   markdown: {
@@ -271,7 +271,7 @@ const config = {
       },
       navbar: {
         logo: {
-          alt: 'pbolt logo',
+          alt: 'Haspr logo',
           src: 'img/logo.svg',
           width: 160,
         },
@@ -329,14 +329,14 @@ const config = {
       },
       footer: {
         logo: {
-          alt: 'pbolt logo',
+          alt: 'Haspr logo',
           src: 'img/logo.svg',
           width: 180,
           height: 32,
           href: ROUTES.WEBSITE_URL,
         },
         links: footerLinks,
-        copyright: `pbolt is an independent community fork and is not affiliated with, endorsed by, or sponsored by Passbolt SA. Passbolt is a registered trademark of Passbolt SA.`,
+        copyright: `Haspr is an independent community fork and is not affiliated with, endorsed by, or sponsored by Passbolt SA. Passbolt is a registered trademark of Passbolt SA.`,
       },
       colorMode: {
         defaultMode: 'dark',
@@ -383,7 +383,7 @@ const config = {
         sidebarPath: require.resolve('./sidebars/index.js'),
         showLastUpdateTime: true,
         showLastUpdateAuthor: false,
-        editUrl: 'https://github.com/pbolt-dev/pbolt-docs/blob/main',
+        editUrl: 'https://github.com/haspr-dev/haspr-docs/blob/main',
       },
     ],
     '@docusaurus/plugin-content-pages',

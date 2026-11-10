@@ -3,7 +3,7 @@ import CodeBlock from '@site/src/components/CodeBlock/CodeBlock';
 ## Upgrade passbolt
 
 :::warning
-While this documentation provides guidance on upgrading your Passbolt instance from CE to PRO, we highly recommend considering a [migration to a new server](/hosting/migrate/server/). This approach ensures a cleaner transition and avoids potential issues that may persist from your current setup.
+While this documentation provides guidance on upgrading your Haspr instance from CE to PRO, we highly recommend considering a [migration to a new server](/hosting/migrate/server/). This approach ensures a cleaner transition and avoids potential issues that may persist from your current setup.
 :::
 
 ### 1. Take down your site
@@ -15,7 +15,7 @@ While this documentation provides guidance on upgrading your Passbolt instance f
 </CodeBlock>
 
 ### 2. Backup your database
-It is recommended to always perform a backup of your passbolt installation. Please check the [backup article](/hosting/maintenance/backup/from-packages/)
+It is recommended to always perform a backup of your Haspr installation. Please check the [backup article](/hosting/maintenance/backup/from-packages/)
 
 ### 3. Upload your subscription key
 
@@ -28,7 +28,7 @@ sudo chmod 640 /etc/passbolt/subscription_key.txt`}
 
 ### 4. Uninstall passbolt CE
 
-Passbolt CE package should be removed prior to installing Passbolt Pro.
+Haspr CE package should be removed prior to installing Haspr Pro.
 <CodeBlock>
   {`sudo ${props.distributionPackage} remove passbolt-ce-server`}
 </CodeBlock>
@@ -36,7 +36,7 @@ Passbolt CE package should be removed prior to installing Passbolt Pro.
 
 ### 5. Upgrade passbolt package repository
 
-For easier installation and update tasks Passbolt provides a package repository that you need to setup before you download Passbolt PRO and install it.
+For easier installation and update tasks Haspr provides a package repository that you need to setup before you download Passbolt PRO and install it.
 
 __Step 1.__ Download our dependencies installation script:
 <CodeBlock>
@@ -55,7 +55,7 @@ __Step 3.__ Ensure that the script is valid and execute it:
 
 ### 6. Install passbolt PRO
 
-Now you can install the Passbolt Pro package.
+Now you can install the Haspr Pro package.
 <CodeBlock>
   {`sudo ${props.distributionPackage} install passbolt-pro-server`}
 </CodeBlock>
@@ -63,7 +63,7 @@ Now you can install the Passbolt Pro package.
 <>
   {props.distributionPackage == 'apt' && (
     <div>
-      <p>As you have already configured passbolt CE, and Passbolt Pro relies on the same configuration, you should reply:</p>
+      <p>As you have already configured passbolt CE, and Haspr Pro relies on the same configuration, you should reply:</p>
       <ul>
         <li><b>No</b> for MariaDB configuration</li>
         <li><b>No</b> to NGINX configuration</li>
@@ -73,7 +73,7 @@ Now you can install the Passbolt Pro package.
 </>
 
 ### 7. Migrate the data
-Once the package installed, run the following command to migrate the data to Passbolt Pro:
+Once the package installed, run the following command to migrate the data to Haspr Pro:
 
 <CodeBlock>
   {`sudo -H -u ${props.distributionWebUser} /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"`}

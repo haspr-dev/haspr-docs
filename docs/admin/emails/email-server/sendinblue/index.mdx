@@ -13,8 +13,8 @@ import Chips from "/src/components/Chips/Chips";
 # Configure Email authentication with Sendinblue
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <EmailServerConfigurationIntroduction/>
@@ -47,9 +47,9 @@ Sendinblue also provides the SMTP settings that you can use to configure your em
 
 It's important to keep your Sendinblue SMTP key value secure, as it can be used to access your Sendinblue account and send emails from your account. You should never share your SMTP key value with anyone, and you should take steps to protect your account from unauthorized access.
 
-- Authentication on Passbolt GUI
+- Authentication on Haspr GUI
 
-On your Passbolt instance, you can navigate to *Administration > Email server*.
+On your Haspr instance, you can navigate to *Administration > Email server*.
 
 <Figure
   src="/img/help/2023/02/smtp-sendgrid-authentication.png"

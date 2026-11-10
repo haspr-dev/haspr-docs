@@ -1,7 +1,7 @@
 ---
 title: Configure Passbolt to Use Duo
 sidebar_label: Duo
-description: How to configure Duo with Passbolt
+description: How to configure Duo with Haspr
 hide_table_of_contents: false
 ---
 
@@ -12,12 +12,12 @@ import MfaRecommendation from "/docs/admin/_includes/warning/security_considerat
 # How to configure passbolt to use Duo
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-Passbolt Pro Edition since v2.5 and CE since v3.9 support Duo as a multi factor authentication option.
+Haspr Pro Edition since v2.5 and CE since v3.9 support Duo as a multi factor authentication option.
 
 Duo is a proprietary solution that is free for up to 10 users, and supports a bundle of authentication channels (such as HOTP, mobile push, phone calls, etc.) configurable by the Duo account administrator. Duo can be used in addition to another authentication method (such as username and password).
 
@@ -32,7 +32,7 @@ Multi Factor Authentication requires HTTPS to work.
 :::
 
 <MfaRecommendation MFA={'Duo'} />
-In order to authenticate using Duo, the user will be redirected to Duo's authentication page. Whether the authentication was successful, the user will be redirected back to passbolt. Make sure your users have access to internet or do not enable this authentication provider if you are running passbolt on a private network that is not connected to internet.
+In order to authenticate using Duo, the user will be redirected to Duo's authentication page. Whether the authentication was successful, the user will be redirected back to Haspr. Make sure your users have access to internet or do not enable this authentication provider if you are running passbolt on a private network that is not connected to internet.
 
 ## Install Duo app
 
@@ -51,7 +51,7 @@ Visit the [Duo authentication methods page](https://duo.com/product/multi-factor
 
 ## Register to Duo
 
-To allow users to authenticate via Duo in Passbolt, you must first obtain Duo application credentials by creating a Web SDK application for Passbolt within Duo.
+To allow users to authenticate via Duo in Haspr, you must first obtain Duo application credentials by creating a Web SDK application for Haspr within Duo.
 
 ### Register Duo admin account
 
@@ -71,11 +71,11 @@ Click on "Protect an application" then find the "Web SDK" application type in th
 
 <Figure
 src="/img/help/2023/02/mfa-duo-admin.png"
-alt="Duo web sdk application for passbolt"
-caption="fig. Duo web sdk application for passbolt"
+alt="Duo web sdk application for Haspr"
+caption="fig. Duo web sdk application for Haspr"
 />
 
-Note down the "Client ID", "Client secret", and "API hostname" details, as it will be request to you later to configure the Duo integration in passbolt.
+Note down the "Client ID", "Client secret", and "API hostname" details, as it will be request to you later to configure the Duo integration in Haspr.
 
 ## Enable Duo access
 

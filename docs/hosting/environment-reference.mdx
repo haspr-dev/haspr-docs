@@ -1,13 +1,13 @@
 ---
 title: Environment Variables Reference
-description: Complete reference for all environment variables in Passbolt Pro API
+description: Complete reference for all environment variables in Haspr Pro API
 sidebar_label: Environment Variables Reference
 ---
 
 import Chips from "/src/components/Chips/Chips";
 
 <div className="passbolt-pro-badge">
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 ## Configuration Precedence Order
@@ -26,7 +26,7 @@ Passbolt's configuration system uses multiple sources that override each other i
 - **Production:** Web UI for functional configuration, environment variables for security hardening
 
 ### 1. Web UI Settings (Highest Priority)
-Settings configured through the Passbolt web interface override all other configuration methods. These are stored in the database and provide the most user-friendly way to configure functional settings.
+Settings configured through the Haspr web interface override all other configuration methods. These are stored in the database and provide the most user-friendly way to configure functional settings.
 
 **What's Configured Here:**
 - **SMTP Settings**: Email server configuration, authentication, TLS settings
@@ -490,7 +490,7 @@ The following variables are critical for production security and should be confi
 Force SSL/HTTPS only. When enabled, all HTTP requests are redirected to HTTPS, ensuring all communication is encrypted. Required for production security.
 
 :::warning Unsafe Mode Banner
-If `PASSBOLT_SSL_FORCE` is set to `false` or `DEBUG` is enabled, Passbolt will display an "unsafe mode" banner in the footer. This indicates the instance is not secure and should not be used in production. To disable the warning, set `PASSBOLT_SSL_FORCE=true` and `DEBUG=false`.
+If `PASSBOLT_SSL_FORCE` is set to `false` or `DEBUG` is enabled, Haspr will display an "unsafe mode" banner in the footer. This indicates the instance is not secure and should not be used in production. To disable the warning, set `PASSBOLT_SSL_FORCE=true` and `DEBUG=false`.
 :::
 **Default:** `false` | **Environment:** all
 
@@ -527,7 +527,7 @@ Set MFA cookie secure flag. When enabled, cookies are only sent over HTTPS conne
 **Default:** `true` | **Environment:** all
 
 **`PASSBOLT_SECURITY_PROXIES_ACTIVE`** *(boolean, optional)*
-Enable proxy support for load balancers/proxies. Required when Passbolt is behind a reverse proxy to correctly identify client IP addresses.
+Enable proxy support for load balancers/proxies. Required when Haspr is behind a reverse proxy to correctly identify client IP addresses.
 **Default:** `false` | **Environment:** all
 
 **`PASSBOLT_SECURITY_MFA_MAX_ATTEMPTS`** *(integer, optional)*
@@ -721,7 +721,7 @@ SSO redirect method (GET or POST). GET redirects are simpler but may have cookie
 **Default:** `null` | **Environment:** all | **Example:** `'GET'`, `'POST'`
 
 **`PASSBOLT_PLUGINS_SSO_JWT_LEEWAY`** *(integer, optional)*
-JWT clock skew tolerance in seconds. Allows for time differences between the SSO provider and Passbolt server when validating JWT tokens.
+JWT clock skew tolerance in seconds. Allows for time differences between the SSO provider and Haspr server when validating JWT tokens.
 **Default:** `0` | **Environment:** all | **Example:** `30`, `60`
 
 **`PASSBOLT_PLUGINS_SSO_SECURITY_OAUTH2_EMAIL_CLAIM_ALIAS`** *(string, optional)*
@@ -882,7 +882,7 @@ Enable case-sensitive LDAP filters for directory synchronisation. When enabled, 
 
 ### SCIM User Provisioning
 
-SCIM user provisioning is a Passbolt Pro Edition feature, available since version 5.5.0. See [SCIM User Provisioning](/admin/user-provisioning/scim/) for setup instructions.
+SCIM user provisioning is a Haspr Pro Edition feature, available since version 5.5.0. See [SCIM User Provisioning](/admin/user-provisioning/scim/) for setup instructions.
 
 :::note[Variable prefix inconsistency]
 The secret token variables use the `PASSBOLT_SCIM_` prefix rather than `PASSBOLT_PLUGINS_SCIM_`. The names below are the ones the server reads.
@@ -931,17 +931,17 @@ Enable automatic client-side metadata setup. When enabled, metadata configuratio
 **Default:** `false` | **Environment:** all
 
 **`PASSBOLT_PLUGINS_METADATA_ENABLE_FOR_NEW_INSTANCES`** *(boolean, optional)*
-Enable metadata for new Passbolt instances.
+Enable metadata for new Haspr instances.
 **Default:** `true` | **Environment:** all
 
 **`PASSBOLT_PLUGINS_METADATA_ENABLE_FOR_EXISTING_INSTANCES`** *(boolean, optional)*
-Enable metadata for existing Passbolt instances.
+Enable metadata for existing Haspr instances.
 **Default:** `true` | **Environment:** all
 
 ### In-Form Integration
 
 **`PASSBOLT_PLUGINS_IN_FORM_INTEGRATION_ENABLED`** *(boolean, optional)*
-Enable in-form integration functionality: the passbolt icon inside login fields, its menu, and the automatic detection of login forms. Disabling it does not affect filling from the quick access popup. Used in [why can't I use autofill](/user/faq/why-my-autofill-doesnt-work/).
+Enable in-form integration functionality: the Haspr icon inside login fields, its menu, and the automatic detection of login forms. Disabling it does not affect filling from the quick access popup. Used in [why can't I use autofill](/user/faq/why-my-autofill-doesnt-work/).
 **Default:** `true` | **Environment:** all
 
 ### Email Digest
@@ -1230,7 +1230,7 @@ Controls search engine indexing behaviour.
 
 **`PASSBOLT_LEGAL_TERMSURL`** *(string, optional)*
 URL to the terms of service page.
-**Default:** `'https://www.passbolt.com/terms'` | **Environment:** all
+**Default:** `'https://doc.haspr.dev/terms'` | **Environment:** all
 
 **`PASSBOLT_LEGAL_PRIVACYPOLICYURL`** *(string, optional)*
 URL to the privacy policy page.
@@ -1252,7 +1252,7 @@ The variables in this section are primarily used for development, testing, and i
 Enable debug mode for detailed logging and error reporting. **DEVELOPMENT/TESTING ONLY - Never enable in production environments.**
 
 :::warning Unsafe Mode Banner
-When `DEBUG` is enabled or `PASSBOLT_SSL_FORCE` is set to `false`, Passbolt will display an "unsafe mode" banner in the footer. This indicates the instance is not secure and should not be used in production. To disable the warning, set `DEBUG=false` and `PASSBOLT_SSL_FORCE=true`.
+When `DEBUG` is enabled or `PASSBOLT_SSL_FORCE` is set to `false`, Haspr will display an "unsafe mode" banner in the footer. This indicates the instance is not secure and should not be used in production. To disable the warning, set `DEBUG=false` and `PASSBOLT_SSL_FORCE=true`.
 :::
 **Default:** `false` | **Environment:** development | **Security:** high impact
 

@@ -9,9 +9,9 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 Comments are short notes attached to a resource, visible to everyone who has access to it. They are the place for the context a password field cannot hold: which server this account belongs to, why it was rotated, who to ask before changing it.
@@ -51,7 +51,7 @@ The interface offers no way to correct a comment once it is saved. Delete it and
 
 Use the delete button of the comment, then confirm.
 
-You can only delete your own comments. Nobody else can remove them for you, and this includes your administrator, who has no way to delete another person's comment from passbolt. A comment posted by mistake in a resource you no longer own is therefore not something support can tidy up for you, which is one more reason to keep secrets out of comments.
+You can only delete your own comments. Nobody else can remove them for you, and this includes your administrator, who has no way to delete another person's comment from Haspr. A comment posted by mistake in a resource you no longer own is therefore not something support can tidy up for you, which is one more reason to keep secrets out of comments.
 
 ## Who sees your comment
 

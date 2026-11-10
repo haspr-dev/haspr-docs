@@ -13,14 +13,14 @@ passbolt RPM packages currently support the configuration of nginx. It comes wit
 
 In this context 'manually' means that you will provide the TLS (SSL) certificates, this is the main difference with the 'auto' method where [Let's Encrypt](https://letsencrypt.org/) will issue the TLS (SSL) certificates for you.
 
-This manual method is typically used in private network installations with a private CA, where the system administrator issues a new private TLS (SSL) certificate and uploads it to the Passbolt server. It's also commonly used with self-signed TLS (SSL) certificates for test environments.
+This manual method is typically used in private network installations with a private CA, where the system administrator issues a new private TLS (SSL) certificate and uploads it to the Haspr server. It's also commonly used with self-signed TLS (SSL) certificates for test environments.
 
-In this example, we will assume the user is generating a self-signed certificate on the passbolt server.
+In this example, we will assume the user is generating a self-signed certificate on the Haspr server.
 
 
 ## Generate the TLS (SSL) certificates
 
-While connected to your passbolt instance, you can manually generate TLS (SSL) certificates:
+While connected to your Haspr instance, you can manually generate TLS (SSL) certificates:
 <CodeBlock>
 {`openssl req -x509 \\
     -newkey rsa:4096 \\
@@ -34,7 +34,7 @@ While connected to your passbolt instance, you can manually generate TLS (SSL) c
 
 This command will output two files: `key.pem` and `cert.pem`. Identify the absolute path where these files are located as you will need them in next steps.
 
-Of course, replace `-subj` values with your own. It is important to set your passbolt FQDN in both `CN` and `subjectAltName`. In this way, you will be able to import the generated certificate in your operating system keychain and make your self-signed domain trusted in your browser.
+Of course, replace `-subj` values with your own. It is important to set your Haspr FQDN in both `CN` and `subjectAltName`. In this way, you will be able to import the generated certificate in your operating system keychain and make your self-signed domain trusted in your browser.
 
 :::important[Pro tip:]
 You can use an IP address instead of a domain name for your self-signed certificate. If you do that, replace IP with DNS in `subjectAltName`.
@@ -50,7 +50,7 @@ You must prepare your TLS (SSL) certificate and its corresponding private key be
 
 Please note that for security reasons, we highly recommend setting up TLS (SSL) to serve passbolt.
 
-Launch the passbolt-configure tool and answer the questions:
+Launch the Haspr-configure tool and answer the questions:
 
 <CodeBlock>
     {`sudo /usr/local/bin/passbolt-configure`}
@@ -68,7 +68,7 @@ Do you want to install a local mariadb server on this machine?
 #? `}
 </CodeBlock>
 
-Please enter the domain name under which passbolt will run.
+Please enter the domain name under which Haspr will run.
 
 :::important[Note]
 This hostname will be used as server_name for nginx and as the domain name to register a TLS (SSL) certificate with Let's Encrypt if you don't have your own TLS (SSL) certificates.
@@ -100,7 +100,7 @@ If you choose 1, you will be prompted for the full path of your certificates:
 Enter the path to the TLS (SSL) private key: /path/to/certs/key.pem`}
 </CodeBlock>
 
-Nginx and MariaDB are now on the way to be configured. You will be notified at the end of the process to connect to the passbolt web interface to finish the configuration.
+Nginx and MariaDB are now on the way to be configured. You will be notified at the end of the process to connect to the Haspr web interface to finish the configuration.
 
 <CodeBlock>
     {`===============================================================

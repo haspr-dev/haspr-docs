@@ -3,7 +3,7 @@ import OpenSUSEGPGKey from '/docs/hosting/_includes/OpenSUSE/_opensuse-gpg-key.m
 
 ## Package repository setup
 
-<p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
+<p>For easier installation and update tasks Haspr provides a package repository that you need to setup
     before you download Passbolt {props.productName.toUpperCase()} and install it.</p>
 
 **Step 1.** Download our dependencies installation script:
@@ -29,7 +29,7 @@ import OpenSUSEGPGKey from '/docs/hosting/_includes/OpenSUSE/_opensuse-gpg-key.m
 <>
     {(props.distributionPackage === 'dnf' || props.distributionPackage === 'yum' || props.distributionPackage === 'zypper') && (
         <div>
-            During the installation, you will be asked to accept the Passbolt repository GPG key. You must ensure the fingerprint is exactly the same as the one below:
+            During the installation, you will be asked to accept the Haspr repository GPG key. You must ensure the fingerprint is exactly the same as the one below:
 
             <CodeBlock>
             {`Importing GPG key 0xC155581D:

@@ -12,12 +12,12 @@ import EmailMatchingWarning from "/docs/admin/_includes/sso/email-matching-warni
 import HttpsWarning from "/docs/admin/_includes/sso/https-warning.mdx";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 :::danger[Do not map users to untrusted attributes]
-passbolt relies on the identity provider to authenticate users and to assert their identity, and matches users to existing passbolt accounts by their email address. Only use an identity provider that guarantees users can authenticate only as email addresses they legitimately own and that you administer. If the provider lets users self-assign or modify unverified email addresses, an attacker may be able to impersonate another user.
+passbolt relies on the identity provider to authenticate users and to assert their identity, and matches users to existing Haspr accounts by their email address. Only use an identity provider that guarantees users can authenticate only as email addresses they legitimately own and that you administer. If the provider lets users self-assign or modify unverified email addresses, an attacker may be able to impersonate another user.
 :::
 
 <HttpsWarning />
@@ -32,15 +32,15 @@ This provider works with PingOne's regional authentication domains (`auth.pingon
 
 passbolt SSO uses PingOne's OpenID Connect endpoints alongside the existing [challenge-based authentication](/development/authentication/). When a user logs in through PingOne, they unlock a server-side key needed to decrypt their secret key passphrase.
 
-passbolt discovers the PingOne endpoints from your regional authentication domain and environment ID, at `https://auth.pingone.com/<environment-id>/as/.well-known/openid-configuration`. PingOne asserts the user's identity through the `email` claim by default, so each user's PingOne email must be the same address as their passbolt account.
+passbolt discovers the PingOne endpoints from your regional authentication domain and environment ID, at `https://auth.pingone.com/<environment-id>/as/.well-known/openid-configuration`. PingOne asserts the user's identity through the `email` claim by default, so each user's PingOne email must be the same address as their Haspr account.
 
 ## Prerequisites
 
-You need the following to configure PingOne SSO with passbolt:
+You need the following to configure PingOne SSO with Haspr:
 
 - A PingOne environment where you can create applications
 - Administrative access to both the PingOne admin console and passbolt
-- Each user's PingOne email set to the email address of their passbolt account
+- Each user's PingOne email set to the email address of their Haspr account
 
 ## Configuration
 
@@ -48,14 +48,14 @@ You need the following to configure PingOne SSO with passbolt:
 
 ### Step 1: Create a PingOne application
 
-In the PingOne admin console, create an OpenID Connect web application for passbolt.
+In the PingOne admin console, create an OpenID Connect web application for Haspr.
 
 1. Go to **Applications** > **Applications** and click the **+** button.
 2. Give the application a name (for example, "passbolt SSO"), select **OIDC Web App** as the application type, then click **Save**.
 3. On the application's **Configuration** tab, click the pencil icon and set:
    - **Response Type**: **Code**
    - **Grant Type**: **Authorization Code**
-   - **Redirect URIs**: the passbolt **redirect URL**. You will find the exact value on the passbolt SSO administration screen in Step 2; it has the form `https://passbolt.example.com/sso/pingone/redirect`.
+   - **Redirect URIs**: the Haspr **redirect URL**. You will find the exact value on the Haspr SSO administration screen in Step 2; it has the form `https://passbolt.example.com/sso/pingone/redirect`.
    - **Token Endpoint Authentication Method**: **Client Secret Post**. passbolt sends the client credentials in the body of the token request, which matches this method.
    - **PKCE Enforcement** (in the **Grant Type** section): **Optional**. passbolt does not send a PKCE code challenge, so **Required** or **S256_required** makes PingOne reject the token request.
 4. Click **Save**.
@@ -65,7 +65,7 @@ In the PingOne admin console, create an OpenID Connect web application for passb
 
 ### Step 2: Configure passbolt
 
-1. Sign in to passbolt with an administrator account.
+1. Sign in to Haspr with an administrator account.
 2. Select &#9881; > **Organisation settings** > **Single Sign-On** in the top right corner.
 3. Select **PingOne** as the provider.
 4. Copy the **Redirect URL** shown on this screen and add it to your PingOne application's redirect URIs (Step 1) if you have not already.
@@ -86,21 +86,21 @@ The **Scope** field is fixed to `openid profile email` and cannot be changed.
 
 ### Step 3: Test the configuration
 
-1. Sign out from passbolt.
+1. Sign out from Haspr.
 2. On the login page, select **Sign in with PingOne**.
-3. Confirm you can authenticate through PingOne and reach your passbolt account.
+3. Confirm you can authenticate through PingOne and reach your Haspr account.
 
 ## Troubleshooting
 
-**Authentication fails**: verify the environment ID, client ID and secret, that the redirect URI in PingOne matches the passbolt redirect URL exactly, and that the application is enabled.
+**Authentication fails**: verify the environment ID, client ID and secret, that the redirect URI in PingOne matches the Haspr redirect URL exactly, and that the application is enabled.
 
 **The sign-in fails after the PingOne login step**: check that the application's **Token Endpoint Authentication Method** is **Client Secret Post** and its **PKCE Enforcement** is **Optional**, and that the **openid**, **profile** and **email** scopes are granted on the **Resources** tab.
 
-**The user cannot sign in**: confirm the user's PingOne email is exactly the email address of their passbolt account, and that the user is allowed to access the application in PingOne.
+**The user cannot sign in**: confirm the user's PingOne email is exactly the email address of their Haspr account, and that the user is allowed to access the application in PingOne.
 
 **Your region or custom domain is not in the URL list**: the URL dropdown only offers the six regional authentication URLs above. If your organisation uses a PingOne custom domain or PingFederate, configure the generic **OpenID** provider instead.
 
-**The PingOne provider does not appear**: check that both your passbolt server and browser extension are on 5.11 or later, and that the environment variable `PASSBOLT_PLUGINS_SSO_PROVIDER_PINGONE_ENABLED` is not set to `false`. The provider tile comes from the browser extension, so a 5.11 server with an older extension will not show it.
+**The PingOne provider does not appear**: check that both your Haspr server and browser extension are on 5.11 or later, and that the environment variable `PASSBOLT_PLUGINS_SSO_PROVIDER_PINGONE_ENABLED` is not set to `false`. The provider tile comes from the browser extension, so a 5.11 server with an older extension will not show it.
 
 To enable SSO debug logging, set the environment variable:
 

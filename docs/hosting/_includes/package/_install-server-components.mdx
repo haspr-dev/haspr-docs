@@ -5,7 +5,7 @@ import RepoScriptSLES from "/docs/hosting/_includes/default/sles_uncomment_lines
 ## Package repository setup
 
 <div>
-  For easier installation and update tasks Passbolt provides a package
+  For easier installation and update tasks Haspr provides a package
   repository that you need to setup before you download Passbolt{' '}
   {props.productName} and install it.
 </div>
@@ -66,7 +66,7 @@ import RepoScriptSLES from "/docs/hosting/_includes/default/sles_uncomment_lines
 <>
     {(props.distributionPackage === 'dnf' || props.distributionPackage === 'yum' || props.distributionPackage === 'zypper') && (
         <div>
-            During the installation, you will be asked to accept the Passbolt repository GPG key. You must ensure the fingerprint is exactly the same as the one below:
+            During the installation, you will be asked to accept the Haspr repository GPG key. You must ensure the fingerprint is exactly the same as the one below:
             <CodeBlock>
                 {`Importing GPG key 0xC155581D:
 Userid     : "Passbolt SA package signing key contact@passbolt.com"

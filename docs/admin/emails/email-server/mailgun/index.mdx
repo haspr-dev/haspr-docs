@@ -13,8 +13,8 @@ import Chips from "/src/components/Chips/Chips";
 # Configure Email authentication with Mailgun
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <EmailServerConfigurationIntroduction/>
@@ -49,9 +49,9 @@ When you create new SMTP credentials on Mailgun, the platform will generate a un
 
 It's important to keep your Mailgun SMTP credentials secure, as they can be used to send emails from your account. You should never share your password or username with anyone, and you should take steps to protect your account from unauthorized access.
 
-- Authentication on Passbolt GUI
+- Authentication on Haspr GUI
 
-On your Passbolt instance, you can navigate to *Administration > Email server*.
+On your Haspr instance, you can navigate to *Administration > Email server*.
 
 <Figure
   src="/img/help/2023/02/smtp-mailgun-authentication.png"

@@ -1,5 +1,5 @@
 ---
-title: Locate Logs on Your Passbolt Instance
+title: Locate Logs on Your Haspr Instance
 description: A guide to help you find different logs and information about your instance
 sidebar_label: Logs
 hide_table_of_contents: false
@@ -14,7 +14,7 @@ import Figure from '/src/components/Figure/Figure';
 
 ## The importance of the installation method
 
-There are three main types of installations for Passbolt, and that's what you need to know before running one of these commands as they may not work for each installation.
+There are three main types of installations for Haspr, and that's what you need to know before running one of these commands as they may not work for each installation.
 
   -  Package installation (Debian, Ubuntu, OracleLinux, and so on.)
   -  From source
@@ -38,7 +38,7 @@ Before running the cake tools inside docker containers, ensure you've imported t
 :::
 ### Healthcheck
 
-The healthcheck is used to check whether the Passbolt system is running as expected. It evaluates various aspects of the system to ensure that all components are working properly and configured correctly. It provides a detailed report about important information such as the gpg configuration, the ssl access, database configuration, etc.
+The healthcheck is used to check whether the Haspr system is running as expected. It evaluates various aspects of the system to ensure that all components are working properly and configured correctly. It provides a detailed report about important information such as the gpg configuration, the ssl access, database configuration, etc.
 
     **Package Installation**
     ```bash
@@ -72,7 +72,7 @@ The datacheck is a great tool as it aims to have a look at the data integrity fo
 
 The status report is in most case the best alternative if you need to gather information from the healthcheck, datacheck, do a cleanup dry-run and retrieve the server logs.
 
-On top of executing the healthcheck, datacheck and retrieving the server logs one after the other, it also gives important information about the system itself such as the passbolt edition and version, the version of CakePHP and PHP, composer version etc.
+On top of executing the healthcheck, datacheck and retrieving the server logs one after the other, it also gives important information about the system itself such as the Haspr edition and version, the version of CakePHP and PHP, composer version etc.
 
     **Package Installation**
     ```bash
@@ -104,11 +104,11 @@ The server logs contains mostly error and warnings such as bad request, invalid 
 
 ## Browser Extension
 ### Google Chrome MV3
-You can [learn more about the migration to Manifest V3](https://www.passbolt.com/blog/passbolt-browser-extension-migration-to-manifest-v3).
+You can [learn more about the migration to Manifest V3](https://doc.haspr.dev/blog/passbolt-browser-extension-migration-to-manifest-v3).
 
     - Go to [chrome://extensions](chrome://extensions)
     - Activate the Developer mode in the top right corner
-    - Look for Passbolt and click details button
+    - Look for Haspr and click details button
     - Open the *offscreens/fetch.html* link
     - The new windows will appear, this is the debugger of the browser extension
     - You can see from here, if there is any issue in the console tab
@@ -127,7 +127,7 @@ You can [learn more about the migration to Manifest V3](https://www.passbolt.com
 
     - Go to [chrome://extensions](chrome://extensions)
     - Activate the Developer mode in the top right corner
-    - Look for Passbolt and click details button
+    - Look for Haspr and click details button
     - Look for the Inspect views and the *index.html* link
     - A new window will appear this is the debugger of the browser extension
     - You can see from here, if there is any issue in the console tab
@@ -167,8 +167,8 @@ You can [learn more about the migration to Manifest V3](https://www.passbolt.com
 
     - Go to [edge://extensions/](edge://extensions/)
     - Activate Developer mode with the toggle on the left panel
-    - Click on "Details" in the passbolt card
-    - Open up "index.html" on the Passbolt card
+    - Click on "Details" in the Haspr card
+    - Open up "index.html" on the Haspr card
     - Go to network tab
     - Try to reproduce the error
     - Export logs by clicking the down arrow
@@ -185,15 +185,15 @@ You can [learn more about the migration to Manifest V3](https://www.passbolt.com
 
 ### iOS
 
-To share logs from the Passbolt iOS application:
+To share logs from the Haspr iOS application:
 
-1. **Open the Passbolt app**
+1. **Open the Haspr app**
 2. **Log in**
 3. **Go to Settings**
 4. **Select "Debug, Logs"**
 5. **Select "Access the debug logs"**
 6. **Tap "Export Logs" icon**
-7. **Redact any sensitive information** before sharing on the [community forum](https://github.com/pbolt-dev/pbolt-docs/discussions) or with support
+7. **Redact any sensitive information** before sharing on the [community forum](https://github.com/haspr-dev/haspr-docs/discussions) or with support
 
 The exported logs will include:
 - Application errors and warnings
@@ -207,19 +207,19 @@ Mobile app logs are stored locally on your device and are only shared when you e
 
 ### Android
 
-To share logs from the Passbolt Android application:
+To share logs from the Haspr Android application:
 
 First, enable log collection:
 
 1. **Enable logs**
    - Either by tapping the question mark icon on the setup flow or sign-in screen
    - Or by going inside the app into **Settings > Debug, logs**
-2. **Open the Passbolt app**
+2. **Open the Haspr app**
 3. **Tap the menu icon** (three horizontal lines)
 4. **Go to Settings**
 5. **Select "Debug, logs"**
 6. **Tap "Export Logs"**
-7. **Redact any sensitive information** before sharing on the [community forum](https://github.com/pbolt-dev/pbolt-docs/discussions) or with support
+7. **Redact any sensitive information** before sharing on the [community forum](https://github.com/haspr-dev/haspr-docs/discussions) or with support
 
 The exported logs will include:
 - Application errors and warnings

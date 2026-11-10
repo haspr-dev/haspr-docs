@@ -1,6 +1,6 @@
 ---
 title: How to Use Quick Access
-description: How to open the passbolt popup, find a credential, fill a form, and create or save a password from it
+description: How to open the Haspr popup, find a credential, fill a form, and create or save a password from it
 sidebar_label: Quick Access
 sidebar_position: 13
 ---
@@ -9,25 +9,25 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-Quick Access is the small window that opens from the passbolt icon of your browser toolbar. Everything you do most often is there: finding a password, copying it, filling the form of the page you are on, saving a new credential. You can even sign in from it, so a normal day never requires opening the passbolt tab at all.
+Quick Access is the small window that opens from the Haspr icon of your browser toolbar. Everything you do most often is there: finding a password, copying it, filling the form of the page you are on, saving a new credential. You can even sign in from it, so a normal day never requires opening the Haspr tab at all.
 
 ## Open it
 
-Click the passbolt icon in your browser toolbar.
+Click the Haspr icon in your browser toolbar.
 
 :::caution[Alt+Shift+P does something else]
-That shortcut opens the passbolt web application in a new tab, it does not open Quick Access. No keyboard shortcut opens the popup out of the box, but your browser can provide one: assign it in the shortcut manager of Firefox, or on the `chrome://extensions/shortcuts` page of Chrome.
+That shortcut opens the Haspr web application in a new tab, it does not open Quick Access. No keyboard shortcut opens the popup out of the box, but your browser can provide one: assign it in the shortcut manager of Firefox, or on the `chrome://extensions/shortcuts` page of Chrome.
 :::
 
 If your session has expired, the popup shows its own sign in screen, with your **Username** and **Passphrase**, and a **Remember until I log out.** option. When your organisation uses single sign-on, **Sign in with Single Sign-On.** is offered there too, with **Sign in with my passphrase.** as the way back.
 
 :::note[When the server itself cannot be reached]
-If passbolt cannot reach the server at all, Quick Access can still open with a read-only set of resources, provided your administrator has enabled Offline mode and you marked them in advance. See [how to use Offline mode](/user/advanced-features/offline-mode/).
+If Haspr cannot reach the server at all, Quick Access can still open with a read-only set of resources, provided your administrator has enabled Offline mode and you marked them in advance. See [how to use Offline mode](/user/advanced-features/offline-mode/).
 :::
 
 ## The home screen
@@ -59,7 +59,7 @@ Select a credential to open its details.
 - **Copy to clipboard** copies the field you point at, whether that is the **Username**, the **Password** or the **TOTP**.
 - **View** reveals a hidden value in the popup instead of copying it.
 - **Open in new window** opens the address of the resource in a new tab.
-- **Edit in passbolt** takes you to the resource in the web application, since the popup does not edit.
+- **Edit in Haspr** takes you to the resource in the web application, since the popup does not edit.
 - **Additional URIs** appears when the resource has more than one address.
 
 You may be asked for your passphrase before a secret is revealed or copied, depending on how long ago you signed in.

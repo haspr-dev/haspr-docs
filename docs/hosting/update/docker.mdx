@@ -10,8 +10,8 @@ import SystemRequirements from '/docs/hosting/_includes/docker/_docker-system-re
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <DockerWarning />
@@ -43,4 +43,4 @@ The 'latest' tag does not automatically keep your container up to date. You must
 By doing this:
 
 - a new passbolt docker image will be pulled and a new container created
-- your passbolt database schema will be updated
+- your Haspr database schema will be updated

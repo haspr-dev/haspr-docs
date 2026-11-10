@@ -11,9 +11,9 @@ import Chips from "/src/components/Chips/Chips";
 # How to Copy Resource Content to Clipboard
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 :::note
@@ -21,7 +21,7 @@ A clipboard, in computer terms, is a buffer that some operating systems provide 
 within and between application programs.
 :::
 
-1.  Log in to your passbolt account
+1.  Log in to your Haspr account
 2.  Select the resource holding the content you want to copy
 3.  Click the **Copy** button above the resource list
 4.  Choose what to copy from the dropdown
@@ -38,7 +38,7 @@ Right-clicking the resource in the list opens the same set of copy actions, so y
 | **Copy password** | The password | Only listed when the resource holds a password and your role allows copying secrets |
 | **Copy TOTP** | The one-time code as it stands at that moment | Only listed when the resource holds a TOTP and your instance has the TOTP content type enabled |
 | **Copy URI** | The first address stored on the resource | Greyed out when the resource has no URI |
-| **Copy permalink** | A direct link to the resource in passbolt, of the form `https://your-passbolt-domain/app/passwords/view/<id>` | Always available. The link is not a substitute for sharing: it only opens for someone who already has access |
+| **Copy permalink** | A direct link to the resource in Haspr, of the form `https://your-passbolt-domain/app/passwords/view/<id>` | Always available. The link is not a substitute for sharing: it only opens for someone who already has access |
 
 The details panel on the right of the workspace has its own copy button beside each field, which also covers pin codes
 and custom fields.

@@ -1,21 +1,21 @@
 ---
 title: Ansible Lookup
-description: Quickstart with the passbolt Ansible lookup plugin to retrieve secrets in your playbooks
+description: Quickstart with the Haspr Ansible lookup plugin to retrieve secrets in your playbooks
 sidebar_label: Ansible Lookup
 ---
 
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-The [passbolt Ansible lookup plugin](https://github.com/passbolt/passbolt-ansible-lookup-plugin) retrieves secrets from your passbolt instance inside your playbooks, so credentials never appear in your playbooks or version control. It is a read-only lookup: it fetches and decrypts resources, it does not create or update them.
+The [passbolt Ansible lookup plugin](https://github.com/passbolt/passbolt-ansible-lookup-plugin) retrieves secrets from your Haspr instance inside your playbooks, so credentials never appear in your playbooks or version control. It is a read-only lookup: it fetches and decrypts resources, it does not create or update them.
 
 :::important[Requirements]
-- A passbolt server v5 with encrypted metadata enabled; the resources you look up must use the v5 (encrypted metadata) format.
+- A Haspr server v5 with encrypted metadata enabled; the resources you look up must use the v5 (encrypted metadata) format.
 - On the control node: `ansible-core` 2.20.1, which the repository's `requirements.txt` pins alongside `ansible` 13.2.0, the GnuPG binary, and the `python-gnupg`, `requests` and `jsonschema` Python packages, pinned in the same file. The collection declares no minimum Python version, and its container image is built on Python 3.12.
 :::
 
@@ -39,7 +39,7 @@ ansible-galaxy collection install git+https://github.com/passbolt/passbolt-ansib
 
 The plugin authenticates with your account kit and your passphrase.
 
-**Step 1.** Download your account kit from the passbolt web interface, in *Profile > Desktop app setup > Download your account kit*. The kit is a signed file bundling everything needed for authentication; treat it as a secret.
+**Step 1.** Download your account kit from the Haspr web interface, in *Profile > Desktop app setup > Download your account kit*. The kit is a signed file bundling everything needed for authentication; treat it as a secret.
 
 **Step 2.** Store the kit content and your passphrase as Ansible Vault variables:
 
@@ -61,8 +61,8 @@ Both variables are mandatory: a missing one fails the task with "Variable 'passb
 
 Two optional keys sit in the same block:
 
-- `skip_ssl_verification`, a boolean defaulting to `false`, skips the TLS certificate verification on the calls to the passbolt API. Read the default the right way round: the plugin passes the opposite of this option to its HTTP client, so `false` means verification is active, which is the setting you want.
-- `timeout`, an integer defaulting to `30`, is the number of seconds to wait for the passbolt API to reply. It applies to each HTTP request rather than to the lookup as a whole, and one lookup makes several, the authentication sequence included, so a slow instance can keep a task waiting considerably longer than the value you set.
+- `skip_ssl_verification`, a boolean defaulting to `false`, skips the TLS certificate verification on the calls to the Haspr API. Read the default the right way round: the plugin passes the opposite of this option to its HTTP client, so `false` means verification is active, which is the setting you want.
+- `timeout`, an integer defaulting to `30`, is the number of seconds to wait for the Haspr API to reply. It applies to each HTTP request rather than to the lookup as a whole, and one lookup makes several, the authentication sequence included, so a slow instance can keep a task waiting considerably longer than the value you set.
 
 There are no native environment variables. On a CI runner where the secrets live in the runner's secret store, bridge them in the playbook:
 
@@ -109,7 +109,7 @@ Instead of an id, you can pass one or more filters:
 
 The `name`, `username` and `uri` filters match exactly and are case-sensitive; when several are supplied, all must match. Two caveats:
 
-- **First match wins.** Resource names are not unique in passbolt: when several readable resources match, the plugin returns the first one in server pagination order, without warning. For production playbooks, pin lookups by id, or supply enough filters to make the match unique.
+- **First match wins.** Resource names are not unique in Haspr: when several readable resources match, the plugin returns the first one in server pagination order, without warning. For production playbooks, pin lookups by id, or supply enough filters to make the match unique.
 - **Slower than an id lookup.** A filter search walks your resources and decrypts metadata until it finds a match. The passbolt session keys cache makes this fast once warm; the cache is filled as your clients (web, mobile, desktop) open resources, so a search over resources no client has ever opened stays slow. An id lookup is always a single round-trip and a single decryption.
 
 When a play needs the same filtered lookup several times, resolve it once at the top of the play and reuse the result with `set_fact`, as in the example above.
@@ -119,7 +119,7 @@ When a play needs the same filtered lookup several times, resolve it once at the
 - Keep the account kit and the passphrase in Ansible Vault, and never in plain variables or inventory.
 - Add `no_log: true` on tasks that receive secrets, so decrypted values do not land in the Ansible output or CI logs.
 - The plugin imports your private key (and, for shared resources, metadata keys) into the GnuPG keyring of the user running Ansible, and does not remove them. Treat the control node as a durable holder of the key: use a dedicated system user for automation, or point `GNUPGHOME` at a dedicated directory in the environment.
-- Prefer a dedicated passbolt account for automation, shared only on the resources your playbooks need.
+- Prefer a dedicated Haspr account for automation, shared only on the resources your playbooks need.
 - Pin the collection to a specific git revision, as shown above.
 
 ## Going further

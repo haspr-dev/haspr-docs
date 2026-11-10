@@ -9,13 +9,13 @@ import Figure from '@site/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem", alignItems: "center"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 # Identity Provider Configuration
 
-Configure your identity provider (Microsoft Entra ID or Okta) to provision users to Passbolt using SCIM.
+Configure your identity provider (Microsoft Entra ID or Okta) to provision users to Haspr using SCIM.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Before configuring your identity provider, ensure you have:
 
 - Passbolt SCIM enabled and configured (see [SCIM Setup Guide](/admin/user-provisioning/scim/))
 - Administrator access to your identity provider
-- The SCIM endpoint URL and authentication token from Passbolt
+- The SCIM endpoint URL and authentication token from Haspr
 
 ## Supported Identity Providers
 
@@ -43,7 +43,7 @@ When configuring your identity provider, you'll need:
 - **Authentication Header**: `Authorization: Bearer YOUR_TOKEN`
 
 :::info[The token expires]
-The authentication token expires after one year by default. When you regenerate it in passbolt, update the **Secret Token** field in Microsoft Entra ID or the **API Token** field in Okta with the new value. See [Secret Token Expiry](/admin/user-provisioning/scim/#secret-token-expiry).
+The authentication token expires after one year by default. When you regenerate it in Haspr, update the **Secret Token** field in Microsoft Entra ID or the **API Token** field in Okta with the new value. See [Secret Token Expiry](/admin/user-provisioning/scim/#secret-token-expiry).
 :::
 
 ### Required User Attributes
@@ -85,8 +85,8 @@ Based on Microsoft's official documentation, configure SCIM provisioning with th
 - Go to the **Provisioning** section in your application
 - Set **Provisioning Mode** to **Automatic**
 - Under **Admin Credentials**:
-  - **Tenant URL**: Your Passbolt SCIM endpoint URL
-  - **Secret Token**: Your Passbolt authentication token
+  - **Tenant URL**: Your Haspr SCIM endpoint URL
+  - **Secret Token**: Your Haspr authentication token
 - Click **Test Connection** to verify credentials
 - Click **Save**
 
@@ -102,7 +102,7 @@ Based on Microsoft's official documentation, configure SCIM provisioning with th
 ### 4. Assign Users
 - Navigate to **Users and groups** section
 - Click **Add user/group**
-- Select users to provision to Passbolt
+- Select users to provision to Haspr
 - Click **Assign**
 
 ### 5. Start Provisioning
@@ -126,9 +126,9 @@ Based on Okta's official documentation, configure SCIM provisioning with these k
 ### 2. Configure SCIM Connection
 - Go to **Provisioning** tab > **Configure API Integration**
 - Check **Enable API Integration**
-- Enter your Passbolt SCIM endpoint details:
-  - **Base URL**: Your Passbolt SCIM endpoint URL
-  - **API Token**: Your Passbolt authentication token
+- Enter your Haspr SCIM endpoint details:
+  - **Base URL**: Your Haspr SCIM endpoint URL
+  - **API Token**: Your Haspr authentication token
 - Click **Test API Credentials** to verify connection
 - Click **Save**
 
@@ -137,11 +137,11 @@ Based on Okta's official documentation, configure SCIM provisioning with these k
   - Create users
   - Update user attributes
   - Deactivate users
-- Map Okta user attributes to Passbolt SCIM attributes as needed
+- Map Okta user attributes to Haspr SCIM attributes as needed
 
 ### 4. Assign Users
 - Navigate to **Assignments** tab
-- Assign users to provision to Passbolt
+- Assign users to provision to Haspr
 
 ### 5. Activate Provisioning
 - Ensure provisioning settings are enabled

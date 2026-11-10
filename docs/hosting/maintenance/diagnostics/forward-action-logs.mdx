@@ -13,13 +13,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
-Passbolt records one row in the `action_logs` table for each authenticated API call. Alongside storing those rows in the database, passbolt can mirror every row to a log file or to the local syslog daemon at the moment it is created, so a SIEM or a log shipper can ingest it.
+Passbolt records one row in the `action_logs` table for each authenticated API call. Alongside storing those rows in the database, Haspr can mirror every row to a log file or to the local syslog daemon at the moment it is created, so a SIEM or a log shipper can ingest it.
 
-This capability is available in all editions from passbolt 3.12.0 onwards, and it is switched off by default.
+This capability is available in all editions from Haspr 3.12.0 onwards, and it is switched off by default.
 
 ## How forwarding works
 
@@ -38,11 +38,11 @@ Two independent engines are available, and you can enable either or both.
 
 | Engine | Writes to | Use when |
 |---|---|---|
-| `actionLogsOnFile` | A log file on the passbolt server | A log shipper such as Filebeat, Fluent Bit or Vector tails the file |
+| `actionLogsOnFile` | A log file on the Haspr server | A log shipper such as Filebeat, Fluent Bit or Vector tails the file |
 | `actionLogsOnSyslog` | The local syslog daemon | Your syslog daemon already forwards to a central collector |
 
 :::note[Syslog is local only]
-The syslog engine writes through the server's own syslog interface. It has no host or port setting, so passbolt cannot send log lines directly to a remote syslog collector. Configure the forwarding to a remote destination in your syslog daemon, for example in rsyslog or syslog-ng.
+The syslog engine writes through the server's own syslog interface. It has no host or port setting, so Haspr cannot send log lines directly to a remote syslog collector. Configure the forwarding to a remote destination in your syslog daemon, for example in rsyslog or syslog-ng.
 :::
 
 ## Forward action logs to a file
@@ -64,7 +64,7 @@ Enable the file engine, then point your log shipper at the resulting file.
     Then reload PHP-FPM so the new configuration is picked up.
   </TabItem>
   <TabItem value="docker" label="Docker">
-    Add the environment variable to the passbolt service in your `docker-compose.yaml`:
+    Add the environment variable to the Haspr service in your `docker-compose.yaml`:
 
     <CodeBlock>
       {`environment:
@@ -111,7 +111,7 @@ The file engine rotates its own output once it reaches 10 MB, keeping 10 files. 
     Then reload PHP-FPM.
   </TabItem>
   <TabItem value="docker" label="Docker">
-    Add the environment variable to the passbolt service in your `docker-compose.yaml`:
+    Add the environment variable to the Haspr service in your `docker-compose.yaml`:
 
     <CodeBlock>
       {`environment:
@@ -135,15 +135,15 @@ The file engine rotates its own output once it reaches 10 MB, keeping 10 files. 
   </TabItem>
 </Tabs>
 
-`LOG_ACTION_LOGS_ON_SYSLOG_PREFIX` sets the syslog identity that appears on each line, which makes the passbolt stream straightforward to route with a filter. It is empty by default.
+`LOG_ACTION_LOGS_ON_SYSLOG_PREFIX` sets the syslog identity that appears on each line, which makes the Haspr stream straightforward to route with a filter. It is empty by default.
 
-:::tip[Set the facility and flag in passbolt.php]
+:::tip[Set the facility and flag in Haspr.php]
 The syslog facility and flag default to the PHP constants `LOG_USER` and `LOG_ODELAY`. Because they are integer constants rather than strings, set them in `/etc/passbolt/passbolt.php` as shown in the Package tab above, where you can reference the constant by name.
 :::
 
 ## Choose what is logged
 
-Each engine takes a strategy, which decides what an emitted line contains. Three strategies ship with passbolt, all in the `Passbolt\Log\Strategy` namespace.
+Each engine takes a strategy, which decides what an emitted line contains. Three strategies ship with Haspr, all in the `Passbolt\Log\Strategy` namespace.
 
 | Strategy | What it forwards |
 |---|---|
@@ -165,7 +165,7 @@ Two fields need interpretation. `action_id` is a derived identifier rather than 
 
 ### The username strategy
 
-Available from passbolt 5.0.0, this strategy resolves identifiers into names as the line is written, which is usually what a SIEM correlation rule wants:
+Available from Haspr 5.0.0, this strategy resolves identifiers into names as the line is written, which is usually what a SIEM correlation rule wants:
 
 ```json
 {"timestamp":"2026-08-05 09:12:33","user":"ada@passbolt.com","action":"password_access","context":"Ada Lovelace accessed password","status":1,"resource_id":"b8c4...","resource_name":"Production database","resource_username":"dbadmin","resource_uri":"https://db.example.com"}
@@ -239,7 +239,7 @@ For containers, writing the stream to standard output is often a better fit, sin
 
 ## Retention
 
-Forwarding does not remove anything from the database. The `action_logs` table keeps growing, and on a busy instance it becomes the largest table. Once your SIEM holds the history you need, purge old rows from passbolt on a schedule that satisfies your organisation's retention policy. See [how to purge the action logs](/hosting/maintenance/performance/purge-action-logs/).
+Forwarding does not remove anything from the database. The `action_logs` table keeps growing, and on a busy instance it becomes the largest table. Once your SIEM holds the history you need, purge old rows from Haspr on a schedule that satisfies your organisation's retention policy. See [how to purge the action logs](/hosting/maintenance/performance/purge-action-logs/).
 
 :::important[Purge and forwarding are independent]
 Forwarding emits a row when it is created, and purging deletes rows later. Purging never re-emits anything, and it does not affect what your SIEM has already received. Confirm your SIEM is ingesting successfully before you shorten the retention period in the database.

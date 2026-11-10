@@ -1,6 +1,6 @@
 ---
 title: Working with v5 encrypted metadata
-description: How to read and write resources whose metadata is encrypted, using the pbolt API
+description: How to read and write resources whose metadata is encrypted, using the haspr API
 sidebar_position: 2
 hide_table_of_contents: false
 ---
@@ -118,7 +118,7 @@ The composite fields have their own shape:
 
 Both encrypted payloads carry `object_type`: `PASSBOLT_RESOURCE_METADATA` for the metadata, `PASSBOLT_SECRET_DATA` for the secret. Only the secret side requires it. Every `secretDataV5*` entity lists it among its required fields, while the metadata entity does not, so metadata written without it validates and displays normally.
 
-The server cannot enforce either of them. It only ever sees an armoured string and has no key to open it, so a resource created without `object_type` is accepted and answered with a 200. The consequence appears later, and elsewhere: the passbolt clients validate the decrypted payload, reject it, and drop the resource from the list they display. You end up with a resource that the API returns and that nobody can see, which is the same symptom as a resource whose metadata cannot be decrypted.
+The server cannot enforce either of them. It only ever sees an armoured string and has no key to open it, so a resource created without `object_type` is accepted and answered with a 200. The consequence appears later, and elsewhere: the Haspr clients validate the decrypted payload, reject it, and drop the resource from the list they display. You end up with a resource that the API returns and that nobody can see, which is the same symptom as a resource whose metadata cannot be decrypted.
 
 Omitting it from a secret therefore produces a ghost resource rather than an error message. Set it on both payloads: the secret will not display without it, and on the metadata side it is a convention the client does not currently enforce.
 
@@ -184,4 +184,4 @@ The [passbolt Ansible lookup plugin](https://github.com/passbolt/passbolt-ansibl
 
 ## When a resource never arrives
 
-A resource whose metadata cannot be decrypted is dropped by the passbolt clients without any message, which makes it look absent rather than broken. If your own integration sees a resource that the web application does not show, that is the expected asymmetry, and [the encrypted metadata settings](/admin/resource-types/encrypted-metadata/) describe how to diagnose it.
+A resource whose metadata cannot be decrypted is dropped by the Haspr clients without any message, which makes it look absent rather than broken. If your own integration sees a resource that the web application does not show, that is the expected asymmetry, and [the encrypted metadata settings](/admin/resource-types/encrypted-metadata/) describe how to diagnose it.

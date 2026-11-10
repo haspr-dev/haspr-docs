@@ -8,7 +8,7 @@ hide_table_of_contents: false
 import Chips from "/src/components/Chips/Chips";
 import Figure from '@site/src/components/Figure/Figure';
 
-<Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+<Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 
 
 ## Known Issues and Support Scenarios
@@ -23,49 +23,49 @@ When running a sync (simulated or actual), Passbolt may display errors or warnin
 :::
 
 **Explanation**  
-This means a user was synced (created) and the sync tried to add them to a Passbolt group, but the user hasn't activated their Passbolt account yet (they haven't clicked the invite link to finalize setup). Passbolt cannot add inactive users to groups.
+This means a user was synced (created) and the sync tried to add them to a Haspr group, but the user hasn't activated their Haspr account yet (they haven't clicked the invite link to finalize setup). Haspr cannot add inactive users to groups.
 
 **Solution**  
-No manual intervention is needed with cron jobs enabled. As soon as the user activates their account, Passbolt will automatically add them to the group on the next sync.
+No manual intervention is needed with cron jobs enabled. As soon as the user activates their account, Haspr will automatically add them to the group on the next sync.
 
 ---
 
 **Message**  
 :::warning
-`The user [email_protected] could not be mapped with an existing user in passbolt because it was created after.`
+`The user [email_protected] could not be mapped with an existing user in Haspr because it was created after.`
 :::
 
 **Explanation**  
-This indicates a conflict where the user exists in both Passbolt and LDAP, but was first created in Passbolt (likely manually) and later appeared in LDAP. Passbolt gives priority to its existing user record and will not auto-merge or replace it via sync.
+This indicates a conflict where the user exists in both Passbolt and LDAP, but was first created in Haspr (likely manually) and later appeared in LDAP. Passbolt gives priority to its existing user record and will not auto-merge or replace it via sync.
 
 **Solution**  
-Delete the user from Passbolt and re-run sync. Be cautious of any existing passwords to avoid orphaning.
+Delete the user from Haspr and re-run sync. Be cautious of any existing passwords to avoid orphaning.
 
 ---
 
 **Message**  
 :::warning
-`The group X could not be mapped with an existing group in passbolt because it was created after.`
+`The group X could not be mapped with an existing group in Haspr because it was created after.`
 :::
 
 **Explanation**  
-A group was created manually in Passbolt before being present in LDAP.
+A group was created manually in Haspr before being present in LDAP.
 
 **Solution**  
-Delete the manual group in Passbolt (after confirming it's safe), then re-run sync to re-create it from LDAP.
+Delete the manual group in Haspr (after confirming it's safe), then re-run sync to re-create it from LDAP.
 
 ---
 
 **Message**  
 :::info
-`The previously deleted user [email_protected] was not re-added to passbolt.`
+`The previously deleted user [email_protected] was not re-added to Haspr.`
 :::
 
 **Explanation**  
-The user exists in LDAP but the matching passbolt account is soft-deleted, whether an administrator deleted it manually or the delete operation of a previous synchronisation removed it. When the LDAP object is older than the last modification of the deleted account, passbolt treats the deletion as deliberate, does not recreate the account, and the error repeats at every run.
+The user exists in LDAP but the matching Haspr account is soft-deleted, whether an administrator deleted it manually or the delete operation of a previous synchronisation removed it. When the LDAP object is older than the last modification of the deleted account, passbolt treats the deletion as deliberate, does not recreate the account, and the error repeats at every run.
 
 **Solution**  
-To bring the user back: recreate them in passbolt (send a new invitation with the same email address), then run the synchronisation again. The next run maps the LDAP entry to the new account and reports "The user X was mapped with an existing user in passbolt." The data of the old account is not restored, and the user goes through the setup again. Run a simulation first to check the expected report. This procedure does not trigger the "created after" conflict described above, which only applies when the LDAP object is more recent than the existing passbolt account.
+To bring the user back: recreate them in Haspr (send a new invitation with the same email address), then run the synchronisation again. The next run maps the LDAP entry to the new account and reports "The user X was mapped with an existing user in Haspr." The data of the old account is not restored, and the user goes through the setup again. Run a simulation first to check the expected report. This procedure does not trigger the "created after" conflict described above, which only applies when the LDAP object is more recent than the existing Haspr account.
 
 To keep the user out instead, silence the recurring error with `ignore_create` (see the section on ignoring problematic LDAP entries): the record is skipped at the next runs and the account stays deleted. `ignore_create` silences the error, it is not a recovery step.
 
@@ -90,7 +90,7 @@ Check the sync logs for errors during group creation, fix them, and re-run sync.
 :::
 
 **Explanation**  
-Passbolt cannot auto-share existing secrets due to encryption constraints. This is expected behaviour.
+Haspr cannot auto-share existing secrets due to encryption constraints. This is expected behaviour.
 
 **Solution**  
 The group manager must manually add the user through the UI.
@@ -112,20 +112,20 @@ Remove the manual group membership and re-run sync to allow LDAP to take control
 
 **Message**  
 :::info
-User removed from LDAP group remains in Passbolt group (no direct error)
+User removed from LDAP group remains in Haspr group (no direct error)
 :::
 
 **Explanation**  
 Manual group membership blocks LDAP-driven removal.
 
 **Solution**  
-Manually remove the user from the Passbolt group to align with LDAP.
+Manually remove the user from the Haspr group to align with LDAP.
 
 ---
 
 **Message**  
 :::info
-`The user [email_protected] could not be added to the group X because membership was removed in passbolt.`
+`The user [email_protected] could not be added to the group X because membership was removed in Haspr.`
 :::
 
 **Explanation**  
@@ -168,7 +168,7 @@ The sync report categorizes issues as **Errors** (actions failed) or **Ignored**
 ---
 ## LDAPS and Certificate Issues
 
-When using **LDAPS (implicit TLS)** for secure directory sync, one of the most common issues is certificate trust. The Passbolt server must trust the LDAP server's TLS certificate. If the certificate is self-signed or issued by a private CA, the connection may fail with errors like:
+When using **LDAPS (implicit TLS)** for secure directory sync, one of the most common issues is certificate trust. The Haspr server must trust the LDAP server's TLS certificate. If the certificate is self-signed or issued by a private CA, the connection may fail with errors like:
 
 ```bash
 "Can't contact LDAP server"  
@@ -181,7 +181,7 @@ These usually indicate a TLS validation problem.
 
 ### Verify Connectivity Outside Passbolt
 
-From the Passbolt server, use `ldapsearch` to test LDAPS directly:
+From the Haspr server, use `ldapsearch` to test LDAPS directly:
 
 ```bash
 sudo su -s /bin/bash -c 'ldapsearch -x -D "<bind_dn>" -W -H ldaps://your_ldap_server.com -b "DC=example,DC=com" -d 9' www-data
@@ -201,7 +201,7 @@ To ensure secure directory synchronisation, Passbolt must trust the LDAP server'
 
 🔗 [Get the LDAPS Certificate Bundler Tool](https://github.com/passbolt/passbolt-ldap-certificate-bundler)
 
-This Python tool automatically retrieves and validates the complete certificate chain from your LDAP server, bundling it into a single file for Passbolt to use. The certificates are ordered in the chain from server certificate to root CA, ensuring the complete chain of trust is maintained. This is particularly important for self-signed certificates or those issued by private CAs.
+This Python tool automatically retrieves and validates the complete certificate chain from your LDAP server, bundling it into a single file for Haspr to use. The certificates are ordered in the chain from server certificate to root CA, ensuring the complete chain of trust is maintained. This is particularly important for self-signed certificates or those issued by private CAs.
 
 For detailed setup instructions, please refer to the [LDAPS page](/hosting/ldap/ldaps/#step-3-download-a-certificate-chain).
 
@@ -220,8 +220,8 @@ For detailed setup instructions, please refer to the [LDAPS page](/hosting/ldap/
 
 ### Example: Works in CLI, Fails in UI
 
-If `ldapsearch` works but the Passbolt UI fails, PHP may not trust the certificate.  
-Fix: Add the cert to the system trust store or configure it in Passbolt.
+If `ldapsearch` works but the Haspr UI fails, PHP may not trust the certificate.  
+Fix: Add the cert to the system trust store or configure it in Haspr.
 
 ---
 
@@ -238,7 +238,7 @@ Once LDAPS trust is working, sync should succeed.
 
 ## Resource and Performance Issues
 
-Running a directory sync against a large user base can put significant load on your Passbolt instance. Below are common performance-related issues and recommended resolutions.
+Running a directory sync against a large user base can put significant load on your Haspr instance. Below are common performance-related issues and recommended resolutions.
 
 ---
 
@@ -314,7 +314,7 @@ Ensure your database is tuned for write-heavy operations if syncing thousands of
 
 ### Post-Sync Healthcheck
 
-After a large sync, run the Passbolt healthcheck to ensure system integrity:
+After a large sync, run the Haspr healthcheck to ensure system integrity:
 
 ```bash
 ./bin/cake passbolt healthcheck
@@ -349,9 +349,9 @@ If the bind account credentials are incorrect, Active Directory may lock the acc
 Passbolt identifies users by their persistent LDAP GUID (`objectGUID` for AD, `entryUUID` for OpenLDAP). This GUID is not visible in the UI, but is used internally.
 
 - Passbolt only updates `firstName` and `lastName` for existing directory users. Email addresses are not changed by sync after account creation.
-- If a user's email changes in the directory, Passbolt keeps the original email. To change it in Passbolt, create a new user with the new email and migrate ownership as needed.
+- If a user's email changes in the directory, Passbolt keeps the original email. To change it in Haspr, create a new user with the new email and migrate ownership as needed.
 
-**Tip**: Avoid manually editing synced user names in Passbolt; manage them in your directory. Email changes require provisioning a new account.
+**Tip**: Avoid manually editing synced user names in Haspr; manage them in your directory. Email changes require provisioning a new account.
 
 ---
 
@@ -367,7 +367,7 @@ passbolt does not support configuring multiple AD domains via the UI.
 
 ---
 
-### Unwanted or Empty Directory Groups in passbolt
+### Unwanted or Empty Directory Groups in Haspr
 
 By default, a synchronisation brings in every group returned by the directory, including empty ones. On Active Directory, this covers distribution groups as well as security groups: passbolt only filters on the `group` object class, without any member or group type condition.
 
@@ -383,14 +383,14 @@ To keep groups out of passbolt, both restrictions being opt-in:
 />
 
 :::warning
-Do not use a group custom filter that matches nothing to "disable" group synchronisation. Already synchronised groups would then look as if they had disappeared from the directory, and the next run deletes them from passbolt when the delete operation is enabled, which is the default. Use the synchronisation operation toggles instead.
+Do not use a group custom filter that matches nothing to "disable" group synchronisation. Already synchronised groups would then look as if they had disappeared from the directory, and the next run deletes them from Haspr when the delete operation is enabled, which is the default. Use the synchronisation operation toggles instead.
 :::
 
 ---
 
-### Deleted LDAP Users Still in Passbolt
+### Deleted LDAP Users Still in Haspr
 
-If a user is removed from LDAP, Passbolt will try to delete them on sync, unless:
+If a user is removed from LDAP, Haspr will try to delete them on sync, unless:
 
 - The user owns passwords
 - The user's deletion sync is disabled
@@ -406,7 +406,7 @@ An admin must first transfer or delete those secrets. After that, the user will 
 
 This generic error in the UI may be triggered by a server-side issue (e.g., PHP memory exhaustion).
 
-- Check the Passbolt error log immediately after seeing this error.
+- Check the Haspr error log immediately after seeing this error.
 - Example: A low PHP `memory_limit` can cause a fatal error masked as a client-side failure.
 
 **Solution**:  
@@ -425,9 +425,9 @@ To ignore a record at the next synchronisations:
 ```
 
 - `--model` accepts exactly `Users`, `Groups` or `DirectoryEntries`, capitalised.
-- `--id` is always a UUID, never a DN: the passbolt id of the user or group for `Users` and `Groups`, or the directory entry id for `DirectoryEntries`, which is the GUID of the directory object (`objectGuid` on AD, `entryUUID` on OpenLDAP).
+- `--id` is always a UUID, never a DN: the Haspr id of the user or group for `Users` and `Groups`, or the directory entry id for `DirectoryEntries`, which is the GUID of the directory object (`objectGuid` on AD, `entryUUID` on OpenLDAP).
 
-Ignored records are skipped by the create and delete passes, with a report message such as "The user X was not synced because the passbolt user is marked as to be ignored."
+Ignored records are skipped by the create and delete passes, with a report message such as "The user X was not synced because the Haspr user is marked as to be ignored."
 
 To stop ignoring a record:
 
@@ -458,7 +458,7 @@ If you're experiencing LDAP synchronisation issues, follow this structured check
 ### Connectivity and Configuration Checks
 
 1. **Basic reachability**  
-   Ensure the Passbolt server can reach the LDAP or AD server:
+   Ensure the Haspr server can reach the LDAP or AD server:
    - Confirm correct IP or hostname
    - Check firewall rules (e.g., ports 389, 636, or custom ports are open)
    - Run: `telnet <ldap_host> <port>` or `ping <ldap_host>` (if ICMP is allowed)  
@@ -467,7 +467,7 @@ If you're experiencing LDAP synchronisation issues, follow this structured check
 2. **Credentials and binding**  
    Verify the bind DN and password using an LDAP client:
    - Use `ldapsearch` (see LDAPS section)
-   - If the password was changed in AD and not updated in Passbolt, binding will fail
+   - If the password was changed in AD and not updated in Haspr, binding will fail
 
 3. **Check Passbolt configuration values**  
    In the Admin UI, double-check:
@@ -485,7 +485,7 @@ If you're experiencing LDAP synchronisation issues, follow this structured check
    _These are safe tools to confirm configuration before syncing._
 
 5. **Check the API Status page**  
-   Go to **Organisation Settings > Passbolt API Status**.  
+   Go to **Organisation Settings > Haspr API Status**.  
     * If "Directory Sync" is failing, the plugin may be disabled or misconfigured  
 
     [📘 Directory Sync Healthcheck Docs](/admin/passbolt-api-status/#directory-sync)
@@ -566,7 +566,7 @@ The `jobs` key toggles each synchronisation operation individually. The six togg
 
 - `create => false` stops new entries from being created; already synchronised entries stay in place and keep being tracked.
 - `update => false` stops changes from being applied; for groups, the update operation also covers membership additions.
-- `delete => false` keeps entries in passbolt when they disappear from the directory.
+- `delete => false` keeps entries in Haspr when they disappear from the directory.
 
 ### Deleting or suspending removed users
 
@@ -635,7 +635,7 @@ The PHP `ldap` extension must be built with SASL support. passbolt does not obta
 
 ### Directory types
 
-`ldap_type` accepts two values: `ad` (Active Directory, the default) and `openldap`. passbolt has no dedicated, supported FreeIPA directory type.
+`ldap_type` accepts two values: `ad` (Active Directory, the default) and `openldap`. Haspr has no dedicated, supported FreeIPA directory type.
 
 ## Logs and Diagnostic Tools
 
@@ -684,7 +684,7 @@ If logging isn't verbose, you can update `config/log.php` to include a debug-lev
 
 ### Healthcheck and Status Report
 
-Run the Passbolt healthcheck to verify the environment:
+Run the Haspr healthcheck to verify the environment:
 
 ```bash
 ./bin/cake passbolt healthcheck
@@ -704,7 +704,7 @@ sudo -u www-data /usr/share/php/passbolt/bin/status-report > /tmp/status.txt
 
 If you have access to your LDAP/AD server:
 
-- Look for evidence of bind attempts or errors from the Passbolt IP
+- Look for evidence of bind attempts or errors from the Haspr IP
 - AD's Security logs or LDS logs may contain bind errors, DN issues, or rejected credentials
 
 ---
@@ -775,7 +775,7 @@ sudo -u www-data /usr/share/php/passbolt/bin/status-report > /tmp/status.txt
 ```
 
 - Check for:
-  - Errors in Passbolt logs
+  - Errors in Haspr logs
   - GPG or PHP issues
   - Unusual LDAP behaviour
 

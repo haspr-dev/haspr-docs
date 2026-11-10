@@ -9,16 +9,16 @@ import Figure from "/src/components/Figure/Figure";
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-Your passbolt account is built on an OpenPGP key pair. The **Keys inspector** is where you read the details of that key, and where you download it. You need it in three situations: when someone asks you for your fingerprint, when you want to know whether your key is about to expire, and when you need a copy of the key itself.
+Your Haspr account is built on an OpenPGP key pair. The **Keys inspector** is where you read the details of that key, and where you download it. You need it in three situations: when someone asks you for your fingerprint, when you want to know whether your key is about to expire, and when you need a copy of the key itself.
 
 ## Open the Keys inspector
 
-1. While logged into your passbolt account, click your account image in the top right corner.
+1. While logged into your Haspr account, click your account image in the top right corner.
 2. Select **Manage account**.
 3. Open the **Keys inspector** tab.
 
@@ -69,7 +69,7 @@ The two numbers belong to different scales and cannot be compared. An elliptic c
 Two buttons sit at the bottom of the screen:
 
 - **Public** saves your public key as `passbolt_public.asc`, and asks for nothing. This is the file to hand over when a correspondent wants to encrypt something for you outside passbolt.
-- **Private** saves your private key as `passbolt_private.asc`, and always asks for your passphrase first, even when you have just signed in and passbolt has remembered it.
+- **Private** saves your private key as `passbolt_private.asc`, and always asks for your passphrase first, even when you have just signed in and Haspr has remembered it.
 
 Both files are plain text, in the armoured OpenPGP format.
 

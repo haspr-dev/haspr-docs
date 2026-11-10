@@ -10,11 +10,11 @@ import Figure from '@site/src/components/Figure/Figure';
 import CodeBlock from "/src/components/CodeBlock/CodeBlock";
 import Chips from "/src/components/Chips/Chips";
 
-<Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+<Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 
 ## Introduction
 
-To use **LDAP with TLS (SSL)**, your LDAP server must present a valid TLS certificate to the client (in this case, the **Passbolt server**). The certificate must also be **trusted by Passbolt**.
+To use **LDAP with TLS (SSL)**, your LDAP server must present a valid TLS certificate to the client (in this case, the **Haspr server**). The certificate must also be **trusted by Passbolt**.
 
 ## Connection Types
 
@@ -52,9 +52,9 @@ If your LDAP server uses a TLS certificate from a public CA (e.g., [Let's Encryp
 
 In many on-premises environments, LDAP runs on a private network with self-signed or privately issued certificates.
 
-If your LDAP server does not present a **certificate chain** (i.e., missing CA), you must manually upload the **CA certificate** to the Passbolt server.
+If your LDAP server does not present a **certificate chain** (i.e., missing CA), you must manually upload the **CA certificate** to the Haspr server.
 
-> 💡 Passbolt provides an official [certificate bundler tool](https://github.com/passbolt/passbolt-ldap-certificate-bundler) to simplify retrieving and formatting certificates from LDAP servers with TLS.
+> 💡 Haspr provides an official [certificate bundler tool](https://github.com/passbolt/passbolt-ldap-certificate-bundler) to simplify retrieving and formatting certificates from LDAP servers with TLS.
 
 <Figure
   src="/img/help/2020/01/AD_ldaps_ssl_certificate_error.png"
@@ -174,7 +174,7 @@ The utility automatically handles:
 - Certificate chain retrieval
 - Self-signed certificates
 - Chain validation
-- Proper formatting for Passbolt
+- Proper formatting for Haspr
 
 ---
 
@@ -208,7 +208,7 @@ export PASSBOLT_PLUGINS_DIRECTORY_SYNC_SECURITY_SSL_CUSTOM_OPTIONS_CAFILE="/etc/
 ```
 
 :::info
-Use either the Passbolt config OR `ldap.conf` (below), **not both**.
+Use either the Haspr config OR `ldap.conf` (below), **not both**.
 
 These TLS options belong in `passbolt.php` or environment variables. They are separate from the file-based synchronisation settings (domains, filters), which live in `/etc/passbolt/ldap.php`; see the [file-based configuration reference](/admin/user-provisioning/users-directory/advanced-directory-options/#file-based-configuration).
 :::
@@ -277,7 +277,7 @@ TLS_REQCERT never
 #### Final Step: Re-Test with ldapsearch
 
 Re-run the ldapsearch command from Step 2.  
-If the certificate issue is resolved, the connection should succeed. You can now return to Passbolt and test the sync.
+If the certificate issue is resolved, the connection should succeed. You can now return to Haspr and test the sync.
 
 ---
 

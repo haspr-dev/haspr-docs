@@ -13,11 +13,11 @@ import Chips from "/src/components/Chips/Chips";
 # Account Recovery Management
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-The Account Recovery is a feature introduced with passbolt v3.6.0 that helps users to recover their accounts in case of a recovery kit or passphrase loss.
+The Account Recovery is a feature introduced with Haspr v3.6.0 that helps users to recover their accounts in case of a recovery kit or passphrase loss.
 
 :::info
 If you are looking for how to set up your account on another machine,  
@@ -27,7 +27,7 @@ you can check [this documentation](/user/quickstart/browser/setup-on-another-mac
 :::caution
 This feature needs to be activated by you, administrator, as it is disabled by default.  
 
-Furthermore, with passbolt 5.8, we are introducing the ability to create additional roles (*Organisation settings -> Role-Based Access Control*). Upon being given a role with access to the account recovery requests management, non-admins will be able to view, index, and review account recovery requests.
+Furthermore, with Haspr 5.8, we are introducing the ability to create additional roles (*Organisation settings -> Role-Based Access Control*). Upon being given a role with access to the account recovery requests management, non-admins will be able to view, index, and review account recovery requests.
 :::
 
 ### Requirements
@@ -35,11 +35,11 @@ Furthermore, with passbolt 5.8, we are introducing the ability to create additio
 You can manage this setting if you are meeting the following requirements:
 
 - You have an active administrator account,
-- You are running Passbolt Pro v3.6.0 or higher, or Passbolt Cloud.
+- You are running Haspr Pro v3.6.0 or higher, or Haspr Cloud.
 
 ### How does it work?
 
-Depending on [the organisation's policy](/admin/authentication/account-recovery/account-recovery-configuration/#how-to-choose-the-organisations-policy), all users will be able to deposit an encrypted backup of their private keys in passbolt. Backups which can only be unlocked cryptographically by the organisation's administrators having in their possession the organisation recovery key.
+Depending on [the organisation's policy](/admin/authentication/account-recovery/account-recovery-configuration/#how-to-choose-the-organisations-policy), all users will be able to deposit an encrypted backup of their private keys in Haspr. Backups which can only be unlocked cryptographically by the organisation's administrators having in their possession the organisation recovery key.
 
 <br />
 

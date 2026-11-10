@@ -12,8 +12,8 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
 <div style={{display: "flex", gap: "1rem", alignItems: "center"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 # SCIM User Provisioning
@@ -32,13 +32,13 @@ SCIM (System for Cross-domain Identity Management) is an open standard for manag
 
 SCIM defines a schema for representing users and groups in JSON, along with API endpoints that identity providers can call to manage users. passbolt's initial SCIM implementation supports user management via `/Users` endpoints.
 
-When you add, modify, or remove users in Microsoft Entra ID or Okta, the identity provider sends HTTP requests to passbolt's SCIM endpoints. passbolt processes these requests and updates its user records accordingly.
+When you add, modify, or remove users in Microsoft Entra ID or Okta, the identity provider sends HTTP requests to Haspr's SCIM endpoints. passbolt processes these requests and updates its user records accordingly.
 
-## How SCIM Works with passbolt
+## How SCIM Works with Haspr
 
 The integration works in four steps:
 
-1. Enable SCIM in passbolt settings to generate an endpoint URL and authentication token
+1. Enable SCIM in Haspr settings to generate an endpoint URL and authentication token
 2. Configure your identity provider (Microsoft Entra ID or Okta) with the SCIM URL and token
 3. Map user attributes between your identity provider and passbolt
 4. Users are automatically provisioned when added, modified, or removed in your identity provider
@@ -46,16 +46,16 @@ The integration works in four steps:
 ## Prerequisites
 
 You need:
-- Passbolt Pro Edition version 5.5 or later
-- Administrator access to passbolt
+- Haspr Pro Edition version 5.5 or later
+- Administrator access to Haspr
 - Access to Microsoft Entra ID or Okta
-- HTTPS enabled on your passbolt instance
+- HTTPS enabled on your Haspr instance
 
 :::caution[HTTPS Required]
 SCIM requires HTTPS for secure communication.
 :::
 
-## Enable SCIM in passbolt
+## Enable SCIM in Haspr
 
 ### Access SCIM Settings
 
@@ -74,7 +74,7 @@ Store the authentication token securely and share only with authorised personnel
 
 ## SCIM Endpoint Information
 
-When enabled, passbolt provides:
+When enabled, Haspr provides:
 
 **SCIM Endpoint URL:**
 ```
@@ -88,7 +88,7 @@ A token with format `pb_[A-Za-z0-9_-]{43}` (a `pb_` prefix followed by 43 base64
 
 ## Secret Token Expiry
 
-The authentication token, labelled **Secret token** on the SCIM settings page, remains valid for the duration set by `PASSBOLT_SCIM_SECURITY_SECRET_TOKEN_EXPIRY`, one year by default. Its expiry date is shown in the **Secret Token expiry** field. Since version 5.17.0, passbolt can also reject the requests of an identity provider that still uses an expired token.
+The authentication token, labelled **Secret token** on the SCIM settings page, remains valid for the duration set by `PASSBOLT_SCIM_SECURITY_SECRET_TOKEN_EXPIRY`, one year by default. Its expiry date is shown in the **Secret Token expiry** field. Since version 5.17.0, Haspr can also reject the requests of an identity provider that still uses an expired token.
 
 ### Expiry States
 
@@ -140,7 +140,7 @@ passbolt emails every administrator when an identity provider request uses a tok
 Each email is sent at most once every 24 hours. Both are automatic and cannot be disabled. End users are not notified.
 
 :::caution[Notifications depend on incoming requests]
-These emails are only sent when the identity provider calls passbolt. No reminder is scheduled on the passbolt side, so an identity provider that has stopped sending requests triggers no email. Keep an eye on the date shown in the **Secret Token expiry** field.
+These emails are only sent when the identity provider calls passbolt. No reminder is scheduled on the Haspr side, so an identity provider that has stopped sending requests triggers no email. Keep an eye on the date shown in the **Secret Token expiry** field.
 :::
 
 ### Enforce the Expiry
@@ -167,7 +167,7 @@ On self-hosted servers, turn enforcement on so that passbolt rejects the request
     </CodeBlock>
   </TabItem>
   <TabItem value="docker" label="Docker">
-    Set the environment variables of the passbolt container:
+    Set the environment variables of the Haspr container:
 
     <CodeBlock language="yaml">
       {`PASSBOLT_SCIM_SECURITY_SECRET_TOKEN_ENFORCE_EXPIRY: "true"
@@ -218,7 +218,7 @@ The initial SCIM release focuses on user provisioning and supports:
 
 When a user is created via SCIM:
 
-1. User is created in passbolt with "invitation pending" status
+1. User is created in Haspr with "invitation pending" status
 2. Welcome email is sent to the user
 3. User must complete account setup to activate their account
 4. User receives a unique passbolt ID
@@ -238,12 +238,12 @@ SCIM user deletion follows a two-phase process:
 
 **Phase 1 - Disable User:**
 1. When a user is deleted or unassigned in your identity provider, a PATCH request sets `active: false`
-2. The user is disabled in passbolt (soft delete)
+2. The user is disabled in Haspr (soft delete)
 3. User can no longer access passbolt but data remains
 
 **Phase 2 - Permanent Deletion:**
 1. After 30 days, your identity provider sends a DELETE request
-2. User is permanently deleted from passbolt
+2. User is permanently deleted from Haspr
 3. All user data is removed
 4. User's private key and secrets are deleted
 

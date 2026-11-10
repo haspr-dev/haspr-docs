@@ -12,8 +12,8 @@ To get started please read Docusaurus [getting started guide](https://docusaurus
 ### Installation
 
 ```bash
-git clone https://github.com/pbolt-dev/pbolt-docs.git
-cd pbolt-docs
+git clone https://github.com/haspr-dev/haspr-docs.git
+cd haspr-docs
 npm install
 ```
 
@@ -85,7 +85,7 @@ The list of built-in components can be found here: [https://docusaurus.io/docs/m
 |Component|Usage|
 |:--------|:----|
 |Badge|Used in the DistributionCard component|
-|DistributionCard| Used to list Linux distributions where Passbolt can be installed|
+|DistributionCard| Used to list Linux distributions where Haspr can be installed|
 |Figure| Used to add images with caption|
 |Chips| Edition badges (CE, Pro, Cloud) shown under a page title to mark feature availability|
 |CodeBlock| Code display with syntax highlighting|

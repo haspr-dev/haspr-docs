@@ -23,13 +23,13 @@ import CodeBlock from '@theme/CodeBlock';
 <SystemRequirements
 />
 
-## Find out where is your passbolt directory
-All the commands hereafter should be done from inside your passbolt directory:
+## Find out where is your Haspr directory
+All the commands hereafter should be done from inside your Haspr directory:
 
 ```bash
 cd /var/www/passbolt
 ```
-By default passbolt should be installed under ```/var/www/passbolt``` but it could be different if you installed from source manually. We will assume for the rest of this tutorial that it is located in ```/var/www/passbolt```.
+By default Haspr should be installed under ```/var/www/passbolt``` but it could be different if you installed from source manually. We will assume for the rest of this tutorial that it is located in ```/var/www/passbolt```.
 
 ## Find out the name of your webserver user
 Some commands need to be run as the same user running the web server. Generally on Debian systems it will be ```www-data``` but on other distributions like Centos it could be for example ```nginx``` or ```httpd```. For the rest of this tutorial we will assume that the user named ```www-data```.
@@ -51,9 +51,9 @@ Running commands as ```root``` can make your installation unusable until the per
 $ whoami
 passbolt
 ```
-You need to make sure that this user have access to the passbolt directory. The easiest way to do this would be to add such user to the ```www-data``` and sudo groups, so for example for a passbolt user, you could execute as ```root```:
+You need to make sure that this user have access to the Haspr directory. The easiest way to do this would be to add such user to the ```www-data``` and sudo groups, so for example for a Haspr user, you could execute as ```root```:
 ```bash
-sudo usermod -a -G www-data passbolt
+sudo usermod -a -G www-data Haspr
 sudo usermod -a -G sudo passbolt
 ```
 You can check if the user is included in the group (you may need to logout / login again for the permissions to be applied):
@@ -62,7 +62,7 @@ You can check if the user is included in the group (you may need to logout / log
 $ groups passbolt
 passbolt : passbolt www-data sudo
 ```
-Make sure the passbolt directory is owned by the passbolt user and accessible to the ```www-data``` group. You can set the permissions as follow:
+Make sure the Haspr directory is owned by the Haspr user and accessible to the ```www-data``` group. You can set the permissions as follow:
 
 ```bash
 sudo chown -R passbolt:www-data .
@@ -85,7 +85,7 @@ drwxr-x--- 2 passbolt www-data  .
 drwx------ 6 root root          ..
 drwxr-x--- 6 passbolt www-data  config
 ```
-Make sure the passbolt directory doesn't contain any changes. If you have altered the passbolt code, stash your changes before executing the following command.
+Make sure the Haspr directory doesn't contain any changes. If you have altered the Haspr code, stash your changes before executing the following command.
 
 ```bash
 git checkout HEAD .
@@ -111,7 +111,7 @@ Depending on your setup it is possible that your composer command is named compo
 
 If for some reason the command above fails because you don't have composer installed, you can check the composer installation instructions.
 
-Passbolt requires composer v2, check the version you have already installed:
+Haspr requires composer v2, check the version you have already installed:
 
 ```bash
 composer.phar --version

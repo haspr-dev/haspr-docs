@@ -1,14 +1,14 @@
 <div align="center">
-  <img src="static/img/logo.svg" alt="pbolt Documentation" width="280">
+  <img src="static/img/logo.svg" alt="Haspr Documentation" width="280">
   <br><br>
-  <h1>pbolt Documentation</h1>
-  <p><strong>Official documentation for pbolt — the community-driven open source password manager for teams.</strong></p>
+  <h1>Haspr Documentation</h1>
+  <p><strong>Official documentation for Haspr — the community-driven open source password manager for teams.</strong></p>
   <p>
-    <a href="https://doc.pbolt.dev"><strong>doc.pbolt.dev »</strong></a>
+    <a href="https://doc.haspr.dev"><strong>doc.haspr.dev »</strong></a>
   </p>
   <p>
-    <a href="https://github.com/pbolt-dev/pbolt-docs/actions/workflows/deploy-pages.yml"><img src="https://github.com/pbolt-dev/pbolt-docs/actions/workflows/deploy-pages.yml/badge.svg" alt="Deploy Pages"></a>
-    <a href="https://github.com/pbolt-dev/pbolt-docs/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg" alt="License: AGPL v3"></a>
+    <a href="https://github.com/haspr-dev/haspr-docs/actions/workflows/deploy-pages.yml"><img src="https://github.com/haspr-dev/haspr-docs/actions/workflows/deploy-pages.yml/badge.svg" alt="Deploy Pages"></a>
+    <a href="https://github.com/haspr-dev/haspr-docs/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg" alt="License: AGPL v3"></a>
   </p>
 </div>
 
@@ -16,12 +16,12 @@
 
 ## Overview
 
-This repository contains the documentation source for **pbolt**, published to [doc.pbolt.dev](https://doc.pbolt.dev) via GitHub Pages.
+This repository contains the documentation source for **Haspr**, published to [doc.haspr.dev](https://doc.haspr.dev) via GitHub Pages.
 
 It covers:
 - **User Guide**: Everyday usage, credential management, browser integration, and security features.
 - **Admin Guide**: User provisioning, groups, roles, policy enforcement, and administration workflows.
-- **Hosting Guide**: Deploying and operating self-hosted pbolt installations (Docker, Debian/Ubuntu packages, etc.).
+- **Hosting Guide**: Deploying and operating self-hosted Haspr installations (Docker, Debian/Ubuntu packages, etc.).
 - **API Reference**: Detailed OpenAPI / REST specifications for developers and integrators.
 
 ---
@@ -36,8 +36,8 @@ It covers:
 ### Local Development
 
 ```bash
-git clone git@github.com:pbolt-dev/pbolt-docs.git
-cd pbolt-docs
+git clone git@github.com:haspr-dev/haspr-docs.git
+cd haspr-docs
 npm install
 npm run start
 ```
@@ -59,7 +59,7 @@ This starts a local development server with hot-reload at [http://localhost:3000
 
 ## Deployment
 
-The documentation site is automatically built and deployed to GitHub Pages at [doc.pbolt.dev](https://doc.pbolt.dev) whenever commits are pushed to the `main` branch.
+The documentation site is automatically built and deployed to GitHub Pages at [doc.haspr.dev](https://doc.haspr.dev) whenever commits are pushed to the `main` branch.
 
 ---
 
@@ -70,4 +70,4 @@ The documentation site is automatically built and deployed to GitHub Pages at [d
 
 ### Trademark Notice
 
-> **Important**: **pbolt** is an independent, community-driven fork and is **not affiliated with, endorsed by, or sponsored by Passbolt SA**. Passbolt is a registered trademark of Passbolt SA. Any references to "Passbolt" within upstream documentation texts and technical identifiers are retained purely for historical context, compatibility, and nominative descriptive use under Section 7(e) of the AGPLv3. All original Passbolt corporate identity assets and registered marks remain the property of Passbolt SA.
+> **Important**: **Haspr** is an independent, community-driven fork and is **not affiliated with, endorsed by, or sponsored by Passbolt SA**. Passbolt is a registered trademark of Passbolt SA. Any references to "Passbolt" within upstream documentation texts and technical identifiers are retained purely for historical context, compatibility, and nominative descriptive use under Section 7(e) of the AGPLv3. All original Passbolt corporate identity assets and registered marks remain the property of Passbolt SA.

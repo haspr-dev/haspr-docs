@@ -13,15 +13,15 @@ import Chips from "/src/components/Chips/Chips";
 # Configure Email authentication with Google
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <EmailServerConfigurationIntroduction/>
 
 ## Google
 
-Passbolt provides two different options for Google: Google Workspace and Google Email.
+Haspr provides two different options for Google: Google Workspace and Google Email.
 
 **Google Workspace** is a paid productivity suite that includes business email, cloud storage, video conferencing, and other collaboration tools. It is designed for use by businesses and organisations of all sizes, and provides additional features such as custom email addresses, shared calendars, and team drives.
 
@@ -32,7 +32,7 @@ It uses *smtp-relay.gmail.com* as its SMTP server address. This server is intend
 It uses *smtp.gmail.com* as its SMTP server address. This server is intended for use by individual users who want to send email using a desktop email client, such as Microsoft Outlook or Apple Mail. This server provides standard sending limits and is intended for personal use.
 
 
-To use Google's authentication method on the Passbolt GUI, it is important to note that you should not use your personal Google password for security reasons. Instead, you will need to create an "App password" specifically for Passbolt. This is a unique password that will be used solely for Passbolt and is not the same as your personal Google password.
+To use Google's authentication method on the Haspr GUI, it is important to note that you should not use your personal Google password for security reasons. Instead, you will need to create an "App password" specifically for Haspr. This is a unique password that will be used solely for Haspr and is not the same as your personal Google password.
 
 - Enable MFA
 
@@ -80,12 +80,12 @@ You will have the choice for the selection of the application, our recommendatio
 Please, note that the password could not be shown after your close the tab, please be sure to copy the application password generated otherwise you will need to generate a new one.
 :::
 
-- Authentication on Passbolt GUI
+- Authentication on Haspr GUI
 
-On your Passbolt instance, you can navigate to *Administration > Email server*.
+On your Haspr instance, you can navigate to *Administration > Email server*.
 
 :::danger[IMPORTANT]
-You are using Google Workspace? You will need to add the **IP address of the passbolt instance** in the "SMTP client" field.
+You are using Google Workspace? You will need to add the **IP address of the Haspr instance** in the "SMTP client" field.
 :::
 
 In the example below, we will use Google Email which is the free version.

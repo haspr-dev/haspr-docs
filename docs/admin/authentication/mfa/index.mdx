@@ -1,7 +1,7 @@
 ---
 title: Configure Passbolt to Use MFA
 sidebar_label: MFA
-description: How to configure MFA with Passbolt
+description: How to configure MFA with Haspr
 hide_table_of_contents: true
 ---
 import mfaProviders from '/data/mfa-providers.json';
@@ -11,9 +11,9 @@ import Chips from "/src/components/Chips/Chips";
 # How to configure passbolt to use MFA
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 <ProviderCardWrapper providers={mfaProviders}/>

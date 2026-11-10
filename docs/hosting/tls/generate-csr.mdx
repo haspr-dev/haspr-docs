@@ -1,18 +1,18 @@
 ---
 title: Generate a CSR for a CA-signed TLS Certificate
-description: How to generate a Certificate Signing Request (CSR) with OpenSSL to obtain a CA-signed TLS certificate for your passbolt instance
+description: How to generate a Certificate Signing Request (CSR) with OpenSSL to obtain a CA-signed TLS certificate for your Haspr instance
 sidebar_label: Generate a CSR
 ---
 
 import CodeBlock from "/src/components/CodeBlock/CodeBlock";
 import CertificateWarning from '/docs/hosting/_includes/warning/_passphrase-protected-private-key.mdx';
 
-A Certificate Signing Request (CSR) is a file you submit to a Certificate Authority (CA) so the CA can issue a signed TLS certificate for your passbolt server. Use this guide when you want to use a certificate from a public CA (such as DigiCert, GlobalSign, or Entrust) or from a private/internal CA operated by your organisation. If you want an automatically renewed Let's Encrypt certificate, use the [automatic HTTPS configuration](/hosting/tls/https/) instead. If you want a self-signed certificate for testing, use the manual HTTPS configuration directly, which shows the self-signed flow.
+A Certificate Signing Request (CSR) is a file you submit to a Certificate Authority (CA) so the CA can issue a signed TLS certificate for your Haspr server. Use this guide when you want to use a certificate from a public CA (such as DigiCert, GlobalSign, or Entrust) or from a private/internal CA operated by your organisation. If you want an automatically renewed Let's Encrypt certificate, use the [automatic HTTPS configuration](/hosting/tls/https/) instead. If you want a self-signed certificate for testing, use the manual HTTPS configuration directly, which shows the self-signed flow.
 
 ## Prerequisites
 
 - OpenSSL installed on the server (pre-installed on most Linux distributions).
-- The fully qualified domain name (FQDN) you will use for your passbolt instance, for example `passbolt.example.com`.
+- The fully qualified domain name (FQDN) you will use for your Haspr instance, for example `passbolt.example.com`.
 - Access to your CA's issuance process, either a public CA's web portal or your internal PKI team's submission channel.
 
 ## Step 1: Generate a private key
@@ -25,11 +25,11 @@ Generate an unencrypted 4096-bit RSA private key:
 
 <CertificateWarning />
 
-Keep `passbolt.key` on the server where passbolt will run. The private key should never be sent to the CA or leave the server.
+Keep `passbolt.key` on the server where Haspr will run. The private key should never be sent to the CA or leave the server.
 
 ## Step 2: Create the CSR
 
-Generate a CSR from the private key. Replace the `-subj` values with your organisation's details and set both `CN` and `subjectAltName` to your passbolt FQDN:
+Generate a CSR from the private key. Replace the `-subj` values with your organisation's details and set both `CN` and `subjectAltName` to your Haspr FQDN:
 
 <CodeBlock>
 {`openssl req -new \\
@@ -46,7 +46,7 @@ The `-subj` fields are:
 - `L`: city or locality.
 - `O`: legal organisation name.
 - `OU`: organisational unit (optional, often a department or team).
-- `CN`: the fully qualified domain name of your passbolt server.
+- `CN`: the fully qualified domain name of your Haspr server.
 
 :::warning[Subject Alternative Name is required]
 Modern browsers ignore the `CN` field and only validate against `subjectAltName` (SAN). If you omit `-addext "subjectAltName = ..."` the issued certificate will fail validation in Chrome, Firefox, and Safari. Ensure the SAN exactly matches the FQDN users type in the browser.
@@ -63,7 +63,7 @@ If you need the certificate to cover multiple hostnames (for example both the ba
 Verify the CSR has the expected Subject and SAN before sending it to the CA:
 
 <CodeBlock>
-{`openssl req -in passbolt.csr -noout -text`}
+{`openssl req -in Haspr.csr -noout -text`}
 </CodeBlock>
 
 Look for the `Subject:` line and the `X509v3 Subject Alternative Name:` extension in the output.
@@ -91,9 +91,9 @@ Concatenate the server certificate first, then each intermediate in order from c
 Validate the bundle with `openssl verify -CAfile root.pem passbolt.crt`. If verification fails, the order of the intermediates is wrong or an intermediate is missing. See [SSL/TLS Troubleshooting](/hosting/tls/troubleshooting/) for further chain debugging recipes.
 :::
 
-## Step 5: Install the certificate in passbolt
+## Step 5: Install the certificate in Haspr
 
-You now have two files to install on the passbolt server:
+You now have two files to install on the Haspr server:
 
 - `passbolt.crt`: the certificate bundle (server certificate plus intermediates).
 - `passbolt.key`: the private key from Step 1.

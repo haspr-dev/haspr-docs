@@ -7,12 +7,12 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-Chrome on Android (starting from version 135) supports third-party autofill services natively. You can use the Passbolt Autofill Service to autofill passwords and other credentials directly inside Chrome, without relying on compatibility mode or other workarounds.
+Chrome on Android (starting from version 135) supports third-party autofill services natively. You can use the Haspr Autofill Service to autofill passwords and other credentials directly inside Chrome, without relying on compatibility mode or other workarounds.
 
 ## Requirements
 
@@ -35,7 +35,7 @@ To use Passbolt's autofill, you need to set Passbolt as an autofill service prov
 1. Ensure your environment complies with the requirements explained earlier
 2. Go to Chrome autofill settings:
    - Either via Chrome > More > Settings > Autofill services
-   - Or from the Passbolt app > Settings > App settings > Autofill > Chrome native autofill
+   - Or from the Haspr app > Settings > App settings > Autofill > Chrome native autofill
 
    <Figure
      size={{
@@ -54,7 +54,7 @@ To use Passbolt's autofill, you need to set Passbolt as an autofill service prov
 
 ## Enable during Passbolt app installation
 
-When you install the Passbolt app for the first time on your device, Passbolt will guide you to Chrome's autofill settings and display a short tutorial to help you enable it.
+When you install the Haspr app for the first time on your device, Haspr will guide you to Chrome's autofill settings and display a short tutorial to help you enable it.
 
 <Figure
   size={{
@@ -71,5 +71,5 @@ When you install the Passbolt app for the first time on your device, Passbolt wi
 1. Tap **Go to Chrome settings**
 2. Select **Autofill using another service**
 3. Confirm Chrome's prompt to restart
-4. Return to Passbolt to continue the app's installation
+4. Return to Haspr to continue the app's installation
 

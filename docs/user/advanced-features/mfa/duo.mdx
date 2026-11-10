@@ -11,9 +11,9 @@ import Chips from "/src/components/Chips/Chips";
 # How to configure your account with Duo
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 ## Setup Duo
@@ -40,7 +40,7 @@ size={{ width: '450px', height: 'auto' }}
 
 ## Authenticate with Duo
 
-After setting up Duo, each time you sign-in to Passbolt, you'll be prompted to authenticate with the method you have chosen during the setup. Additionally, if permitted by the "Multi-factor Authentication Policy", passbolt can remember your MFA authentication for a month.
+After setting up Duo, each time you sign-in to Haspr, you'll be prompted to authenticate with the method you have chosen during the setup. Additionally, if permitted by the "Multi-factor Authentication Policy", Haspr can remember your MFA authentication for a month.
 
 <Figure
 src="/img/help/2023/02/mfa-duo-login.png"

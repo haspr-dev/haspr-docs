@@ -46,7 +46,7 @@ const HomepageHero = () => {
       href: '/hosting',
       title: 'Hosting guide',
       description:
-        'All the technical information related to the setup and update of your pbolt self-hosted server',
+        'All the technical information related to the setup and update of your Haspr self-hosted server',
     },
     {
       id: 'contributor',
@@ -74,7 +74,7 @@ const HomepageHero = () => {
       href: '/development',
       title: 'Developer guide',
       description:
-        'All the high-level information to integrate and call the pbolt API.',
+        'All the high-level information to integrate and call the Haspr API.',
     },
     {
       id: 'api',
@@ -88,7 +88,7 @@ const HomepageHero = () => {
       href: '/api',
       title: 'API guide',
       description:
-        'All the low-level information to call the pbolt API and its endpoints.',
+        'All the low-level information to call the Haspr API and its endpoints.',
     },
     {
       id: 'releases',
@@ -99,7 +99,7 @@ const HomepageHero = () => {
           alt="Release notes illustrated with a tag."
         />
       ),
-      href: 'https://github.com/pbolt-dev/pbolt-api/releases',
+      href: 'https://github.com/haspr-dev/haspr-api/releases',
       title: 'Release notes',
       description:
         "What was shipped in the latest release? Was it a bug or a feature? Let's find out!",
@@ -113,7 +113,7 @@ const HomepageHero = () => {
           alt="Incident reports illustrated with a fire."
         />
       ),
-      href: 'https://github.com/pbolt-dev/pbolt-docs/discussions',
+      href: 'https://github.com/haspr-dev/haspr-docs/discussions',
       title: 'Community announcements',
       description:
         'Updates, announcements, and notices from the community.',
@@ -127,7 +127,7 @@ const HomepageHero = () => {
           alt="Contact us illustrated with a speech bubble."
         />
       ),
-      href: 'https://github.com/pbolt-dev/pbolt-docs/discussions',
+      href: 'https://github.com/haspr-dev/haspr-docs/discussions',
       title: 'Talk to a human',
       description:
         'If you cannot find what you need here, you can always ask the community.',
@@ -138,12 +138,12 @@ const HomepageHero = () => {
     <div className={styles.root}>
       <div className={styles.header}>
         <Heading as="h1" className={styles.heading}>
-          Welcome to the pbolt{' '}
+          Welcome to the Haspr{' '}
           <span className={styles.primary}>documentation</span>!
         </Heading>
 
         <Heading as="h2" className={styles.lead}>
-          The documentation for pbolt contains several main sections, all
+          The documentation for Haspr contains several main sections, all
           accessible from the top navigation bar or from the links below.
         </Heading>
 

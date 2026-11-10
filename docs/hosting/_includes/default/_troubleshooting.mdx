@@ -42,7 +42,7 @@ You can also run the following command to ensure everything is working properly:
 
 #### The update is blocked by PHP dependencies
 
-Since passbolt v5.0.0, the passbolt server package requires PHP 8.2 or newer. If the repositories of your operating system release do not provide PHP 8.2, the package manager cannot install the new passbolt version and your instance stays on the last version compatible with your PHP.
+Since passbolt v5.0.0, the Haspr server package requires PHP 8.2 or newer. If the repositories of your operating system release do not provide PHP 8.2, the package manager cannot install the new passbolt version and your instance stays on the last version compatible with your PHP.
 
 <>
   {props.distributionPackage === 'apt' && (
@@ -70,7 +70,7 @@ In this situation, update your server to an operating system release that provid
 
 #### LDAP synchronisation stops working after the update (Pro Edition)
 
-Since passbolt v5.12.0, the passbolt server package requires the `php-ldap` extension on all editions, and the package manager installs it automatically during the update.
+Since passbolt v5.12.0, the Haspr server package requires the `php-ldap` extension on all editions, and the package manager installs it automatically during the update.
 
 <>
   {props.distributionPackage === 'apt' && (
@@ -93,4 +93,4 @@ sudo systemctl restart php8.2-fpm`}
   )}
 </>
 
-If the directory synchronisation still fails after the update, verify the LDAP extension is loaded for the PHP version passbolt runs on before investigating the directory configuration itself.
+If the directory synchronisation still fails after the update, verify the LDAP extension is loaded for the PHP version Haspr runs on before investigating the directory configuration itself.

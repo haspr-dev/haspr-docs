@@ -1,6 +1,6 @@
 ---
 title: How to Use Offline Mode
-description: How to mark resources as available offline, and how to sign in and use them when the passbolt server is unreachable
+description: How to mark resources as available offline, and how to sign in and use them when the Haspr server is unreachable
 sidebar_label: Offline mode
 hide_table_of_contents: false
 ---
@@ -9,12 +9,12 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
-Since version 5.16.0, passbolt can keep a read-only, encrypted copy of the resources you rely on most, so you can still reach them when the server cannot be reached.
+Since version 5.16.0, Haspr can keep a read-only, encrypted copy of the resources you rely on most, so you can still reach them when the server cannot be reached.
 
 :::info[Beta]
 Offline mode is in beta, and your administrator has to enable it before it appears.
@@ -45,7 +45,7 @@ Only resources in the version 5 format can be marked, whatever they hold: passwo
 
 ## Use offline mode
 
-When passbolt cannot reach the server, opening Quick Access shows "Unable to reach the server, you are not connected to the network." instead of the usual popup.
+When Haspr cannot reach the server, opening Quick Access shows "Unable to reach the server, you are not connected to the network." instead of the usual popup.
 
 <Figure
   src="/img/help/2026/09/quick-access-offline-unavailable.png"
@@ -94,5 +94,5 @@ If someone removes your access to a resource while your device is offline, the e
 :::caution[Limitations of this beta]
 - It is read only, nothing can be created or edited while offline.
 - The cache is tied to a single browser profile. Using two browsers, or two computers, means marking your items in each of them.
-- Offline access only works from Quick Access, not from the passbolt web application.
+- Offline access only works from Quick Access, not from the Haspr web application.
 :::

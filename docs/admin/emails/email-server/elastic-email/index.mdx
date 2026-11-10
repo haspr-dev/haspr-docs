@@ -13,8 +13,8 @@ import Chips from "/src/components/Chips/Chips";
 # Configure Email authentication with Elastic Email
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <EmailServerConfigurationIntroduction/>
@@ -45,9 +45,9 @@ When you create new SMTP credentials, Elastic Email will generate a unique passw
 
 To copy your newly generated password, simply click on the "Copy" button next to the password field.
 
-- Authentication on Passbolt GUI
+- Authentication on Haspr GUI
 
-On your Passbolt instance, you can navigate to *Administration > Email server*.
+On your Haspr instance, you can navigate to *Administration > Email server*.
 
 <Figure
   src="/img/help/2023/02/smtp-elasticemail-authentication.png"

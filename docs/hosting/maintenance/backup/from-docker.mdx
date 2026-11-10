@@ -18,8 +18,8 @@ import RestoreDatabaseNotes from '/docs/hosting/_includes/backup/_restore-databa
 # Backing up a Docker passbolt installation
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <Prerequisites />
@@ -59,7 +59,7 @@ Be sure to use simple-quotes for the bash -c argument to be able to use __MYSQL_
 
 ### 2. The server public and private keys
 
-You can use docker compose cp to backup the passbolt GPG keys:
+You can use docker compose cp to backup the Haspr GPG keys:
 
 <Tabs groupId="edition">
   <TabItem value="ce" label="CE" default>
@@ -87,7 +87,7 @@ You can use docker compose cp to backup the passbolt GPG keys:
 ### 3. The application configuration
 passbolt on Docker stores its configuration as environment variables.
 
-If you are using docker compose, the environment variables live in the `environment:` blocks of the passbolt and db services in your docker compose file. Back up the compose file itself: it contains your instance configuration, including the database credentials. If you moved the variables into separate files through the compose `env_file:` option, back up those files as well.
+If you are using docker compose, the environment variables live in the `environment:` blocks of the Haspr and db services in your docker compose file. Back up the compose file itself: it contains your instance configuration, including the database credentials. If you moved the variables into separate files through the compose `env_file:` option, back up those files as well.
 
 If you are running docker containers directly, you passed these variables through the command line, and you should keep a copy of the commands used.
 
@@ -95,7 +95,7 @@ Please check the [passbolt env variable reference](/hosting/environment-referenc
 
 ## How to restore the database?
 
-Copy the SQL backup into the passbolt container, then run `mysql_import`. Unlike the export, this command needs no database client binary in the container, as it loads the file through the application's own database connection:
+Copy the SQL backup into the Haspr container, then run `mysql_import`. Unlike the export, this command needs no database client binary in the container, as it loads the file through the application's own database connection:
 
 <Tabs groupId="edition">
   <TabItem value="ce" label="CE" default>

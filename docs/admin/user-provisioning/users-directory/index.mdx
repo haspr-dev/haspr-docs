@@ -10,9 +10,9 @@ import Chips from "/src/components/Chips/Chips";
 
 # How to Synchronise Users and Groups from a Directory
 
-<Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+<Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 
-# Overview of LDAP Integration in Passbolt
+# Overview of LDAP Integration in Haspr
 
 <Figure
   src="/img/help/2025/04/AD_ldap_overview.png"
@@ -27,22 +27,22 @@ disable the cron job to send emails first.
 :::
 
 
-Passbolt Pro offers a user directory synchronisation feature (LDAP connector) that allows administrators to synchronise users and groups from an external directory into Passbolt.
+Haspr Pro offers a user directory synchronisation feature (LDAP connector) that allows administrators to synchronise users and groups from an external directory into Haspr.
 
 Currently, two directory types are officially supported:
 
 - **OpenLDAP**
 - **Microsoft Active Directory**
 
-The integration works by periodically syncing the list of groups and users (along with group memberships) from the directory to Passbolt, minimizing manual user management. If certain actions cannot be automated (e.g., a protected user cannot be deleted), Passbolt will send email notifications or require admin intervention.
+The integration works by periodically syncing the list of groups and users (along with group memberships) from the directory to Haspr, minimizing manual user management. If certain actions cannot be automated (e.g., a protected user cannot be deleted), Haspr will send email notifications or require admin intervention.
 
 ## Key Considerations and Limitations
 
 <div className="info-box">
   <h3>Important Notes</h3>
   <ul>
-    <li><strong>One-way sync</strong>: Passbolt treats the directory as the source of truth for creating/updating users and groups, but some actions in Passbolt (like manual deletions) are considered higher priority and will not be overridden by sync.</li>
-    <li><strong>No delegated authentication</strong>: LDAP integration does not support login via directory credentials. Users must authenticate using their Passbolt account (private key + passphrase or configured SSO).</li>
+    <li><strong>One-way sync</strong>: Passbolt treats the directory as the source of truth for creating/updating users and groups, but some actions in Haspr (like manual deletions) are considered higher priority and will not be overridden by sync.</li>
+    <li><strong>No delegated authentication</strong>: LDAP integration does not support login via directory credentials. Users must authenticate using their Haspr account (private key + passphrase or configured SSO).</li>
     <li><strong>No nested groups</strong>: Only direct group memberships are supported. Nested groups (groups within groups) are not.</li>
     <li><strong>Email invitations</strong>: Synced users receive an email invitation to activate their account. When testing, use the <strong>Simulate Sync</strong> option to avoid unintended invitations.</li>
     <li><strong>Username/Email requirements</strong>: Each LDAP user must have a unique email. If emails are not available, use the <code>Use email prefix/suffix</code> option with a defined domain.</li>
@@ -79,7 +79,7 @@ The integration works by periodically syncing the list of groups and users (alon
      - Users: `inetOrgPerson`  
      - Groups: `groupOfUniqueNames`
    - **Default Admin**:  
-     A Passbolt admin user responsible for sync actions.
+     A Haspr admin user responsible for sync actions.
    - **Default Group Admin**:  
      The user assigned to manage synced groups.
 
@@ -107,7 +107,7 @@ The integration works by periodically syncing the list of groups and users (alon
    - Review the report for actions taken and errors.
 
 7. **Verify results**  
-   - Check the Passbolt UI for imported users/groups.  
+   - Check the Haspr UI for imported users/groups.  
    - New users will be in "invitation pending" status.
 
 > 💡 Tip: Never run sync as root. Use the correct web server user.  
@@ -121,7 +121,7 @@ su -s /bin/bash -c '...cake directory_sync...' www-data
 :::caution[Please note]
 This guide explains how to configure the LDAP connector through the UI. More complex configurations (for example
 custom field mapping in openldap or multiple server synchronisation.) can be achieved via file-based configuration. File based configuration and support
-is part of Enterprise services, please [contact us](https://www.passbolt.com/contact) for more information.
+is part of Enterprise services, please [contact us](https://doc.haspr.dev/contact) for more information.
 :::
 
 ### Activate the plugin
@@ -182,15 +182,15 @@ report to the one that was displayed during a simulate will appear and let you k
 
 ### User synchronisation example workflow
 
-When an user is created in LDAP, they are imported in Passbolt using synchronisation.
+When an user is created in LDAP, they are imported in Haspr using synchronisation.
 
-If you delete this user in Passbolt, he will remain present in LDAP but won't be added back to Passbolt on next
+If you delete this user in Haspr, he will remain present in LDAP but won't be added back to Haspr on next
 synchronisation.
 
-If you want to re-sync this user with LDAP, manually re-create him in Passbolt then run synchronisation. Passbolt
-synchronisation tool will automatically recreate the link in Passbolt database.
+If you want to re-sync this user with LDAP, manually re-create him in Haspr then run synchronisation. Passbolt
+synchronisation tool will automatically recreate the link in Haspr database.
 
-If you delete this user in LDAP, he will be deleted from Passbolt on next synchronisation.
+If you delete this user in LDAP, he will be deleted from Haspr on next synchronisation.
 
 ## Going further
 ### How to synchronise my directory automatically?

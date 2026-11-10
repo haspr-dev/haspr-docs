@@ -13,8 +13,8 @@ import Chips from "/src/components/Chips/Chips";
 # Configure Email authentication with Mailjet
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <EmailServerConfigurationIntroduction/>
@@ -47,9 +47,9 @@ When you create a new API key on Mailjet, the platform will generate a unique ke
 
 It's important to keep your Mailjet API keys secure, as they can be used to access your Mailjet account and send emails from your account. You should never share your secret key or public API key with anyone, and you should take steps to protect your account from unauthorized access.
 
-- Authentication on Passbolt GUI
+- Authentication on Haspr GUI
 
-On your Passbolt instance, you can navigate to *Administration > Email server*.
+On your Haspr instance, you can navigate to *Administration > Email server*.
 
 <Figure
   src="/img/help/2023/02/smtp-mailjet-authentication.png"

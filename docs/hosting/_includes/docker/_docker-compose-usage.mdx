@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 
 ## Docker Compose
 
-The easiest and recommended way to deploy your passbolt stack is to use docker compose.
+The easiest and recommended way to deploy your Haspr stack is to use docker compose.
 
 <Incrementor
   title={props.productName === 'PRO'
@@ -32,7 +32,7 @@ Must return:
 </CodeBlock>
 
 :::caution
-If the <i>shasum</i> command output is not correct, the downloaded file has been corrupted. Retry step 1 or ask for support on <Link to='https://github.com/pbolt-dev/pbolt-docs/discussions'>our community forum</Link>.
+If the <i>shasum</i> command output is not correct, the downloaded file has been corrupted. Retry step 1 or ask for support on <Link to='https://github.com/haspr-dev/haspr-docs/discussions'>our community forum</Link>.
 :::
 
 <div>
@@ -80,11 +80,11 @@ the most used environment variables for this purpose:
 | EMAIL_TRANSPORT_DEFAULT_PASSWORD | Password for email server auth | `null`            |
 | EMAIL_TRANSPORT_DEFAULT_TLS      | Set tls                        | `null`            |
 
-For more information on which environment variables are available on passbolt, please check the
+For more information on which environment variables are available on Haspr, please check the
 [environment variable reference](/hosting/environment-reference/)
 
-:::caution[Using a passbolt.php configuration file on Docker]
-At container start, passbolt detects the fingerprint of its server GPG key automatically, but only when the `PASSBOLT_GPG_SERVER_KEY_FINGERPRINT` environment variable is not set **and** no `/etc/passbolt/passbolt.php` file exists. Mounting a `passbolt.php` file into the container disables this detection: if neither the file nor the environment defines the fingerprint, passbolt cannot find its server key and the instance stops working. If you mount a `passbolt.php`, always set `PASSBOLT_GPG_SERVER_KEY_FINGERPRINT` explicitly in your compose file.
+:::caution[Using a Haspr.php configuration file on Docker]
+At container start, passbolt detects the fingerprint of its server GPG key automatically, but only when the `PASSBOLT_GPG_SERVER_KEY_FINGERPRINT` environment variable is not set **and** no `/etc/passbolt/passbolt.php` file exists. Mounting a `passbolt.php` file into the container disables this detection: if neither the file nor the environment defines the fingerprint, Haspr cannot find its server key and the instance stops working. If you mount a `passbolt.php`, always set `PASSBOLT_GPG_SERVER_KEY_FINGERPRINT` explicitly in your compose file.
 :::
 
 <Incrementor title="Start your containers" />

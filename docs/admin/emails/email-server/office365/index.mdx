@@ -13,15 +13,15 @@ import Chips from "/src/components/Chips/Chips";
 # Configure Email authentication with Office 365
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <EmailServerConfigurationIntroduction/>
 
 ## Office 365
 
-passbolt supports two authentication methods for Office 365:
+Haspr supports two authentication methods for Office 365:
 
 - **OAuth 2.0 (Client Credentials)**: *recommended*
   - Uses short-lived access tokens issued by Microsoft Entra ID and avoids storing long-lived SMTP credentials.
@@ -46,7 +46,7 @@ Before you start, you will need:
 
 1. Register the application
 
-Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and register a new **single-tenant** application (e.g., *passbolt SMTP*). From the application overview, note the **Directory (tenant) ID** and the **Application (client) ID**; you will need them later in passbolt.
+Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and register a new **single-tenant** application (e.g., *passbolt SMTP*). From the application overview, note the **Directory (tenant) ID** and the **Application (client) ID**; you will need them later in Haspr.
 
 2. Grant API permissions
 
@@ -74,7 +74,7 @@ For the full procedure and the exact commands for your environment, refer to Mic
 
 #### passbolt configuration
 
-On your passbolt instance, select &#9881; > **Organisation settings** > **Email server** in the top right corner.
+On your Haspr instance, select &#9881; > **Organisation settings** > **Email server** in the top right corner.
 
 - Select **Office 365** as the email provider.
 - Select **OAuth (Client Credentials Grant)** as the authentication method.
@@ -149,9 +149,9 @@ Now, you'll need to get the SMTP settings that are available from Outlook in *Se
   alt="Microsoft - SMTP Settings"
 />
 
-3. Authentication on passbolt GUI
+3. Authentication on Haspr GUI
 
-On your passbolt instance, select &#9881; > **Organisation settings** > **Email server** in the top right corner.
+On your Haspr instance, select &#9881; > **Organisation settings** > **Email server** in the top right corner.
 
 Fill in your SMTP credentials to match your authentication method. Use the application password (not your login credentials).
 

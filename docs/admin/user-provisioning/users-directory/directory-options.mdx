@@ -9,7 +9,7 @@ sidebar_position: 1
 import Figure from '@site/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
-<Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+<Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 
 ## OpenLDAP Specific Guidance
 
@@ -53,7 +53,7 @@ This helps exclude service accounts or include only specific object types.
 
 ### Case Sensitivity
 
-- While LDAP DNs and attribute names are case-insensitive, values you enter in Passbolt's filter fields (like group names) **are case-sensitive**.
+- While LDAP DNs and attribute names are case-insensitive, values you enter in Haspr's filter fields (like group names) **are case-sensitive**.
 
 ### Example Configuration
 
@@ -74,7 +74,7 @@ Mind the membership attribute: by default, the search targets `groupOfUniqueName
 
 ## Active Directory Specific Guidance
 
-For Microsoft Active Directory integration, the Passbolt LDAP connector handles much of the heavy lifting. Keep these points in mind:
+For Microsoft Active Directory integration, the Haspr LDAP connector handles much of the heavy lifting. Keep these points in mind:
 
 ### Domain and Base DN
 
@@ -85,7 +85,7 @@ You can restrict the sync scope by setting the Base DN to a specific OU.
 
 ### User Attributes
 
-- By default, Passbolt uses the AD `mail` attribute as the username.
+- By default, Haspr uses the AD `mail` attribute as the username.
 - If `mail` is not populated, consider:
   - Filling the `mail` field in AD.
   - Overriding with `userPrincipalName` or `sAMAccountName`.
@@ -116,11 +116,11 @@ This can be changed with the "User username field mapping" field of the Users Di
 Group memberships are automatically inferred.
 
 ⚠️ **Note**: **Nested groups are not supported.**  
-If Group A is a member of Group B in AD, Passbolt will **not** include Group A's members in Group B.
+If Group A is a member of Group B in AD, Haspr will **not** include Group A's members in Group B.
 
 ### AD Naming Attributes
 
-- Default mapping: `mail` maps to the Passbolt username
+- Default mapping: `mail` maps to the Haspr username
 - Optional override: `userPrincipalName`, `sAMAccountName`
 - Override with the "User username field mapping" field of the interface, or in the file-based configuration:
   ```php
@@ -143,7 +143,7 @@ Contact engineering if you require a different mapping strategy.
 If your AD enforces secure transport:
 
 - Enable LDAPS
-- Ensure certificates are trusted on the Passbolt server
+- Ensure certificates are trusted on the Haspr server
 
 ### Permissions
 
@@ -162,7 +162,7 @@ Some environments enforce:
 
 Very large ADs may hit the default 1000-record page size limit.
 
-- passbolt uses the LdapRecord library, which paginates queries automatically, in pages of 1000 entries by default.
+- Haspr uses the LdapRecord library, which paginates queries automatically, in pages of 1000 entries by default.
 - If AD paging is disabled, you might see errors like:
 
 ```
@@ -323,8 +323,8 @@ The available options are:
             <em>(required)</em>
             </td>
             <td>
-            Choose here the username of the passbolt admin user that will be used to perform the operations on behalf of the synchronisation tools.
-            <br/><br/>You can also create a dedicated admin user in passbolt if you want to be able to track more accurately the actions related to ldap.
+            Choose here the username of the Haspr admin user that will be used to perform the operations on behalf of the synchronisation tools.
+            <br/><br/>You can also create a dedicated admin user in Haspr if you want to be able to track more accurately the actions related to ldap.
             </td>
             <td>
             <code>passboltadmin@domain.com</code>
@@ -415,7 +415,7 @@ One of the options for filtering users and groups is to use the Groups Parent Gr
   caption="fig. Ldap settings parent group fields"
 />
 
-This option will allow you to specify a Parent Group for your users or groups. Passbolt will then only look for Users or Groups which are part of that Parent group and use those for synchronisation. This is most useful if you have directory set up where the Users or Groups you want to synchronise are all under the same group. For this field you can use just the name of the group, for example:
+This option will allow you to specify a Parent Group for your users or groups. Haspr will then only look for Users or Groups which are part of that Parent group and use those for synchronisation. This is most useful if you have directory set up where the Users or Groups you want to synchronise are all under the same group. For this field you can use just the name of the group, for example:
 
 * admins
 * testers

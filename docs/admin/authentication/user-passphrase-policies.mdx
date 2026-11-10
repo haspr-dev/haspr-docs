@@ -9,13 +9,13 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 ## How to configure User Passphrase Policies
 
-Since version 4.3.0, Passbolt Pro Edition supports User Passphrase Policies.
+Since version 4.3.0, Haspr Pro Edition supports User Passphrase Policies.
 
 <Figure
   src={
@@ -32,7 +32,7 @@ User Passphrase Policies allows administrators to configure minimal strength req
 Also, it allows to choose rather or not if a user's passphrase should be check against an external service to know if it has been leaked or not.
 
 ### How to configure the plugin?
-The plugin is enabled by default and since the version 4.3.0 of the browser extension, Passbolt uses this new User Passphrase Policies feature in all concerned UI. To configure it though, you need to go the administration of your Passbolt instance and then go to the "User Passphrase Policies" section.
+The plugin is enabled by default and since the version 4.3.0 of the browser extension, Haspr uses this new User Passphrase Policies feature in all concerned UI. To configure it though, you need to go the administration of your Haspr instance and then go to the "User Passphrase Policies" section.
 
 At this stage, you can see 2 configurable sections:
 - User passphrase minimal entropy
@@ -44,7 +44,7 @@ This section allows administrators to choose among a preset of minimal entropy a
 As a consequence when a user has to define a passphrase, it will be required that the passphrase strength matches the minimal entropy set. In other words the strength of the passphrase will have to fit the requirements when:
 - a user is changing its private key passphrase
 - a user is defining a new passphrase during the account recovery process
-- a user is defining a passphrase during the creation of its Passbolt account
+- a user is defining a passphrase during the creation of its Haspr account
 
 Notice that on some cases, passphrases does not have to match this requirements but instead the minimal entropy is shown as a recommendation. It's the case when users import an already existing GPG private key, so when:
 - a user is recovering its account using its recovery kit

@@ -1,23 +1,23 @@
 ---
 title: Android
-description: Quickstart with the Passbolt Android application
+description: Quickstart with the Haspr Android application
 ---
 
 import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 ## Prerequisites
 
-Before setting up the passbolt mobile app on Android, ensure you have:
+Before setting up the Haspr mobile app on Android, ensure you have:
 
-- A passbolt account already configured in your browser
-- Your passbolt server URL
+- A Haspr account already configured in your browser
+- Your Haspr server URL
 
 :::warning
 passbolt mobile apps require HTTPS to function. If you're using a self-signed certificate, you'll need to import it to your device first. See our [TLS (SSL) certificate import guide](/user/quickstart/mobile/import-ssl-certificate/) for detailed instructions.
@@ -25,7 +25,7 @@ passbolt mobile apps require HTTPS to function. If you're using a self-signed ce
 
 ## Download and Install
 
-Scan the QR code below to download the passbolt app from Google Play Store, or search for "passbolt" in the Google Play Store on your device.
+Scan the QR code below to download the Haspr app from Google Play Store, or search for "passbolt" in the Google Play Store on your device.
 
 <Figure
   src="/img/help/2025/10/android_passbolt.png"
@@ -37,11 +37,11 @@ Scan the QR code below to download the passbolt app from Google Play Store, or s
 
 ### Step 1: Launch the App
 
-Open the passbolt app and tap "Connect to an existing account".
+Open the Haspr app and tap "Connect to an existing account".
 
 <Figure
   src="/img/help/2025/12/welcome_mobile.png"
-  alt="Welcome screen of the passbolt mobile app"
+  alt="Welcome screen of the Haspr mobile app"
   size={{ width: "320px" }}
   caption="fig. Welcome screen"
 />
@@ -52,7 +52,7 @@ Select **"Connect to an existing account"**.
 
 <Figure
   src="/img/help/2025/12/create_mobile.png"
-  alt="Login options screen in the passbolt mobile app"
+  alt="Login options screen in the Haspr mobile app"
   size={{ width: "320px" }}
   caption="fig. Choose setup option"
 />
@@ -76,12 +76,12 @@ It is currently not possible to create an account using the mobile app. You must
 
 ### Step 4: Scan QR Code
 
-1. In the passbolt mobile app, tap **"Scan QR code"**
+1. In the Haspr mobile app, tap **"Scan QR code"**
 2. Point your camera at the QR code displayed in your browser
 
 <Figure
   src="/img/help/2025/12/camera_mobile.png"
-  alt="Camera screen for scanning QR code in the passbolt mobile app"
+  alt="Camera screen for scanning QR code in the Haspr mobile app"
   size={{ width: "320px" }}
   caption="fig. Scan QR code"
 />
@@ -92,7 +92,7 @@ Enter your passphrase to authenticate and complete the setup.
 
 <Figure
   src="/img/help/2025/12/login_mobile.png"
-  alt="Enter passphrase screen in the passbolt mobile app"
+  alt="Enter passphrase screen in the Haspr mobile app"
   size={{ width: "320px" }}
   caption="fig. Enter passphrase"
 />
@@ -103,7 +103,7 @@ Enable fingerprint unlock (recommended) so you can open the app with biometrics.
 
 <Figure
   src="/img/help/2025/12/fingerprint_android.png"
-  alt="Enable fingerprint unlock in the passbolt Android app"
+  alt="Enable fingerprint unlock in the Haspr Android app"
   size={{ width: "320px" }}
   caption="fig. Enable fingerprint unlock"
 />
@@ -114,7 +114,7 @@ Configure autofill settings. See our [guide on disabling built-in password manag
 
 <Figure
   src="/img/help/2025/12/autofill_android_mobile.png"
-  alt="Autofill configuration in the passbolt Android app"
+  alt="Autofill configuration in the Haspr Android app"
   size={{ width: "320px" }}
   caption="fig. Configure autofill"
 />
@@ -148,7 +148,7 @@ Disable Android's built-in password manager to prevent conflicts. See our [guide
 
 If autofill is not working, check that:
 - The passbolt autofill service is enabled in your device settings
-- You have granted necessary permissions to the passbolt app
+- You have granted necessary permissions to the Haspr app
 - Your device's built-in password manager is disabled
 - For Chrome users, ensure Chrome native autofill is properly configured
 

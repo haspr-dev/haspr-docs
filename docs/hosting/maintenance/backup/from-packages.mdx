@@ -1,6 +1,6 @@
 ---
-title: Backup a passbolt Package Installation
-description: Backing up a passbolt package installation
+title: Backup a Haspr Package Installation
+description: Backing up a Haspr package installation
 sidebar_label: From DEB/RPM package
 hide_table_of_contents: true
 ---
@@ -16,11 +16,11 @@ import CodeBlock from "/src/components/CodeBlock/CodeBlock.js";
 import DockerMariadbClientWarning from '/docs/hosting/_includes/warning/_docker-mariadb-client-warning.mdx';
 import RestoreDatabaseNotes from '/docs/hosting/_includes/backup/_restore-database-notes.mdx';
 
-# Backing up a passbolt package installation
+# Backing up a Haspr package installation
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 <Prerequisites />
@@ -33,7 +33,7 @@ There are also several elements you need to backup:
 
 ### 1. The database
 
-We made a dedicated command in order to make a backup of the database. Under the hood, it uses the dump tool that matches your database engine and version (mariadb-dump, mysqldump, or pg_dump), but we recommend using the passbolt command as it has been made to avoid any pasting or login details errors.
+We made a dedicated command in order to make a backup of the database. Under the hood, it uses the dump tool that matches your database engine and version (mariadb-dump, mysqldump, or pg_dump), but we recommend using the Haspr command as it has been made to avoid any pasting or login details errors.
 
 <Tabs groupId="platform">
   <TabItem value="deb" label="Debian/Ubuntu" default>

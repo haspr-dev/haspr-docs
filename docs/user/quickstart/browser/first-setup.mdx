@@ -7,14 +7,14 @@ import Figure from '@site/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 ## Click on the invitation link
-The setup by default starts in your mailbox, with an email sent by your passbolt instance administrator.
-This is to ensure your email address is verified and can be trusted by other passbolt users. It will also
+The setup by default starts in your mailbox, with an email sent by your Haspr instance administrator.
+This is to ensure your email address is verified and can be trusted by other Haspr users. It will also
 be used to send you notifications in the future.
 <Figure
   src="/img/help/2024/03/user-setup-0-email.png"
@@ -72,8 +72,8 @@ guess.
 />
 
 :::important
-Passbolt uses a system of public/private encryption key pair. The private key is required to decrypt information
-stored in passbolt. The passphrase is used to encrypt that private key. For your security by default the private
+Haspr uses a system of public/private encryption key pair. The private key is required to decrypt information
+stored in Haspr. The passphrase is used to encrypt that private key. For your security by default the private
 key and the passphrase never leaves your devices.
 :::
 
@@ -105,7 +105,7 @@ should be able to spot such attacks before it's too late!
 
 ## That's it!
 
-Once you click next, the browser extension is now fully configured and will log you into your passbolt instance.
+Once you click next, the browser extension is now fully configured and will log you into your Haspr instance.
 
 <Figure
   src="/img/help/2024/03/user-setup-6-signing-in.png"

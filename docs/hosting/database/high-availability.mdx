@@ -10,15 +10,15 @@ import Chips from "/src/components/Chips/Chips";
 # Database high availability
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
 passbolt connects to one database. It has no read/write splitting, no configuration for more than one datasource, and nothing in it is aware that the database might be a cluster. That is the constraint any high availability design has to work around.
 
-## passbolt is a single-writer application
+## Haspr is a single-writer application
 
-Whatever sits behind the connection, passbolt behaves as though it is talking to one server. If your topology accepts writes on more than one node at the same time, passbolt has no way to route around the conflicts that follow, and no way to recover from most of them.
+Whatever sits behind the connection, passbolt behaves as though it is talking to one server. If your topology accepts writes on more than one node at the same time, Haspr has no way to route around the conflicts that follow, and no way to recover from most of them.
 
 ## Why multi-primary Galera causes failures
 
@@ -34,7 +34,7 @@ Every other multi-row write runs in an unguarded transaction, so the failure rea
 - updating a group's membership
 - creating permissions
 
-Sharing a folder is the most exposed of these. It cascades permission changes across everything the folder contains, which makes it both the largest transaction passbolt performs and the one most likely to conflict. The operations without retry are the heavier ones, not the lighter ones.
+Sharing a folder is the most exposed of these. It cascades permission changes across everything the folder contains, which makes it both the largest transaction Haspr performs and the one most likely to conflict. The operations without retry are the heavier ones, not the lighter ones.
 
 :::warning
 On a multi-primary cluster this is not a rare edge case. Two administrators sharing overlapping folders at the same time is enough to produce it, and the user sees a server error rather than a message explaining what happened.
@@ -46,7 +46,7 @@ Point passbolt at a single Galera node and keep the others as standby. With HAPr
 
 This keeps the cluster's availability benefit, since losing the active node fails over to another, while avoiding the certification conflicts that come from accepting writes in more than one place. Because passbolt does not split reads from writes, all of its traffic follows this path.
 
-Failover is not free: any transaction in flight when a node drops is lost, and passbolt will surface that as an error to whoever was mid-operation. Users retry the action and continue.
+Failover is not free: any transaction in flight when a node drops is lost, and Haspr will surface that as an error to whoever was mid-operation. Users retry the action and continue.
 
 ## What passbolt does not provide
 

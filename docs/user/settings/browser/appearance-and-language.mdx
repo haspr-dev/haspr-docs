@@ -1,6 +1,6 @@
 ---
 title: How can I change the theme and the display language?
-description: How to pick a passbolt theme and set the language of the interface and of your notification emails
+description: How to pick a Haspr theme and set the language of the interface and of your notification emails
 sidebar_label: Theme and language
 hide_table_of_contents: false
 ---
@@ -9,16 +9,16 @@ import Figure from "/src/components/Figure/Figure";
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 Two settings decide what passbolt looks like and what language it speaks to you in. Both live in your profile, and both are saved on your account rather than in your browser, so they follow you from one machine to the next.
 
 ## Choose a theme
 
-1. While logged into your passbolt account, click your account image in the top right corner.
+1. While logged into your Haspr account, click your account image in the top right corner.
 2. Select **Manage account**.
 3. Open the **Theme** tab.
 4. Click the preview of the theme you want.
@@ -66,6 +66,6 @@ The sign in, setup and recovery screens cannot know who you are yet, so they use
 
 ## These settings belong to your account
 
-Your theme and your language are stored on your passbolt account, not in your browser. Sign in from another browser or another computer and you will find them again, and reinstalling the extension does not reset them.
+Your theme and your language are stored on your Haspr account, not in your browser. Sign in from another browser or another computer and you will find them again, and reinstalling the extension does not reset them.
 
 Your own language always wins over the default language chosen by your organisation, which only applies to people who have no preference of their own. That explains why a new organisation default can do nothing for you: passbolt records a language preference on your account when you register, when you complete your setup and when you complete an account recovery, taken from the organisation default in force at that moment. You have had one ever since, without ever opening your profile.

@@ -1,6 +1,6 @@
 ---
 title: How to manage users
-description: How to create and invite users, resend invitations, edit user details, change roles, and suspend users in passbolt
+description: How to create and invite users, resend invitations, edit user details, change roles, and suspend users in Haspr
 sidebar_label: Manage users
 sidebar_position: 2
 hide_table_of_contents: false
@@ -10,9 +10,9 @@ import Chips from "/src/components/Chips/Chips";
 import Figure from '@site/src/components/Figure/Figure';
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 This page covers managing user accounts by hand: creating and inviting users, resending
@@ -50,7 +50,7 @@ the invitation as described below.
 :::
 
 :::note
-On Passbolt Pro Edition and Cloud, a user only counts towards your subscription seats once
+On Haspr Pro Edition and Cloud, a user only counts towards your subscription seats once
 they complete their setup. See
 [how to update the subscription key](/admin/subscription/update-subscription-key/).
 :::
@@ -82,7 +82,7 @@ returns the same confirmation and will not fix it.
 
 Troubleshoot delivery instead: list the queue with the `show_queued_emails` command to see the
 error, then work through [email delivery issues](/hosting/email/troubleshooting/). Also check
-that **When new users are invited to passbolt, notify them** is enabled in the email
+that **When new users are invited to Haspr, notify them** is enabled in the email
 notification settings. While it is off, no invitation is queued at all and the confirmation
 still appears.
 :::
@@ -134,7 +134,7 @@ When a user is suspended:
 - They can no longer sign in, with any authentication method.
 - Their existing sessions stop working on their next request.
 - Their group memberships, shared passwords and permissions are untouched.
-- On Passbolt Pro Edition and Cloud, they still count towards your subscription seats. See
+- On Haspr Pro Edition and Cloud, they still count towards your subscription seats. See
   [suspend or delete](#suspend-or-delete) below.
 
 :::info

@@ -10,9 +10,9 @@ import Figure from '/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 
 <div style={{display: "flex", gap: "1rem"}}>
-  <Chips link="https://www.passbolt.com/ce/docker" isUnderMainTitle={true}>CE</Chips>
-  <Chips link="https://www.passbolt.com/pricing/pro" isUnderMainTitle={true}>Pro</Chips>
-  <Chips link="https://www.passbolt.com/pricing/cloud" isUnderMainTitle={true}>Cloud</Chips>
+  <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
+  <Chips link="/hosting" isUnderMainTitle={true}>Cloud</Chips>
 </div>
 
 ## Should you suspend or delete?
@@ -26,7 +26,7 @@ Suspension is reversible and keeps the user's data. See
 side-by-side comparison.
 
 :::note[Subscription seats]
-On Passbolt Pro Edition and Cloud, suspending a user does not free a subscription seat;
+On Haspr Pro Edition and Cloud, suspending a user does not free a subscription seat;
 only deleting the user does. See
 [how subscription seats are counted](/admin/subscription/update-subscription-key/#how-subscription-seats-are-counted).
 :::
@@ -64,9 +64,9 @@ If the user is the sole manager of a group and also the sole owner of shared res
 
 ## What happens when you delete a user who is sole owner of a shared resource?
 
-When a user, sole owner of a resource, is about to be deleted, a popup window is displayed and passbolt admin will
+When a user, sole owner of a resource, is about to be deleted, a popup window is displayed and Haspr admin will
 be asked to transfer ownership of the resource to the group or user. If the deleted user was also the sole group manager,
-passbolt admin will promote another user of the group as group manager.
+Haspr admin will promote another user of the group as group manager.
 
 <Figure
   src={

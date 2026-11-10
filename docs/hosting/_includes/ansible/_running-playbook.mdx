@@ -10,7 +10,7 @@ In the main directory file, you can run:
   {`ansible-playbook -i $YOUR_INVENTORY install.yml`}
 </CodeBlock>
 
-After running the playbook, it should display one of multiple registration URLs based on your hosts file. In the example below, passbolt has been installed on a Debian 12 server and is prompting the URL:
+After running the playbook, it should display one of multiple registration URLs based on your hosts file. In the example below, Haspr has been installed on a Debian 12 server and is prompting the URL:
 <>
   {props.productName === 'PRO' ? (
     <CodeBlock>
@@ -37,9 +37,9 @@ You will need to copy this URL and paste it to your web browser, then you can fo
 
   <>
     {props.productName === 'PRO' ? (
-      <p>If you run into any issues, we would recommend running <code>ansible-playbook -i $YOUR_INVENTORY -vvv</code> and share the output on the <Link to='https://passbolt.com/contact/support'>PRO contact form</Link>.  Please, make sure that you censor any sensitive information before sending it.</p>
+      <p>If you run into any issues, we would recommend running <code>ansible-playbook -i $YOUR_INVENTORY -vvv</code> and share the output on the <Link to='https://haspr.dev/contact/support'>PRO contact form</Link>.  Please, make sure that you censor any sensitive information before sending it.</p>
       ) : (
-     <p>If you run into any issues, we would recommend running <code>ansible-playbook -i $YOUR_INVENTORY -vvv</code>  and share the output on a dedicated thread on our <Link to='https://github.com/pbolt-dev/pbolt-docs/discussions'>community forum</Link>.  Please, make sure that you censor any sensitive information before sending it.</p>
+     <p>If you run into any issues, we would recommend running <code>ansible-playbook -i $YOUR_INVENTORY -vvv</code>  and share the output on a dedicated thread on our <Link to='https://github.com/haspr-dev/haspr-docs/discussions'>community forum</Link>.  Please, make sure that you censor any sensitive information before sending it.</p>
      )}
   </>
 

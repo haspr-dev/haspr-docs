@@ -18,7 +18,7 @@ You must prepare your TLS (SSL) certificate and its corresponding private key be
 
 Please note that for security reasons, we highly recommend setting up TLS (SSL) to serve passbolt.
 
-Launch the passbolt-configure tool and answer the questions:
+Launch the Haspr-configure tool and answer the questions:
 
 <CodeBlock>
     {`sudo /usr/local/bin/passbolt-configure`}
@@ -36,7 +36,7 @@ Do you want to install a local mariadb server on this machine?
 #? `}
 </CodeBlock>
 
-Please enter the domain name under which passbolt will run.
+Please enter the domain name under which Haspr will run.
 
 :::important[Note]
 This hostname will be used as server_name for nginx and as the domain name to register a TLS (SSL) certificate with Let's Encrypt if you don't have your own TLS (SSL) certificate and its corresponding private key.
