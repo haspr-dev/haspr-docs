@@ -14,7 +14,7 @@ import Chips from "/src/components/Chips/Chips";
 
 ## Introduction
 
-To use **LDAP with TLS (SSL)**, your LDAP server must present a valid TLS certificate to the client (in this case, the **Haspr server**). The certificate must also be **trusted by Passbolt**.
+To use **LDAP with TLS (SSL)**, your LDAP server must present a valid TLS certificate to the client (in this case, the **Haspr server**). The certificate must also be **trusted by Haspr**.
 
 ## Connection Types
 
@@ -42,7 +42,7 @@ Both STARTTLS and LDAPS require valid TLS certificates. There are two common cer
 
 ### Public Certificate Authority (CA)
 
-If your LDAP server uses a TLS certificate from a public CA (e.g., [Let's Encrypt](https://letsencrypt.org/)), the certificate is usually trusted by Passbolt automatically.
+If your LDAP server uses a TLS certificate from a public CA (e.g., [Let's Encrypt](https://letsencrypt.org/)), the certificate is usually trusted by Haspr automatically.
 
 > ✅ No extra configuration is typically required.
 

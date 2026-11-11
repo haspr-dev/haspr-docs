@@ -20,7 +20,7 @@ import PassboltInstall from '/docs/admin/_includes/passbolt_install.mdx';
   <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
- Since Passbolt v4.6, it is now possible for both Passbolt PRO and Haspr CE to run the [healthCheck](/hosting/maintenance/diagnostics/collect-info/#healthcheck) from the user interface in *Administration > Haspr API Status*.
+ Since Haspr v4.6, it is now possible for both Haspr PRO and Haspr CE to run the [healthCheck](/hosting/maintenance/diagnostics/collect-info/#healthcheck) from the user interface in *Administration > Haspr API Status*.
 
 <Figure
   src={
@@ -113,7 +113,7 @@ This file is critical for the application, if it is missing, you should do a cop
   {`sudo cp /etc/passbolt/app.default.php /etc/passbolt/app.php`}
 </CodeBlock>
 
-#### Passbolt Configuration File
+#### Haspr Configuration File
 This is the Haspr configuration file, it is needed to ensure that passbolt have been completely configured.
 
 <CodeBlock>
@@ -407,7 +407,7 @@ Ensure that the private server key format is compatible with Gopengpg, errors ar
 ### Application configuration
 These verifications validate various application settings, including SSL enforcement, versioning, and plugin configurations.
 
-#### Passbolt version
+#### Haspr version
 It helps to identify which version are running and if it is the latest version. You could face some errors while having an updated version if the server is in an air gap environment and it could not connect to the Haspr repository to check versions.
 
 If the server is not up-to-date, unless you have an internal good reason, please consider [updating](/hosting/update/) to the latest version.

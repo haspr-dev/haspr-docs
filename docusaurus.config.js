@@ -63,6 +63,15 @@ const config = {
             route: '/api',
           },
         ],
+        theme: {
+          options: {
+            theme: {
+              rightPanel: {
+                backgroundColor: '#0f172a',
+              },
+            },
+          },
+        },
       },
     ],
   ],
@@ -77,6 +86,11 @@ const config = {
           return undefined;
         },
         redirects: [
+          // User guide redirects for Haspr renaming
+          { from: '/user/introduction/what-is-passbolt/', to: '/user/introduction/what-is-haspr/' },
+          { from: '/user/introduction/what-is-my-passbolt-url/', to: '/user/introduction/what-is-my-haspr-url/' },
+          { from: '/user/introduction/how-passbolt-secures-your-data/', to: '/user/introduction/how-haspr-secures-your-data/' },
+
           // Hosting configure/ → flattened paths
           { from: '/hosting/configure/firewall-rules/', to: '/hosting/firewall-rules/' },
           { from: '/hosting/configure/ntp/', to: '/hosting/ntp/' },

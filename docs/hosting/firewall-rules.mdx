@@ -19,7 +19,7 @@ These rules should be considered in a firewalled environment:
 | Purpose | Protocol Name | Port Number | Transport Layer Protocol |
 | ------- | ------------- | ----------- | ------------------------ |
 | Used for legacy systems or specific cases where HTTPS is not supported | HTTP | 80 | TCP |
-| Facilitates secure outbound connections for various services, including: <ul><li>Passbolt's online resources: <ul><li>`fullBaseUrl` for self-referencing healthcheck</li><li>download.passbolt.com</li></ul></li><li>Secure package repositories</li><li>Bitbucket</li><li>Operating system and software updates</li></ul> | HTTPS | 443 | TCP |
+| Facilitates secure outbound connections for various services, including: <ul><li>Haspr's online resources: <ul><li>`fullBaseUrl` for self-referencing healthcheck</li><li>download.passbolt.com</li></ul></li><li>Secure package repositories</li><li>Bitbucket</li><li>Operating system and software updates</li></ul> | HTTPS | 443 | TCP |
 | Connects to Unique DUO authentication endpoint | HTTPS | 443 | TCP |
 | Connects to Yubico API endpoints: <ul><li>api.yubico.com</li><li>api2.yubico.com</li><li>api3.yubico.com</li><li>api4.yubico.com</li><li>api5.yubico.com</li></ul> | HTTPS | 443 | TCP |
 | Connects to other APIs and services: <ul><li>api.github.com</li><li>api.pwnedpasswords.com (see [Have I Been Pwned FAQs](https://haveibeenpwned.com/FAQs))</li></ul> | HTTPS | 443 | TCP |

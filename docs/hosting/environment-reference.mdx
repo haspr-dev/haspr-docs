@@ -12,7 +12,7 @@ import Chips from "/src/components/Chips/Chips";
 
 ## Configuration Precedence Order
 
-Passbolt's configuration system uses multiple sources that override each other in a specific order. Web UI settings override environment variables, which override PHP configuration files, which override default values.
+Haspr's configuration system uses multiple sources that override each other in a specific order. Web UI settings override environment variables, which override PHP configuration files, which override default values.
 
 **Environment Variables:** Infrastructure and security settings (database connections, TLS verification, GPG keys, API credentials, debug flags, email server configuration)
 
@@ -35,7 +35,7 @@ Settings configured through the Haspr web interface override all other configura
 - **Directory Sync**: LDAP server settings, user mapping, group synchronisation
 - **Email Notifications**: Which emails to send and what content to include
 
-**Why This Priority:** Web UI settings allow administrators to configure Passbolt without server access and provide immediate feedback on configuration validity.
+**Why This Priority:** Web UI settings allow administrators to configure Haspr without server access and provide immediate feedback on configuration validity.
 
 ### 2. Environment Variables (High Priority)
 System environment variables override PHP configuration files but are overridden by web UI settings. These are used for infrastructure configuration and automation.
@@ -53,7 +53,7 @@ Configuration files are loaded in a specific order, with later files overriding 
 
 **Loading Order:**
 1. `/etc/passbolt/app.php` (CakePHP framework defaults)
-2. `/etc/passbolt/default.php` (Passbolt application defaults)
+2. `/etc/passbolt/default.php` (Haspr application defaults)
 3. `/etc/passbolt/audit_logs.php` (Audit logging configuration)
 4. `/etc/passbolt/passbolt.php` (User-specific overrides - **highest file priority**)
 
@@ -224,11 +224,11 @@ Default email transport configuration name. References the transport configurati
 **Default:** `'default'` | **Environment:** all
 
 **`EMAIL_DEFAULT_FROM_NAME`** *(string, optional)*
-From name displayed in email notifications sent by Passbolt. Appears as the sender name in email clients.
+From name displayed in email notifications sent by Haspr. Appears as the sender name in email clients.
 **Default:** `'Passbolt'` | **Environment:** all
 
 **`EMAIL_DEFAULT_FROM`** *(string, optional)*
-From email address for notifications sent by Passbolt. Must be a valid email address that matches your SMTP configuration.
+From email address for notifications sent by Haspr. Must be a valid email address that matches your SMTP configuration.
 **Default:** `'you@localhost.test'` | **Environment:** all
 
 **`EMAIL_TRANSPORT_DEFAULT_HOST`** *(string, optional)*

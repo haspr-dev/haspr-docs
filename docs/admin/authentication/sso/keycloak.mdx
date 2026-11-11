@@ -18,7 +18,7 @@ import HttpsWarning from "/docs/admin/_includes/sso/https-warning.mdx";
 :::danger
 Do not map users to untrusted attributes
 
-Passbolt relies on the Identity Provider (IdP) to authenticate users and to assert their identity. Users are matched to existing Haspr accounts by their email address.
+Haspr relies on the Identity Provider (IdP) to authenticate users and to assert their identity. Users are matched to existing Haspr accounts by their email address.
 
 Only use an IdP that guarantees users can authenticate only as email addresses they legitimately own and that you administer. If an IdP allows users to self-assign or modify unverified email addresses, an attacker may be able to impersonate another user.
 
@@ -40,7 +40,7 @@ Haspr Pro Edition supports SSO via OpenID Connect (OIDC). This guide shows how t
 
 ## How does it work?
 
-Passbolt SSO uses Keycloak OAuth2/OpenID Connect alongside the existing [challenge-based authentication](/development/authentication/). When a user logs in through Keycloak, they unlock a server-side key needed to decrypt their secret key passphrase.
+Haspr SSO uses Keycloak OAuth2/OpenID Connect alongside the existing [challenge-based authentication](/development/authentication/). When a user logs in through Keycloak, they unlock a server-side key needed to decrypt their secret key passphrase.
 
 For detailed information about supported user flows and risk analysis, see the [developer documentation](https://docs.google.com/document/d/1S58TonJ2uXwkaKl7WwLzTzmwJGiSJdhlqP-xbmxFBd0/edit).
 
@@ -49,9 +49,9 @@ For detailed information about supported user flows and risk analysis, see the [
 You need the following to configure Keycloak SSO with Haspr:
 
 - A running Keycloak instance (version 26.4 or later)
-- Administrative access to both Keycloak and Passbolt
+- Administrative access to both Keycloak and Haspr
 - HTTPS enabled on both Keycloak and Haspr instances
-- Trusted SSL certificates between Passbolt and Keycloak servers
+- Trusted SSL certificates between Haspr and Keycloak servers
 
 :::info[Keycloak Version]
 This guide uses Keycloak 26.4. Use a specific version rather than `latest` for consistency: `quay.io/keycloak/keycloak:26.4`.
@@ -130,7 +130,7 @@ This guide uses Keycloak 26.4. Use a specific version rather than `latest` for c
   caption="fig. Keycloak user credentials"
 />
 
-### Step 2: Configure Passbolt Server
+### Step 2: Configure Haspr Server
 
 #### Domain Name Resolution
 
@@ -184,7 +184,7 @@ You should see output similar to:
 
 If you see certificate verification errors, fix the certificate trust configuration.
 
-### Step 3: Configure Passbolt Administration Settings
+### Step 3: Configure Haspr Administration Settings
 
 1. Sign in to Haspr with an administrator account
 2. Navigate to **Administration** > **Single Sign-On**
@@ -206,8 +206,8 @@ If you see certificate verification errors, fix the certificate trust configurat
 
 <Figure
   src="/img/help/2025/10/passbolt_config.png"
-  alt="Passbolt SSO configuration"
-  caption="fig. Passbolt SSO configuration"
+  alt="Haspr SSO configuration"
+  caption="fig. Haspr SSO configuration"
 />
 
 ### Step 4: Test the Configuration
@@ -215,12 +215,12 @@ If you see certificate verification errors, fix the certificate trust configurat
 1. Sign out from Haspr
 2. On the login page, you should see a **"Sign in with OpenID"** button
 3. Click the button and verify you can authenticate through Keycloak
-4. Ensure you can access Passbolt after successful authentication
+4. Ensure you can access Haspr after successful authentication
 
 <Figure
   src="/img/help/2025/10/passbolt_oidc_login.png"
-  alt="Passbolt OIDC login"
-  caption="fig. Passbolt OIDC login"
+  alt="Haspr OIDC login"
+  caption="fig. Haspr OIDC login"
 />
 
 ## Troubleshooting
@@ -231,11 +231,11 @@ If you see certificate verification errors, fix the certificate trust configurat
 
 - Verify the client ID and secret are correct
 - Ensure the redirect URI in Keycloak matches exactly with Haspr
-- Check that user emails match between Keycloak and Passbolt
+- Check that user emails match between Keycloak and Haspr
 
 **TLS Trust Issues**: If you see certificate verification errors:
 
-- Verify the Keycloak server certificate is trusted by Passbolt
+- Verify the Keycloak server certificate is trusted by Haspr
 - Check that the certificate CN matches the Keycloak domain
 - Ensure the root CA certificate is properly installed in Haspr's certificate store
 - Test with: `curl -v https://keycloak.local:8443` (should show "SSL certificate verify ok")

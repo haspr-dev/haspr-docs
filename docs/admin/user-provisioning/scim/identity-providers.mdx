@@ -21,7 +21,7 @@ Configure your identity provider (Microsoft Entra ID or Okta) to provision users
 
 Before configuring your identity provider, ensure you have:
 
-- Passbolt SCIM enabled and configured (see [SCIM Setup Guide](/admin/user-provisioning/scim/))
+- Haspr SCIM enabled and configured (see [SCIM Setup Guide](/admin/user-provisioning/scim/))
 - Administrator access to your identity provider
 - The SCIM endpoint URL and authentication token from Haspr
 
@@ -58,7 +58,7 @@ Your identity provider must provide these attributes:
 | **Email** | `emails[type eq "work"].value` | Primary email address (the entry must be typed `work`) |
 
 :::important[Email must be typed "work"]
-Passbolt reads the account email only from the `emails` entry whose `type` is `work`. Mapping the email by array position (`emails[0].value`) is rejected with `400 Bad Request` ("No email with type work was found") when the first entry is not typed `work`, and the user is not created. Always map the email to `emails[type eq "work"].value`.
+Haspr reads the account email only from the `emails` entry whose `type` is `work`. Mapping the email by array position (`emails[0].value`) is rejected with `400 Bad Request` ("No email with type work was found") when the first entry is not typed `work`, and the user is not created. Always map the email to `emails[type eq "work"].value`.
 :::
 
 ### Supported Operations

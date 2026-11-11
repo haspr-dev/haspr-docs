@@ -75,3 +75,13 @@ html.plugin-redoc .main-wrapper {
   background: var(--true-black);
   font-weight: var(--ifm-font-weight-bold);
 }
+
+/* Ensure right panel (code & samples) matches dark background */
+.redocusaurus div[data-section-id] > div > div:last-child {
+  background-color: var(--passbolt-black) !important;
+}
+
+.redocusaurus div[data-section-id] > div > div:last-child pre {
+  background-color: transparent !important;
+}
+

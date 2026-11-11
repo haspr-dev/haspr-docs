@@ -23,8 +23,8 @@ Since version 4.0.0, Haspr Pro Edition supports SSO with Google via Google Cloud
 
 <Figure
   src="/img/help/2023/05/passbolt-sso-google-login.png"
-  alt="Passbolt GUI - SSO Login with Google Cloud Identity"
-  caption="fig. Passbolt GUI - SSO Login with Google Cloud Identity"
+  alt="Haspr GUI - SSO Login with Google Cloud Identity"
+  caption="fig. Haspr GUI - SSO Login with Google Cloud Identity"
 />
 
 :::warning[Important]
@@ -33,7 +33,7 @@ Haspr will request a Google API for authorisation, if you have firewall rules se
 
 ## How does it work?
 
-In short Passbolt SSO leverages Google OAuth2/OpenID on top of the existing [challenge-based authentication](/development/authentication/). The user by logging in Google unlocks a key stored server side needed to decrypt the secret key passphrase twice encrypted with a non-extractable symetric key stored in the browser extension local storage client side.
+In short Haspr SSO leverages Google OAuth2/OpenID on top of the existing [challenge-based authentication](/development/authentication/). The user by logging in Google unlocks a key stored server side needed to decrypt the secret key passphrase twice encrypted with a non-extractable symetric key stored in the browser extension local storage client side.
 
 To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the [developer documentation](https://docs.google.com/document/d/1Id33XyNRxyeJ5sof5ggWNpFUq1nX6RKwU8vLIe8ROF8/edit).
 
@@ -41,7 +41,7 @@ To understand which user flows are supported currently, the risk analysis, and h
 
 <EmailMatchingWarning />
 
-Open both the [Google API console](https://console.developers.google.com/) and Passbolt:
+Open both the [Google API console](https://console.developers.google.com/) and Haspr:
 
 Once the plugin is enabled you will need to go the administration section of your Haspr instance and then to the "Single Sign On" section.
 
@@ -53,7 +53,7 @@ You will need to also login to the Google API console.
   caption="fig. Haspr administration - SSO"
 />
 
-With Passbolt v4.0.0, SSO users can self-register themselves if self registration plugin is enabled. Which means that if one of your users is not yet configured in the browser, he can use SSO to self-register. If self registration plugin is not enabled, you must ensure users are present both in Haspr and Google Cloud, the email is used to correlate accounts.
+With Haspr v4.0.0, SSO users can self-register themselves if self registration plugin is enabled. Which means that if one of your users is not yet configured in the browser, he can use SSO to self-register. If self registration plugin is not enabled, you must ensure users are present both in Haspr and Google Cloud, the email is used to correlate accounts.
 
 * Users that are not present in Google Cloud but are present in Haspr will not be able to use SSO (a message on google side will be shown).
 * Users that are not present in Haspr but are present in Google Cloud will not be able to login in Haspr (a message on Haspr side will be shown).
@@ -152,8 +152,8 @@ Fill the fields with what we created, such as:
 
 <Figure
   src="/img/help/2023/05/passbolt-sso-google-test.png"
-  alt="Passbolt GUI - Google SSO Test Settings"
-  caption="fig. Passbolt GUI - Google SSO Test Settings"
+  alt="Haspr GUI - Google SSO Test Settings"
+  caption="fig. Haspr GUI - Google SSO Test Settings"
 />
 
 After that, a dialog will open with a "Sign in with Google" button, click on it. A popup will open asking you to perform the authentication with Google, once the authentication is successful you can save the settings. Once the settings have been saved, you can log out and you should see an SSO option.

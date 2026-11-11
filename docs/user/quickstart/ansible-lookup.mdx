@@ -110,7 +110,7 @@ Instead of an id, you can pass one or more filters:
 The `name`, `username` and `uri` filters match exactly and are case-sensitive; when several are supplied, all must match. Two caveats:
 
 - **First match wins.** Resource names are not unique in Haspr: when several readable resources match, the plugin returns the first one in server pagination order, without warning. For production playbooks, pin lookups by id, or supply enough filters to make the match unique.
-- **Slower than an id lookup.** A filter search walks your resources and decrypts metadata until it finds a match. The passbolt session keys cache makes this fast once warm; the cache is filled as your clients (web, mobile, desktop) open resources, so a search over resources no client has ever opened stays slow. An id lookup is always a single round-trip and a single decryption.
+- **Slower than an id lookup.** A filter search walks your resources and decrypts metadata until it finds a match. the Haspr session keys cache makes this fast once warm; the cache is filled as your clients (web, mobile, desktop) open resources, so a search over resources no client has ever opened stays slow. An id lookup is always a single round-trip and a single decryption.
 
 When a play needs the same filtered lookup several times, resolve it once at the top of the play and reuse the result with `set_fact`, as in the example above.
 

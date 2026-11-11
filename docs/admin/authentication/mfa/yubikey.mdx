@@ -1,5 +1,5 @@
 ---
-title: Configure Passbolt to Use Yubikey
+title: Configure Haspr to Use Yubikey
 sidebar_label: Yubikey
 description: How to configure YubiKey with Haspr
 hide_table_of_contents: false
@@ -9,7 +9,7 @@ import Figure from '@site/src/components/Figure/Figure';
 import Chips from "/src/components/Chips/Chips";
 import MfaRecommendation from "/docs/admin/_includes/warning/security_consideration_mfa.mdx";
 
-# How to configure passbolt to use Yubikey
+# How to configure Haspr to use Yubikey
 
 <div style={{display: "flex", gap: "1rem"}}>
   <Chips link="/hosting/docker" isUnderMainTitle={true}>CE</Chips>
@@ -35,7 +35,7 @@ Multi Factor Authentication requires HTTPS to work.
 :::
 
 <MfaRecommendation MFA={'YubiKey'} />
-Another key point to consider is that Passbolt verifies whether the key ID used during a login attempt matches the one used at setup. If a user needs to change their key, the second factor must be disabled in advance, either by the user in their User Profile or by an administrator in the Users workspace, especially if the device is lost.
+Another key point to consider is that Haspr verifies whether the key ID used during a login attempt matches the one used at setup. If a user needs to change their key, the second factor must be disabled in advance, either by the user in their User Profile or by an administrator in the Users workspace, especially if the device is lost.
 
 ## Register to YubiCloud
 

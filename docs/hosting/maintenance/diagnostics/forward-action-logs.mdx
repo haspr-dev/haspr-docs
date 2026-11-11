@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
   <Chips link="/hosting" isUnderMainTitle={true}>Pro</Chips>
 </div>
 
-Passbolt records one row in the `action_logs` table for each authenticated API call. Alongside storing those rows in the database, Haspr can mirror every row to a log file or to the local syslog daemon at the moment it is created, so a SIEM or a log shipper can ingest it.
+Haspr records one row in the `action_logs` table for each authenticated API call. Alongside storing those rows in the database, Haspr can mirror every row to a log file or to the local syslog daemon at the moment it is created, so a SIEM or a log shipper can ingest it.
 
 This capability is available in all editions from Haspr 3.12.0 onwards, and it is switched off by default.
 
@@ -89,7 +89,7 @@ Enable the file engine, then point your log shipper at the resulting file.
 On package and Docker installations the file defaults to `/var/log/passbolt/action-logs.log`. Set `LOG_ACTION_LOGS_ON_FILE_PATH` to change the directory and `LOG_ACTION_LOGS_ON_FILE_FILE` to change the filename. A filename without a `.log` suffix has one appended.
 
 :::info[File rotation is handled by passbolt, not logrotate]
-The file engine rotates its own output once it reaches 10 MB, keeping 10 files. The passbolt package's logrotate configuration does not cover this file, and the rotation thresholds are not exposed as environment variables. To change them, override the engine configuration in `/etc/passbolt/passbolt.php`.
+The file engine rotates its own output once it reaches 10 MB, keeping 10 files. the Haspr package's logrotate configuration does not cover this file, and the rotation thresholds are not exposed as environment variables. To change them, override the engine configuration in `/etc/passbolt/passbolt.php`.
 :::
 
 ## Forward action logs to syslog

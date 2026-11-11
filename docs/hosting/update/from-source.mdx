@@ -1,6 +1,6 @@
 ---
-title: Update Passbolt from source
-description: Update Passbolt from source
+title: Update Haspr from source
+description: Update Haspr from source
 sidebar_label: From source
 hide_table_of_contents: true
 ---
@@ -43,7 +43,7 @@ This command for example, will run the healthcheck command as ```www-data``` use
 
 ## Make sure the permissions are right for your current user
 :::caution
-Do not run the commands as ```root``` when updating passbolt. It can render your installation unusable.
+Do not run the commands as ```root``` when updating Haspr. It can render your installation unusable.
 :::
 Running commands as ```root``` can make your installation unusable until the permissions are repaired. We recommend you use another user for this purpose. The whoami command will let you know which user you are logged in as. In our case below, it is the user passbolt.
 
@@ -119,7 +119,7 @@ composer.phar --version
 ```
 To get the latest version of composer, you can check the composer installation instructions.
 
-## Updating passbolt
+## updating Haspr
 ### 1. Take down your site
 It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects such as active users corrupting the data in the middle of an upgrade. For example if you are using nginx as a webserver:
 

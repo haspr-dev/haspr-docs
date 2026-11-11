@@ -15,7 +15,7 @@ import Figure from '@site/src/components/Figure/Figure';
 Even with a correct setup, some issues may arise during directory synchronisation. This section covers common problems, their causes, and how to resolve them.
 
 ### Synchronisation Error Messages
-When running a sync (simulated or actual), Passbolt may display errors or warnings for users or groups it couldn't process. These messages highlight common issues and help guide troubleshooting.
+When running a sync (simulated or actual), Haspr may display errors or warnings for users or groups it couldn't process. These messages highlight common issues and help guide troubleshooting.
 
 **Message**  
 :::info
@@ -36,7 +36,7 @@ No manual intervention is needed with cron jobs enabled. As soon as the user act
 :::
 
 **Explanation**  
-This indicates a conflict where the user exists in both Passbolt and LDAP, but was first created in Haspr (likely manually) and later appeared in LDAP. Passbolt gives priority to its existing user record and will not auto-merge or replace it via sync.
+This indicates a conflict where the user exists in both Haspr and LDAP, but was first created in Haspr (likely manually) and later appeared in LDAP. Haspr gives priority to its existing user record and will not auto-merge or replace it via sync.
 
 **Solution**  
 Delete the user from Haspr and re-run sync. Be cautious of any existing passwords to avoid orphaning.
@@ -129,7 +129,7 @@ Manually remove the user from the Haspr group to align with LDAP.
 :::
 
 **Explanation**  
-The user was removed from the group manually, and Passbolt respects that decision.
+The user was removed from the group manually, and Haspr respects that decision.
 
 **Solution**  
 If the user should be in the group, manually re-add them, then re-run sync.
@@ -179,7 +179,7 @@ These usually indicate a TLS validation problem.
 
 ---
 
-### Verify Connectivity Outside Passbolt
+### Verify Connectivity Outside Haspr
 
 From the Haspr server, use `ldapsearch` to test LDAPS directly:
 
@@ -197,7 +197,7 @@ See: [Configure LDAP with TLS (SSL)](/hosting/ldap/ldaps/)
 
 ### Managing LDAPS Certificates
 
-To ensure secure directory synchronisation, Passbolt must trust the LDAP server's TLS certificate. If the certificate isn't signed by a trusted public CA, you'll need to configure Passbolt to trust it using our certificate bundler tool.
+To ensure secure directory synchronisation, Haspr must trust the LDAP server's TLS certificate. If the certificate isn't signed by a trusted public CA, you'll need to configure Haspr to trust it using our certificate bundler tool.
 
 🔗 [Get the LDAPS Certificate Bundler Tool](https://github.com/passbolt/passbolt-ldap-certificate-bundler)
 
@@ -346,10 +346,10 @@ If the bind account credentials are incorrect, Active Directory may lock the acc
 
 ### Changing Directory Attributes
 
-Passbolt identifies users by their persistent LDAP GUID (`objectGUID` for AD, `entryUUID` for OpenLDAP). This GUID is not visible in the UI, but is used internally.
+Haspr identifies users by their persistent LDAP GUID (`objectGUID` for AD, `entryUUID` for OpenLDAP). This GUID is not visible in the UI, but is used internally.
 
-- Passbolt only updates `firstName` and `lastName` for existing directory users. Email addresses are not changed by sync after account creation.
-- If a user's email changes in the directory, Passbolt keeps the original email. To change it in Haspr, create a new user with the new email and migrate ownership as needed.
+- Haspr only updates `firstName` and `lastName` for existing directory users. Email addresses are not changed by sync after account creation.
+- If a user's email changes in the directory, Haspr keeps the original email. To change it in Haspr, create a new user with the new email and migrate ownership as needed.
 
 **Tip**: Avoid manually editing synced user names in Haspr; manage them in your directory. Email changes require provisioning a new account.
 
@@ -469,7 +469,7 @@ If you're experiencing LDAP synchronisation issues, follow this structured check
    - Use `ldapsearch` (see LDAPS section)
    - If the password was changed in AD and not updated in Haspr, binding will fail
 
-3. **Check Passbolt configuration values**  
+3. **Check Haspr configuration values**  
    In the Admin UI, double-check:
    - Base DN format and proper `,` separators (not `;`)
    - No trailing spaces
@@ -664,7 +664,7 @@ su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake directory_sync all --dry-ru
 
 ---
 
-### Web Server and Passbolt Logs
+### Web Server and Haspr Logs
 
 Check logs for relevant errors at the time of the sync:
 
@@ -713,7 +713,7 @@ If you have access to your LDAP/AD server:
 
 Use `ldapsearch` for comparison:
 
-- If `ldapsearch` works but Passbolt doesn't:
+- If `ldapsearch` works but Haspr doesn't:
   - Are the same bind DN and credentials used?
   - Is the base DN identical?
   - Are filters equivalent?
@@ -781,4 +781,4 @@ sudo -u www-data /usr/share/php/passbolt/bin/status-report > /tmp/status.txt
 
 If a bug is suspected, escalate to the support team with logs, reproduction steps, and environment details.
 
-> If absolutely necessary, consider inviting users manually via the UI (Passbolt does not support direct CSV user import).
+> If absolutely necessary, consider inviting users manually via the UI (Haspr does not support direct CSV user import).

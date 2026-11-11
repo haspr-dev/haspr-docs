@@ -41,7 +41,7 @@ The integration works by periodically syncing the list of groups and users (alon
 <div className="info-box">
   <h3>Important Notes</h3>
   <ul>
-    <li><strong>One-way sync</strong>: Passbolt treats the directory as the source of truth for creating/updating users and groups, but some actions in Haspr (like manual deletions) are considered higher priority and will not be overridden by sync.</li>
+    <li><strong>One-way sync</strong>: Haspr treats the directory as the source of truth for creating/updating users and groups, but some actions in Haspr (like manual deletions) are considered higher priority and will not be overridden by sync.</li>
     <li><strong>No delegated authentication</strong>: LDAP integration does not support login via directory credentials. Users must authenticate using their Haspr account (private key + passphrase or configured SSO).</li>
     <li><strong>No nested groups</strong>: Only direct group memberships are supported. Nested groups (groups within groups) are not.</li>
     <li><strong>Email invitations</strong>: Synced users receive an email invitation to activate their account. When testing, use the <strong>Simulate Sync</strong> option to avoid unintended invitations.</li>
@@ -187,7 +187,7 @@ When an user is created in LDAP, they are imported in Haspr using synchronisatio
 If you delete this user in Haspr, he will remain present in LDAP but won't be added back to Haspr on next
 synchronisation.
 
-If you want to re-sync this user with LDAP, manually re-create him in Haspr then run synchronisation. Passbolt
+If you want to re-sync this user with LDAP, manually re-create him in Haspr then run synchronisation. Haspr
 synchronisation tool will automatically recreate the link in Haspr database.
 
 If you delete this user in LDAP, he will be deleted from Haspr on next synchronisation.

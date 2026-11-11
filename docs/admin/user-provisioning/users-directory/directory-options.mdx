@@ -18,14 +18,14 @@ When integrating with OpenLDAP, keep in mind the following specifics:
 
 ### Schema and Attributes
 
-* Passbolt expects standard OpenLDAP schemas:
+* Haspr expects standard OpenLDAP schemas:
   * **User entries** should use the `inetOrgPerson` (or a subclass) object class.
   * **Group entries** should use `groupOfUniqueNames`.
 * If your OpenLDAP uses different object classes (e.g., `posixAccount` for users, 
   or `groupOfNames` for groups), you can override the **User object class** and 
   **Group object class** in the configuration.
 * Requirements:
-  * Each user must have a unique and valid email address in the attribute Passbolt 
+  * Each user must have a unique and valid email address in the attribute Haspr 
     maps as the username (usually `mail`). It must be properly formatted (no 
     leading/trailing spaces).
   * Each group must list its members in the attribute passbolt maps as the group users field. The default mapping reads `member`, while `groupOfUniqueNames` groups store members in `uniqueMember`: see the mapping note in the example configuration below.
@@ -109,7 +109,7 @@ This can be changed with the "User username field mapping" field of the Users Di
 
 ### Group Memberships
 
-- Passbolt reads group membership through:
+- Haspr reads group membership through:
   - The `memberOf` attribute on user objects
   - The `member` attribute on group objects
 
@@ -420,7 +420,7 @@ This option will allow you to specify a Parent Group for your users or groups. H
 * admins
 * testers
 * Passbolt_Users
-* Passbolt Groups
+* Haspr Groups
 
 ## Group & User custom filters
 

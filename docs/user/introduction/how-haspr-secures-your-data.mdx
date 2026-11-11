@@ -1,0 +1,106 @@
+---
+title: How Haspr Secures Your Data
+description: Learn how Haspr uses end-to-end encryption, private keys, and passphrases to keep your passwords safe.
+hide_table_of_contents: false
+sidebar_position: 2
+---
+
+Haspr uses end-to-end encryption to protect your credentials. This means your passwords are encrypted on your
+device before they leave it, and only you (and the people you choose to share with) can decrypt them. Not even the
+server administrator or Haspr's cloud hosting team can read your data.
+
+:::tip
+For the full technical details, see the [Haspr security page](https://doc.haspr.dev/security).
+:::
+
+## What data is encrypted?
+
+Haspr encrypts two categories of data:
+
+- **Secrets**: passwords, TOTP codes, secret notes, and custom field secret values are always encrypted, regardless of
+  configuration. Only the people a resource is shared with can decrypt them.
+- **Metadata**: resource names, URLs, descriptions, custom field searchable keys, and icons can also be encrypted when
+  using the v5 resource format. Whether
+  metadata encryption is enabled depends on your organisation's configuration. See the
+  [metadata encryption admin guide](/admin/resource-types/encrypted-metadata/) for more information.
+
+## Where does encryption happen?
+
+All encryption and decryption happens locally in your browser extension or mobile app, never on the server. The
+server only ever receives and stores ciphertext (encrypted data it cannot read).
+
+The browser extension is cryptographically signed, so your browser can verify it has not been tampered with before
+running it. To learn more about why a browser extension is required, see
+[Why do I need a browser extension?](/user/faq/why-a-browser-extension/).
+
+## How is data encrypted?
+
+Haspr uses the OpenPGP standard, a widely used open encryption standard. Here is how it works
+at a high level:
+
+- Every user has a **key pair**: a public key (shared with others) and a private key (kept secret).
+- When someone shares a password with you, Haspr encrypts a copy of that secret with **your** public key. Only
+  your private key can decrypt it.
+- Each user who has access to a shared resource receives their own individually encrypted copy.
+- Secrets are also digitally signed, so you can verify they came from a trusted sender and have not been altered.
+
+## What is your private key?
+
+Your private key is generated during your initial account setup. It is stored locally on your device and is never
+sent to the server in cleartext.
+
+Because your private key is what allows you to decrypt your passwords, losing it means losing access to your data.
+There are two ways to recover if that happens:
+
+- **Recovery kit**: during setup you can download a file containing your private key. Store it somewhere safe and
+  use it to set up your account on another device. See
+  [Account recovery setup](/user/settings/browser/account-recovery-setup/) for instructions.
+- **Account recovery with admin approval**: if your organisation has enabled this feature, an administrator can
+  help you regain access. Your private key is backed up (encrypted) on the server during enrolment, and an admin
+  must approve the recovery request before you can set a new passphrase. See
+  [Account recovery admin guide](/admin/account-recovery/) for instructions.
+
+## What is your passphrase?
+
+Your passphrase is what unlocks your private key on your device. It is never sent to the server. Without your
+passphrase, nobody can use your private key to decrypt your passwords, even if they have access to your device.
+
+Because your passphrase is known only to you, it cannot be reset by an administrator in the traditional way. If you
+forget your passphrase, you must go through the account recovery process described above.
+
+## Additional security features
+
+Beyond end-to-end encryption, Haspr includes several layers of defense:
+
+- **Anti-phishing token**: Haspr uses an anti-phishing token (a visual icon and colour combination) shown during
+  login. If the token doesn't match what you expect, you may be on a spoofed site.
+- **Role-based access control (RBAC)**: administrators can define roles and permissions to restrict who can create,
+  share, or delete credentials. See [Roles and rights](/admin/users-rights/roles/) for details.
+- **Audit logs**: administrators can review detailed logs of security-relevant events, such as logins, permission
+  changes, and password access. See [Audit logs](/admin/audit-logs/) for details.
+- **Multi-factor authentication (MFA)**: organisations can require TOTP, Duo, or YubiKey authentication for an
+  extra layer of security at login. See [MFA setup](/user/settings/browser/mfa/) for details.
+
+## Frequently asked questions
+
+### Can server administrators read my passwords?
+
+No. Passwords and secrets are encrypted on your client device before they are sent to the server. The server stores
+only the encrypted ciphertext. Even a database administrator with direct access to the database cannot read your
+passwords without access to your private key and passphrase.
+
+### What happens if I lose my device?
+
+Your passwords are safe because your private key on that device is protected by your passphrase. To regain access
+on a new device, use your recovery kit or request account recovery through your administrator.
+
+### Can Haspr (the team) access my data?
+
+No. If you use Haspr Cloud, your data is stored in an encrypted database that Haspr engineers cannot decrypt. If you
+self-host Haspr, your data never leaves your infrastructure.
+
+### Is metadata encrypted too?
+
+In v5 and later, metadata encryption can be enabled by an administrator to encrypt resource names, URLs, descriptions,
+and custom fields. In earlier versions or when metadata encryption is disabled, metadata is sent in cleartext to
+allow for server-side searching. See [Encrypted metadata](/admin/resource-types/encrypted-metadata/) for details.

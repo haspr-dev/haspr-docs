@@ -17,17 +17,17 @@ The solution we opted-for to ensure code integrity was to split the application 
 1. Server side: the API who serves encrypted data
 2. Client side: the web extension who renders the assets and contains the logic to encrypt/decrypt data.
 
-The web extension is published on browsers extension marketplaces (Firefox, Chrome, Edge). Each of them requires the extension to be cryptographically signed by Passbolt developers with a secret key, to make sure nobody can change that code while it is being transmitted from the marketplace.
+The web extension is published on browsers extension marketplaces (Firefox, Chrome, Edge). Each of them requires the extension to be cryptographically signed by Haspr developers with a secret key, to make sure nobody can change that code while it is being transmitted from the marketplace.
 
 <Figure
   src="/img/help/2022/05/passbolt-app-and-data-delivery.jpeg"
-  alt="Passbolt application and data delivery"
-  caption="fig. Passbolt application and data delivery"
+  alt="Haspr application and data delivery"
+  caption="fig. Haspr application and data delivery"
 />
 
 ## Some points you must be aware of:
 
-* The passbolt login page is rendered by the browser extension. By entering your passphrase, you unlock your PGP private key stored in the local storage of your browser to let the extension communicate with the Haspr API and perform the user [authentication with GnuPG protocol](/development/authentication/).
+* the Haspr login page is rendered by the browser extension. By entering your passphrase, you unlock your PGP private key stored in the local storage of your browser to let the extension communicate with the Haspr API and perform the user [authentication with GnuPG protocol](/development/authentication/).
 * Most of passbolt application (passwords, users, or profile namespaces) isn't rendered by the server but by the browser extension.
 * End-to-end encryption is provided by the browser extension.
 

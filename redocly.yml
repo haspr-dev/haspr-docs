@@ -17,23 +17,23 @@ theme:
     theme:
       colors:
         border:
-          dark: '#2e2e2e'
+          dark: '#334155'
         accent:
-          main: '#2894DF'
+          main: '#2563eb'
         gray:
-          50: '#1F1F1F'
-          100: '#2e2e2e'
+          50: '#1e293b'
+          100: '#334155'
         success:
           main: '#088869'
           contrastText: '#06644d'
         error:
           main: '#2563eb'
         http:
-          basic: '#2e2e2e'
+          basic: '#334155'
           delete: '#2563eb'
           get: '#088869'
           link: '#088869'
-          post: '#2894DF'
+          post: '#2563eb'
 
       typography:
         fontFamily: '"Inter", sans-serif'
@@ -44,8 +44,8 @@ theme:
         width: "300px"
         backgroundColor: "transparent"
       rightPanel:
-        backgroundColor: "#1F1F1F"
+        backgroundColor: "#0f172a"
       schema:
-        linesColor: '#2e2e2e'
+        linesColor: '#334155'
         arrow:
           color: '#2563eb'

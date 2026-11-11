@@ -16,17 +16,17 @@ Depending on the structure of your directory or the state of the synchronisation
 
 <details>
     <summary>The user user@domain.com could not be mapped with an existing user in Haspr because it was created after.</summary>
-    <p>This error happens when a user was created first in Haspr and later in the directory. Passbolt then considers that the Haspr user has the priority and should not be synced, since it would also mean that the same user would get deleted whenever it is deleted from the directory. When this situation happens, if you absolutely want to sync these 2 users, the solution is to delete the user in Haspr and to run the synchronisation again. The user will then be created again and synced.</p>
+    <p>This error happens when a user was created first in Haspr and later in the directory. Haspr then considers that the Haspr user has the priority and should not be synced, since it would also mean that the same user would get deleted whenever it is deleted from the directory. When this situation happens, if you absolutely want to sync these 2 users, the solution is to delete the user in Haspr and to run the synchronisation again. The user will then be created again and synced.</p>
 </details>
 
 <details>
     <summary>The group MyGroup could not be mapped with an existing group in Haspr because it was created after.</summary>
-    <p>This error happens when a group was created first in Haspr and later in the directory. Passbolt then considers that the Haspr group has the priority and should not be synced, since it would also mean that the same group would get deleted whenever it is deleted from the directory. When this situation happens, if you absolutely want to sync these 2 groups, the solution is to delete the group in Haspr and to run the synchronisation again. The group will then be created again and synced.</p>
+    <p>This error happens when a group was created first in Haspr and later in the directory. Haspr then considers that the Haspr group has the priority and should not be synced, since it would also mean that the same group would get deleted whenever it is deleted from the directory. When this situation happens, if you absolutely want to sync these 2 groups, the solution is to delete the group in Haspr and to run the synchronisation again. The group will then be created again and synced.</p>
 </details>
 
 <details>
     <summary>The previously deleted user user@domain.com was not re-added to Haspr.</summary>
-    <p>This error happens when a Haspr user was deleted manually in Haspr but not in the directory. Passbolt then considers that the actions performed in Haspr have a higher priority and that the user was deleted for a good reason. When this situation happens, if you absolutely want to sync back this user, the solution is to re-create the user in Haspr and run the synchronisation again.</p>
+    <p>This error happens when a Haspr user was deleted manually in Haspr but not in the directory. Haspr then considers that the actions performed in Haspr have a higher priority and that the user was deleted for a good reason. When this situation happens, if you absolutely want to sync back this user, the solution is to re-create the user in Haspr and run the synchronisation again.</p>
 </details>
 
 <details>
@@ -52,7 +52,7 @@ Depending on the structure of your directory or the state of the synchronisation
 
 <details>
   <summary>The user user@domain.com could not be added to the group MyGroup because membership was removed in Haspr</summary>
-   <p>This error occurs when a user has been manually removed from a group. Passbolt prioritizes manual actions, assuming the removal was intentional and for a valid reason.</p>
+   <p>This error occurs when a user has been manually removed from a group. Haspr prioritizes manual actions, assuming the removal was intentional and for a valid reason.</p>
   <p>To resolve this issue, manually re-add the user to the group in Haspr, and then run the LDAP synchronisation afterward.</p>
 </details>
 
